@@ -19,32 +19,20 @@
             <!-- Navigation -->
             <div class="hidden md:flex items-center gap-16">
 
-                <a
-                    href="<?= BASE_URL ?>/index.php"
-                    class="text-gray-600 hover:text-[#8c2d7d] transition"
-                >
+                <a href="<?= BASE_URL ?>/index.php" class="text-gray-600 hover:text-[#8c2d7d] transition">
                     Home
                 </a>
 
-                <a
-                    href="<?= BASE_URL ?>/docs.php"
-                    class="text-gray-600 hover:text-[#8c2d7d] transition"
-                >
+                <a href="<?= BASE_URL ?>/docs.php" class="text-gray-600 hover:text-[#8c2d7d] transition">
                     Docs
                 </a>
 
-                <a
-                    href="https://github.com/keikaavousi/fake-store-api"
-                    target="_blank"
-                    class="text-gray-600 hover:text-[#8c2d7d] transition"
-                >
+                <a href="https://github.com/kingtech8001/kt_prod_mock_api_php" target="_blank" rel="noopener noreferrer"
+                    class="text-gray-600 hover:text-[#8c2d7d] transition">
                     GitHub
                 </a>
 
-                <a
-                    href="#"
-                    class="text-gray-600 hover:text-[#8c2d7d] transition"
-                >
+                <a href="#" class="text-gray-600 hover:text-[#8c2d7d] transition">
                     Buy us a coffee
                 </a>
 

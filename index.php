@@ -24,7 +24,7 @@ require_once 'config/config.php';
             <div class="pt-10 lg:pt-0">
 
                 <h1 class="text-5xl lg:text-6xl font-semibold text-[#8c2d7d] leading-tight">
-                    Mock Store API
+                    Fake Store API
                 </h1>
 
 
@@ -45,13 +45,13 @@ require_once 'config/config.php';
 
                 <div class="flex flex-wrap gap-6 mt-7">
 
-                    <a href="#api-demo"
+                    <a href="https://mockapi.kingtechnology.in/docs.php"
                         class="inline-flex items-center justify-center px-9 py-3.5 rounded-full bg-[#8c2d7d] text-white text-lg font-medium hover:bg-[#762368] transition">
                         Read Docs
                     </a>
 
 
-                    <a href="https://github.com/keikaavousi/fake-store-api" target="_blank"
+                    <a href="https://github.com/kingtech8001/kt_prod_mock_api_php" target="_blank"
                         class="inline-flex items-center justify-center px-9 py-3.5 rounded-full border border-[#8c2d7d] text-[#8c2d7d] text-lg font-medium hover:bg-[#8c2d7d] hover:text-white transition">
                         View on Github
                     </a>
@@ -193,7 +193,7 @@ require_once 'config/config.php';
                             Java
                         </button>
 
-                        <button id="tab-dart" onclick="showCode('dart')" class="code-tab">
+                        <button onclick="showCode('dart')" id="tab-dart" class="code-tab">
                             Dart
                         </button>
 
@@ -386,7 +386,7 @@ require_once 'config/config.php';
         <!-- Docs Button -->
         <div class="flex justify-center mt-5">
 
-            <a href="docs.php" target="_blank" rel="noopener noreferrer"
+            <a href="https://mockapi.kingtechnology.in/docs.php" target="_blank" rel="noopener noreferrer"
                 class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-purple-600 text-white font-semibold hover:bg-purple-700 transition">
                 View details on doc
             </a>
@@ -451,7 +451,7 @@ require_once 'config/config.php';
                 <div class="testimonial-body">
                     <p>
                         5 Best Free eCommerce APIs and Store API
-                        Solutions for Developers: <strong>Mock Store API</strong>
+                        Solutions for Developers: <strong>Fake Store API</strong>
                         is a fantastic option for developers looking to
                         create a shopping website prototype or test their
                         e-commerce applications.
@@ -566,7 +566,7 @@ require_once 'config/config.php';
                 <div class="testimonial-body">
                     <p>
                         5 Best Free eCommerce APIs and Store API
-                        Solutions for Developers: <strong>Mock Store API</strong>
+                        Solutions for Developers: <strong>Fake Store API</strong>
                         is a fantastic option for developers looking to
                         create a shopping website prototype or test their
                         e-commerce applications.
@@ -866,24 +866,25 @@ require_once 'config/config.php';
 
 
 <script>
+
     const codeSamples = {
 
-        javascript: `fetch('http://localhost/fakestoreapi/api/products.php')
+        javascript: `fetch('https://mockapi.kingtechnology.in/api/products.php?id=1')
     .then(res => res.json())
     .then(json => console.log(json))`,
 
         python: `import requests
 
 response = requests.get(
-    'http://localhost/fakestoreapi/api/products.php'
+    'https://mockapi.kingtechnology.in/api/products.php?id=1'
 )
 
 print(response.json())`,
 
-        curl: `curl -X GET 'http://localhost/fakestoreapi/api/products.php'`,
+        curl: `curl -X GET 'https://mockapi.kingtechnology.in/api/products.php?id=1'`,
 
         java: `URL url = new URL(
-    "http://localhost/fakestoreapi/api/products.php"
+    "https://mockapi.kingtechnology.in/api/products.php?id=1"
 );
 
 HttpURLConnection con =
@@ -905,41 +906,39 @@ while ((line = in.readLine()) != null) {
 
 in.close();`,
 
-        dart: `import 'package:http/http.dart' as http;
-import 'dart:convert';
+        dart: `import 'dart:convert';
+import 'package:http/http.dart' as http;
 
-Future<void> getProducts() async {
+Future<void> main() async {
   final response = await http.get(
-    Uri.parse(
-      'http://localhost/fakestoreapi/api/products.php'
-    ),
+    Uri.parse('https://mockapi.kingtechnology.in/api/products.php?id=1'),
   );
 
-  if (response.statusCode == 200) {
-    final data = jsonDecode(response.body);
-
-    print(data);
-  } else {
-    print('Failed to load products');
-  }
-}
-
-void main() {
-  getProducts();
+  print(jsonDecode(response.body));
 }`
+
     };
+
 
     let currentLanguage = "javascript";
 
+
     function showCode(language) {
+
         currentLanguage = language;
 
         document.getElementById("code-content").textContent =
             codeSamples[language];
 
+
+        /* Remove active from all tabs */
+
         document.querySelectorAll(".code-tab").forEach(tab => {
             tab.classList.remove("active-tab");
         });
+
+
+        /* Add active */
 
         document
             .getElementById("tab-" + language)
@@ -947,43 +946,53 @@ void main() {
     }
 
     async function copyCode() {
+
         const button = document.getElementById("copy-btn");
 
         try {
+
             await navigator.clipboard.writeText(
                 codeSamples[currentLanguage]
             );
 
+            // Show tick
             button.innerHTML = `
-                <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="white"
-                    stroke-width="3">
-                    <path d="M5 12l4 4L19 6"></path>
-                </svg>
-            `;
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="white"
+                stroke-width="3">
+
+                <path d="M5 12l4 4L19 6"></path>
+
+            </svg>
+        `;
 
             button.classList.remove("bg-orange-400");
             button.classList.add("bg-green-500");
 
+
+            // Back to copy icon after 2 seconds
             setTimeout(() => {
+
                 button.innerHTML = `
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="22"
-                        height="22"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="white"
-                        stroke-width="2">
-                        <rect x="9" y="9" width="13" height="13" rx="2"></rect>
-                        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
-                    </svg>
-                `;
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="22"
+                    height="22"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="white"
+                    stroke-width="2">
+
+                    <rect x="9" y="9" width="13" height="13" rx="2"></rect>
+                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+
+                </svg>
+            `;
 
                 button.classList.remove("bg-green-500");
                 button.classList.add("bg-orange-400");
@@ -991,11 +1000,17 @@ void main() {
             }, 1000);
 
         } catch (error) {
+
             console.error("Copy failed:", error);
+
         }
     }
 
+
+    /* Default */
+
     showCode("javascript");
+
 </script>
 
 <?php require_once 'includes/footer.php'; ?>

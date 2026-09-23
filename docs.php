@@ -12,7 +12,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>MockStore API - Documentation</title>
+    <title>FakeStore API - Documentation</title>
 
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -197,7 +197,7 @@
 
             <div>
                 <h1 class="font-bold text-gray-800">
-                    MockStore API
+                    FakeStore API
                 </h1>
 
                 <p class="text-xs text-gray-500">
@@ -259,7 +259,7 @@
             <div class="ml-3">
 
                 <h1 class="font-bold text-xl text-gray-800">
-                    MockStore API
+                    FakeStore API
                 </h1>
 
                 <p class="text-xs text-gray-500">
@@ -939,7 +939,7 @@
         <!-- Footer -->
 
         <div class="border-t border-gray-200 px-6 py-4 text-xs text-gray-500">
-            API docs by MockStore API
+            API docs by FakeStore API
         </div>
 
     </aside>
@@ -980,7 +980,7 @@
             <div class="max-w-4xl">
 
                 <h1 class="text-4xl md:text-5xl font-bold text-gray-800">
-                    MockStoreAPI
+                    FakeStoreAPI
                     <span class="text-gray-500">
                         (v2.1.11)
                     </span>
@@ -995,7 +995,7 @@
                             href="mailto:support@fakestoreapi.com"
                             class="text-brand-500 hover:underline"
                         >
-                            support@Mockstoreapi.com
+                            support@fakestoreapi.com
                         </a>
                     </span>
 
@@ -1004,7 +1004,7 @@
                     <span>
                         URL:
                         <span class="text-brand-500">
-                            http://localhost/Mockstoreapi
+                            https://mockapi.kingtechnology.in
                         </span>
                     </span>
 
@@ -1097,12 +1097,12 @@
                         <div class="border-t border-gray-700 p-5">
 
                             <div class="text-gray-400 text-sm mb-3">
-                                Request samples
+                                Request sample
                             </div>
 
                             <div class="bg-[#0b1013] rounded-lg p-5 overflow-x-auto code-scroll">
 
-<pre class="text-sm text-gray-200"><code>fetch('http://localhost/fakestoreapi/api/products.php')
+<pre class="text-sm text-gray-200"><code>fetch('https://mockapi.kingtechnology.in/api/products.php')
     .then(response =&gt; response.json())
     .then(data =&gt; console.log(data));</code></pre>
 
@@ -1146,32 +1146,35 @@
 
                         <div class="mt-4 border rounded-lg overflow-hidden">
 
-                            \u003C?php
-                            $productFields = [
-                                ["id", "integer"],
-                                ["title", "string"],
-                                ["price", "number <float>"],
-                                ["description", "string"],
-                                ["category", "string"],
-                                ["image", "string <uri>"]
-                            ];
+                            <div class="flex border-b">
+                                <div class="w-1/2 px-5 py-4 text-gray-700 font-medium">id</div>
+                                <div class="w-1/2 px-5 py-4 text-gray-500">integer</div>
+                            </div>
 
-                            foreach ($productFields as $field):
-                            ?>
+                            <div class="flex border-b">
+                                <div class="w-1/2 px-5 py-4 text-gray-700 font-medium">title</div>
+                                <div class="w-1/2 px-5 py-4 text-gray-500">string</div>
+                            </div>
 
-                                <div class="flex border-b last:border-b-0">
+                            <div class="flex border-b">
+                                <div class="w-1/2 px-5 py-4 text-gray-700 font-medium">price</div>
+                                <div class="w-1/2 px-5 py-4 text-gray-500">number &lt;float&gt;</div>
+                            </div>
 
-                                    <div class="w-1/2 px-5 py-4 text-gray-700 font-medium">
-                                        <?= $field[0] ?>
-                                    </div>
+                            <div class="flex border-b">
+                                <div class="w-1/2 px-5 py-4 text-gray-700 font-medium">description</div>
+                                <div class="w-1/2 px-5 py-4 text-gray-500">string</div>
+                            </div>
 
-                                    <div class="w-1/2 px-5 py-4 text-gray-500">
-                                        <?= $field[1] ?>
-                                    </div>
+                            <div class="flex border-b">
+                                <div class="w-1/2 px-5 py-4 text-gray-700 font-medium">category</div>
+                                <div class="w-1/2 px-5 py-4 text-gray-500">string</div>
+                            </div>
 
-                                </div>
-
-                            \u003C?php endforeach; ?>
+                            <div class="flex">
+                                <div class="w-1/2 px-5 py-4 text-gray-700 font-medium">image</div>
+                                <div class="w-1/2 px-5 py-4 text-gray-500">string &lt;uri&gt;</div>
+                            </div>
 
                         </div>
 
@@ -1343,7 +1346,7 @@
 
                             <div class="bg-[#0b1013] rounded-lg p-5 overflow-x-auto code-scroll">
 
-<pre class="text-sm text-gray-200"><code>fetch('http://localhost/fakestoreapi/api/products.php?id=1')
+<pre class="text-sm text-gray-200"><code>fetch('https://mockapi.kingtechnology.in/api/products.php?id=1')
     .then(response =&gt; response.json())
     .then(data =&gt; console.log(data));</code></pre>
 
@@ -1454,7 +1457,7 @@
 
                             <div class="bg-[#0b1013] rounded-lg p-5 overflow-x-auto code-scroll">
 
-<pre class="text-sm text-gray-200"><code>fetch('http://localhost/fakestoreapi/api/products.php?id=1', {
+<pre class="text-sm text-gray-200"><code>fetch('https://mockapi.kingtechnology.in/api/products.php?id=1', {
     method: 'PUT',
     headers: {
         'Content-Type': 'application/json'
@@ -1525,7 +1528,7 @@
 
                             <div class="bg-[#0b1013] rounded-lg p-5 overflow-x-auto code-scroll">
 
-<pre class="text-sm text-gray-200"><code>fetch('http://localhost/fakestoreapi/api/products.php?id=1', {
+<pre class="text-sm text-gray-200"><code>fetch('https://mockapi.kingtechnology.in/api/products.php?id=1', {
     method: 'DELETE'
 })
 .then(response =&gt; response.json())
@@ -1611,7 +1614,7 @@
 
                             <div class="bg-[#0b1013] rounded-lg p-5 overflow-x-auto code-scroll">
 
-<pre class="text-sm text-gray-200"><code>fetch('http://localhost/fakestoreapi/api/carts.php')
+<pre class="text-sm text-gray-200"><code>fetch('https://mockapi.kingtechnology.in/api/carts.php')
     .then(response =&gt; response.json())
     .then(data =&gt; console.log(data));</code></pre>
 
@@ -1734,7 +1737,7 @@
 
                             <div class="bg-[#0b1013] rounded-lg p-5 overflow-x-auto code-scroll">
 
-<pre class="text-sm text-gray-200"><code>fetch('http://localhost/fakestoreapi/api/carts.php?id=1')
+<pre class="text-sm text-gray-200"><code>fetch('https://mockapi.kingtechnology.in/api/carts.php?id=1')
     .then(response =&gt; response.json())
     .then(data =&gt; console.log(data));</code></pre>
 
@@ -1857,7 +1860,7 @@
 
                             <div class="bg-[#0b1013] rounded-lg p-5 overflow-x-auto code-scroll">
 
-<pre class="text-sm text-gray-200"><code>fetch('http://localhost/fakestoreapi/api/carts.php?id=1', {
+<pre class="text-sm text-gray-200"><code>fetch('https://mockapi.kingtechnology.in/api/carts.php?id=1', {
     method: 'DELETE'
 })
 .then(response =&gt; response.json())
@@ -1943,7 +1946,7 @@
 
                             <div class="bg-[#0b1013] rounded-lg p-5 overflow-x-auto code-scroll">
 
-<pre class="text-sm text-gray-200"><code>fetch('http://localhost/fakestoreapi/api/users.php')
+<pre class="text-sm text-gray-200"><code>fetch('https://mockapi.kingtechnology.in/api/users.php')
     .then(response =&gt; response.json())
     .then(data =&gt; console.log(data));</code></pre>
 
@@ -2061,7 +2064,7 @@
 
                             <div class="bg-[#0b1013] rounded-lg p-5 overflow-x-auto code-scroll">
 
-<pre class="text-sm text-gray-200"><code>fetch('http://localhost/fakestoreapi/api/users.php?id=1')
+<pre class="text-sm text-gray-200"><code>fetch('https://mockapi.kingtechnology.in/api/users.php?id=1')
     .then(response =&gt; response.json())
     .then(data =&gt; console.log(data));</code></pre>
 
@@ -2179,7 +2182,7 @@
 
                             <div class="bg-[#0b1013] rounded-lg p-5 overflow-x-auto code-scroll">
 
-<pre class="text-sm text-gray-200"><code>fetch('http://localhost/fakestoreapi/api/users.php?id=1', {
+<pre class="text-sm text-gray-200"><code>fetch('https://mockapi.kingtechnology.in/api/users.php?id=1', {
     method: 'DELETE'
 })
 .then(response =&gt; response.json())
@@ -2365,29 +2368,29 @@
     const requestSamples = {
 
         "get-all-products": {
-            javascript: `fetch('http://localhost/fakestoreapi/api/products.php')
+            javascript: `fetch('https://mockapi.kingtechnology.in/api/products.php')
     .then(response => response.json())
     .then(data => console.log(data));`,
             node: `const axios = require('axios');
 
-axios.get('http://localhost/fakestoreapi/api/products.php')
+axios.get('https://mockapi.kingtechnology.in/api/products.php')
     .then(response => console.log(response.data));`,
             php: `\u003C?php
-$response = file_get_contents('http://localhost/fakestoreapi/api/products.php');
+$response = file_get_contents('https://mockapi.kingtechnology.in/api/products.php');
 $data = json_decode($response, true);
 print_r($data);
 ?>`,
-            curl: `curl -X GET 'http://localhost/fakestoreapi/api/products.php'`,
+            curl: `curl -X GET 'https://mockapi.kingtechnology.in/api/products.php'`,
             python: `import requests
 
 response = requests.get(
-    'http://localhost/fakestoreapi/api/products.php'
+    'https://mockapi.kingtechnology.in/api/products.php'
 )
 print(response.json())`
         },
 
         "add-product": {
-            javascript: `fetch('http://localhost/fakestoreapi/api/products.php', {
+            javascript: `fetch('https://mockapi.kingtechnology.in/api/products.php', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
@@ -2402,7 +2405,7 @@ print(response.json())`
 .then(data => console.log(data));`,
             node: `const axios = require('axios');
 
-axios.post('http://localhost/fakestoreapi/api/products.php', {
+axios.post('https://mockapi.kingtechnology.in/api/products.php', {
     title: 'New Product',
     price: 29.99,
     description: 'A new product',
@@ -2419,7 +2422,7 @@ $data = [
     'image' => 'https://example.com/image.jpg'
 ];
 
-$ch = curl_init('http://localhost/fakestoreapi/api/products.php');
+$ch = curl_init('https://mockapi.kingtechnology.in/api/products.php');
 curl_setopt($ch, CURLOPT_POST, true);
 curl_setopt($ch, CURLOPT_HTTPHEADER, ['Content-Type: application/json']);
 curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
@@ -2429,7 +2432,7 @@ $response = curl_exec($ch);
 curl_close($ch);
 echo $response;
 ?>`,
-            curl: `curl -X POST 'http://localhost/fakestoreapi/api/products.php' \
+            curl: `curl -X POST 'https://mockapi.kingtechnology.in/api/products.php' \
   -H 'Content-Type: application/json' \
   -d '{"title":"New Product","price":29.99,"description":"A new product","category":"electronics","image":"https://example.com/image.jpg"}'`,
             python: `import requests
@@ -2443,37 +2446,37 @@ data = {
 }
 
 response = requests.post(
-    'http://localhost/fakestoreapi/api/products.php',
+    'https://mockapi.kingtechnology.in/api/products.php',
     json=data
 )
 print(response.json())`
         },
 
         "get-product": {
-            javascript: `fetch('http://localhost/fakestoreapi/api/products.php?id=1')
+            javascript: `fetch('https://mockapi.kingtechnology.in/api/products.php?id=1')
     .then(response => response.json())
     .then(data => console.log(data));`,
             node: `const axios = require('axios');
 
-axios.get('http://localhost/fakestoreapi/api/products.php?id=1')
+axios.get('https://mockapi.kingtechnology.in/api/products.php?id=1')
     .then(response => console.log(response.data));`,
             php: `\u003C?php
 $response = file_get_contents(
-    'http://localhost/fakestoreapi/api/products.php?id=1'
+    'https://mockapi.kingtechnology.in/api/products.php?id=1'
 );
 echo $response;
 ?>`,
-            curl: `curl -X GET 'http://localhost/fakestoreapi/api/products.php?id=1'`,
+            curl: `curl -X GET 'https://mockapi.kingtechnology.in/api/products.php?id=1'`,
             python: `import requests
 
 response = requests.get(
-    'http://localhost/fakestoreapi/api/products.php?id=1'
+    'https://mockapi.kingtechnology.in/api/products.php?id=1'
 )
 print(response.json())`
         },
 
         "update-product": {
-            javascript: `fetch('http://localhost/fakestoreapi/api/products.php?id=1', {
+            javascript: `fetch('https://mockapi.kingtechnology.in/api/products.php?id=1', {
     method: 'PUT',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
@@ -2488,7 +2491,7 @@ print(response.json())`
 .then(data => console.log(data));`,
             node: `const axios = require('axios');
 
-axios.put('http://localhost/fakestoreapi/api/products.php?id=1', {
+axios.put('https://mockapi.kingtechnology.in/api/products.php?id=1', {
     title: 'Updated Product',
     price: 29.99,
     description: 'Updated description',
@@ -2505,7 +2508,7 @@ $data = [
     'image' => 'https://example.com/image.jpg'
 ];
 
-$ch = curl_init('http://localhost/fakestoreapi/api/products.php?id=1');
+$ch = curl_init('https://mockapi.kingtechnology.in/api/products.php?id=1');
 curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'PUT');
 curl_setopt($ch, CURLOPT_HTTPHEADER, ['Content-Type: application/json']);
 curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
@@ -2515,7 +2518,7 @@ $response = curl_exec($ch);
 curl_close($ch);
 echo $response;
 ?>`,
-            curl: `curl -X PUT 'http://localhost/fakestoreapi/api/products.php?id=1' \
+            curl: `curl -X PUT 'https://mockapi.kingtechnology.in/api/products.php?id=1' \
   -H 'Content-Type: application/json' \
   -d '{"title":"Updated Product","price":29.99,"description":"Updated description","category":"electronics","image":"https://example.com/image.jpg"}'`,
             python: `import requests
@@ -2529,60 +2532,60 @@ data = {
 }
 
 response = requests.put(
-    'http://localhost/fakestoreapi/api/products.php?id=1',
+    'https://mockapi.kingtechnology.in/api/products.php?id=1',
     json=data
 )
 print(response.json())`
         },
 
         "delete-product": {
-            javascript: `fetch('http://localhost/fakestoreapi/api/products.php?id=1', {
+            javascript: `fetch('https://mockapi.kingtechnology.in/api/products.php?id=1', {
     method: 'DELETE'
 })
 .then(response => response.json())
 .then(data => console.log(data));`,
             node: `const axios = require('axios');
 
-axios.delete('http://localhost/fakestoreapi/api/products.php?id=1')
+axios.delete('https://mockapi.kingtechnology.in/api/products.php?id=1')
     .then(response => console.log(response.data));`,
             php: `\u003C?php
-$ch = curl_init('http://localhost/fakestoreapi/api/products.php?id=1');
+$ch = curl_init('https://mockapi.kingtechnology.in/api/products.php?id=1');
 curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'DELETE');
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 $response = curl_exec($ch);
 curl_close($ch);
 echo $response;
 ?>`,
-            curl: `curl -X DELETE 'http://localhost/fakestoreapi/api/products.php?id=1'`,
+            curl: `curl -X DELETE 'https://mockapi.kingtechnology.in/api/products.php?id=1'`,
             python: `import requests
 
 response = requests.delete(
-    'http://localhost/fakestoreapi/api/products.php?id=1'
+    'https://mockapi.kingtechnology.in/api/products.php?id=1'
 )
 print(response.json())`
         },
 
         "get-all-carts": {
-            javascript: `fetch('http://localhost/fakestoreapi/api/carts.php')
+            javascript: `fetch('https://mockapi.kingtechnology.in/api/carts.php')
     .then(response => response.json())
     .then(data => console.log(data));`,
             node: `const axios = require('axios');
 
-axios.get('http://localhost/fakestoreapi/api/carts.php')
+axios.get('https://mockapi.kingtechnology.in/api/carts.php')
     .then(response => console.log(response.data));`,
             php: `\u003C?php
-$response = file_get_contents('http://localhost/fakestoreapi/api/carts.php');
+$response = file_get_contents('https://mockapi.kingtechnology.in/api/carts.php');
 echo $response;
 ?>`,
-            curl: `curl -X GET 'http://localhost/fakestoreapi/api/carts.php'`,
+            curl: `curl -X GET 'https://mockapi.kingtechnology.in/api/carts.php'`,
             python: `import requests
 
-response = requests.get('http://localhost/fakestoreapi/api/carts.php')
+response = requests.get('https://mockapi.kingtechnology.in/api/carts.php')
 print(response.json())`
         },
 
         "add-cart": {
-            javascript: `fetch('http://localhost/fakestoreapi/api/carts.php', {
+            javascript: `fetch('https://mockapi.kingtechnology.in/api/carts.php', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
@@ -2595,7 +2598,7 @@ print(response.json())`
 .then(data => console.log(data));`,
             node: `const axios = require('axios');
 
-axios.post('http://localhost/fakestoreapi/api/carts.php', {
+axios.post('https://mockapi.kingtechnology.in/api/carts.php', {
     userId: 1,
     date: '2026-09-22',
     products: [{ productId: 1, quantity: 2 }]
@@ -2608,7 +2611,7 @@ $data = [
     'products' => [['productId' => 1, 'quantity' => 2]]
 ];
 
-$ch = curl_init('http://localhost/fakestoreapi/api/carts.php');
+$ch = curl_init('https://mockapi.kingtechnology.in/api/carts.php');
 curl_setopt($ch, CURLOPT_POST, true);
 curl_setopt($ch, CURLOPT_HTTPHEADER, ['Content-Type: application/json']);
 curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
@@ -2617,7 +2620,7 @@ $response = curl_exec($ch);
 curl_close($ch);
 echo $response;
 ?>`,
-            curl: `curl -X POST 'http://localhost/fakestoreapi/api/carts.php' \
+            curl: `curl -X POST 'https://mockapi.kingtechnology.in/api/carts.php' \
   -H 'Content-Type: application/json' \
   -d '{"userId":1,"date":"2026-09-22","products":[{"productId":1,"quantity":2}]}'`,
             python: `import requests
@@ -2628,34 +2631,34 @@ data = {
     'products': [{'productId': 1, 'quantity': 2}]
 }
 response = requests.post(
-    'http://localhost/fakestoreapi/api/carts.php',
+    'https://mockapi.kingtechnology.in/api/carts.php',
     json=data
 )
 print(response.json())`
         },
 
         "get-cart": {
-            javascript: `fetch('http://localhost/fakestoreapi/api/carts.php?id=1')
+            javascript: `fetch('https://mockapi.kingtechnology.in/api/carts.php?id=1')
     .then(response => response.json())
     .then(data => console.log(data));`,
             node: `const axios = require('axios');
 
-axios.get('http://localhost/fakestoreapi/api/carts.php?id=1')
+axios.get('https://mockapi.kingtechnology.in/api/carts.php?id=1')
     .then(response => console.log(response.data));`,
             php: `\u003C?php
 echo file_get_contents(
-    'http://localhost/fakestoreapi/api/carts.php?id=1'
+    'https://mockapi.kingtechnology.in/api/carts.php?id=1'
 );
 ?>`,
-            curl: `curl -X GET 'http://localhost/fakestoreapi/api/carts.php?id=1'`,
+            curl: `curl -X GET 'https://mockapi.kingtechnology.in/api/carts.php?id=1'`,
             python: `import requests
 
-response = requests.get('http://localhost/fakestoreapi/api/carts.php?id=1')
+response = requests.get('https://mockapi.kingtechnology.in/api/carts.php?id=1')
 print(response.json())`
         },
 
         "update-cart": {
-            javascript: `fetch('http://localhost/fakestoreapi/api/carts.php?id=1', {
+            javascript: `fetch('https://mockapi.kingtechnology.in/api/carts.php?id=1', {
     method: 'PUT',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
@@ -2668,7 +2671,7 @@ print(response.json())`
 .then(data => console.log(data));`,
             node: `const axios = require('axios');
 
-axios.put('http://localhost/fakestoreapi/api/carts.php?id=1', {
+axios.put('https://mockapi.kingtechnology.in/api/carts.php?id=1', {
     userId: 1,
     date: '2026-09-22',
     products: [{ productId: 1, quantity: 5 }]
@@ -2681,7 +2684,7 @@ $data = [
     'products' => [['productId' => 1, 'quantity' => 5]]
 ];
 
-$ch = curl_init('http://localhost/fakestoreapi/api/carts.php?id=1');
+$ch = curl_init('https://mockapi.kingtechnology.in/api/carts.php?id=1');
 curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'PUT');
 curl_setopt($ch, CURLOPT_HTTPHEADER, ['Content-Type: application/json']);
 curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
@@ -2690,7 +2693,7 @@ $response = curl_exec($ch);
 curl_close($ch);
 echo $response;
 ?>`,
-            curl: `curl -X PUT 'http://localhost/fakestoreapi/api/carts.php?id=1' \
+            curl: `curl -X PUT 'https://mockapi.kingtechnology.in/api/carts.php?id=1' \
   -H 'Content-Type: application/json' \
   -d '{"userId":1,"date":"2026-09-22","products":[{"productId":1,"quantity":5}]}'`,
             python: `import requests
@@ -2701,57 +2704,57 @@ data = {
     'products': [{'productId': 1, 'quantity': 5}]
 }
 response = requests.put(
-    'http://localhost/fakestoreapi/api/carts.php?id=1',
+    'https://mockapi.kingtechnology.in/api/carts.php?id=1',
     json=data
 )
 print(response.json())`
         },
 
         "delete-cart": {
-            javascript: `fetch('http://localhost/fakestoreapi/api/carts.php?id=1', {
+            javascript: `fetch('https://mockapi.kingtechnology.in/api/carts.php?id=1', {
     method: 'DELETE'
 })
 .then(response => response.json())
 .then(data => console.log(data));`,
             node: `const axios = require('axios');
 
-axios.delete('http://localhost/fakestoreapi/api/carts.php?id=1')
+axios.delete('https://mockapi.kingtechnology.in/api/carts.php?id=1')
     .then(response => console.log(response.data));`,
             php: `\u003C?php
-$ch = curl_init('http://localhost/fakestoreapi/api/carts.php?id=1');
+$ch = curl_init('https://mockapi.kingtechnology.in/api/carts.php?id=1');
 curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'DELETE');
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 $response = curl_exec($ch);
 curl_close($ch);
 echo $response;
 ?>`,
-            curl: `curl -X DELETE 'http://localhost/fakestoreapi/api/carts.php?id=1'`,
+            curl: `curl -X DELETE 'https://mockapi.kingtechnology.in/api/carts.php?id=1'`,
             python: `import requests
 
-response = requests.delete('http://localhost/fakestoreapi/api/carts.php?id=1')
+response = requests.delete('https://mockapi.kingtechnology.in/api/carts.php?id=1')
 print(response.json())`
         },
 
         "get-all-users": {
-            javascript: `fetch('http://localhost/fakestoreapi/api/users.php')
+            javascript: `fetch('https://mockapi.kingtechnology.in/api/users.php')
     .then(response => response.json())
     .then(data => console.log(data));`,
             node: `const axios = require('axios');
 
-axios.get('http://localhost/fakestoreapi/api/users.php')
+axios.get('https://mockapi.kingtechnology.in/api/users.php')
     .then(response => console.log(response.data));`,
             php: `\u003C?php
-echo file_get_contents('http://localhost/fakestoreapi/api/users.php');
+echo file_get_contents('https://mockapi.kingtechnology.in/api/users.php');
 ?>`,
-            curl: `curl -X GET 'http://localhost/fakestoreapi/api/users.php'`,
+            curl: `curl -X GET 'https://mockapi.kingtechnology.in/api/users.php'`,
             python: `import requests
 
-response = requests.get('http://localhost/fakestoreapi/api/users.php')
+response = requests.get('https://mockapi.kingtechnology.in/api/users.php')
 print(response.json())`
         },
 
         "add-user": {
-            javascript: `fetch('http://localhost/fakestoreapi/api/users.php', {
+            javascript: `fetch('https://mockapi.kingtechnology.in/api/users.php', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
@@ -2764,7 +2767,7 @@ print(response.json())`
 .then(data => console.log(data));`,
             node: `const axios = require('axios');
 
-axios.post('http://localhost/fakestoreapi/api/users.php', {
+axios.post('https://mockapi.kingtechnology.in/api/users.php', {
     username: 'john',
     email: 'john@example.com',
     password: 'password123'
@@ -2777,7 +2780,7 @@ $data = [
     'password' => 'password123'
 ];
 
-$ch = curl_init('http://localhost/fakestoreapi/api/users.php');
+$ch = curl_init('https://mockapi.kingtechnology.in/api/users.php');
 curl_setopt($ch, CURLOPT_POST, true);
 curl_setopt($ch, CURLOPT_HTTPHEADER, ['Content-Type: application/json']);
 curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
@@ -2786,7 +2789,7 @@ $response = curl_exec($ch);
 curl_close($ch);
 echo $response;
 ?>`,
-            curl: `curl -X POST 'http://localhost/fakestoreapi/api/users.php' \
+            curl: `curl -X POST 'https://mockapi.kingtechnology.in/api/users.php' \
   -H 'Content-Type: application/json' \
   -d '{"username":"john","email":"john@example.com","password":"password123"}'`,
             python: `import requests
@@ -2797,34 +2800,34 @@ data = {
     'password': 'password123'
 }
 response = requests.post(
-    'http://localhost/fakestoreapi/api/users.php',
+    'https://mockapi.kingtechnology.in/api/users.php',
     json=data
 )
 print(response.json())`
         },
 
         "get-user": {
-            javascript: `fetch('http://localhost/fakestoreapi/api/users.php?id=1')
+            javascript: `fetch('https://mockapi.kingtechnology.in/api/users.php?id=1')
     .then(response => response.json())
     .then(data => console.log(data));`,
             node: `const axios = require('axios');
 
-axios.get('http://localhost/fakestoreapi/api/users.php?id=1')
+axios.get('https://mockapi.kingtechnology.in/api/users.php?id=1')
     .then(response => console.log(response.data));`,
             php: `\u003C?php
 echo file_get_contents(
-    'http://localhost/fakestoreapi/api/users.php?id=1'
+    'https://mockapi.kingtechnology.in/api/users.php?id=1'
 );
 ?>`,
-            curl: `curl -X GET 'http://localhost/fakestoreapi/api/users.php?id=1'`,
+            curl: `curl -X GET 'https://mockapi.kingtechnology.in/api/users.php?id=1'`,
             python: `import requests
 
-response = requests.get('http://localhost/fakestoreapi/api/users.php?id=1')
+response = requests.get('https://mockapi.kingtechnology.in/api/users.php?id=1')
 print(response.json())`
         },
 
         "update-user": {
-            javascript: `fetch('http://localhost/fakestoreapi/api/users.php?id=1', {
+            javascript: `fetch('https://mockapi.kingtechnology.in/api/users.php?id=1', {
     method: 'PUT',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
@@ -2837,7 +2840,7 @@ print(response.json())`
 .then(data => console.log(data));`,
             node: `const axios = require('axios');
 
-axios.put('http://localhost/fakestoreapi/api/users.php?id=1', {
+axios.put('https://mockapi.kingtechnology.in/api/users.php?id=1', {
     username: 'updatedUser',
     email: 'updated@example.com',
     password: 'newPassword'
@@ -2850,7 +2853,7 @@ $data = [
     'password' => 'newPassword'
 ];
 
-$ch = curl_init('http://localhost/fakestoreapi/api/users.php?id=1');
+$ch = curl_init('https://mockapi.kingtechnology.in/api/users.php?id=1');
 curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'PUT');
 curl_setopt($ch, CURLOPT_HTTPHEADER, ['Content-Type: application/json']);
 curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
@@ -2859,7 +2862,7 @@ $response = curl_exec($ch);
 curl_close($ch);
 echo $response;
 ?>`,
-            curl: `curl -X PUT 'http://localhost/fakestoreapi/api/users.php?id=1' \
+            curl: `curl -X PUT 'https://mockapi.kingtechnology.in/api/users.php?id=1' \
   -H 'Content-Type: application/json' \
   -d '{"username":"updatedUser","email":"updated@example.com","password":"newPassword"}'`,
             python: `import requests
@@ -2870,39 +2873,39 @@ data = {
     'password': 'newPassword'
 }
 response = requests.put(
-    'http://localhost/fakestoreapi/api/users.php?id=1',
+    'https://mockapi.kingtechnology.in/api/users.php?id=1',
     json=data
 )
 print(response.json())`
         },
 
         "delete-user": {
-            javascript: `fetch('http://localhost/fakestoreapi/api/users.php?id=1', {
+            javascript: `fetch('https://mockapi.kingtechnology.in/api/users.php?id=1', {
     method: 'DELETE'
 })
 .then(response => response.json())
 .then(data => console.log(data));`,
             node: `const axios = require('axios');
 
-axios.delete('http://localhost/fakestoreapi/api/users.php?id=1')
+axios.delete('https://mockapi.kingtechnology.in/api/users.php?id=1')
     .then(response => console.log(response.data));`,
             php: `\u003C?php
-$ch = curl_init('http://localhost/fakestoreapi/api/users.php?id=1');
+$ch = curl_init('https://mockapi.kingtechnology.in/api/users.php?id=1');
 curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'DELETE');
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 $response = curl_exec($ch);
 curl_close($ch);
 echo $response;
 ?>`,
-            curl: `curl -X DELETE 'http://localhost/fakestoreapi/api/users.php?id=1'`,
+            curl: `curl -X DELETE 'https://mockapi.kingtechnology.in/api/users.php?id=1'`,
             python: `import requests
 
-response = requests.delete('http://localhost/fakestoreapi/api/users.php?id=1')
+response = requests.delete('https://mockapi.kingtechnology.in/api/users.php?id=1')
 print(response.json())`
         },
 
         "login": {
-            javascript: `fetch('http://localhost/fakestoreapi/auth/login', {
+            javascript: `fetch('https://mockapi.kingtechnology.in/auth/login', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
@@ -2914,7 +2917,7 @@ print(response.json())`
 .then(data => console.log(data));`,
             node: `const axios = require('axios');
 
-axios.post('http://localhost/fakestoreapi/auth/login', {
+axios.post('https://mockapi.kingtechnology.in/auth/login', {
     username: 'john',
     password: 'password123'
 })
@@ -2925,7 +2928,7 @@ $data = [
     'password' => 'password123'
 ];
 
-$ch = curl_init('http://localhost/fakestoreapi/auth/login');
+$ch = curl_init('https://mockapi.kingtechnology.in/auth/login');
 curl_setopt($ch, CURLOPT_POST, true);
 curl_setopt($ch, CURLOPT_HTTPHEADER, ['Content-Type: application/json']);
 curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
@@ -2934,7 +2937,7 @@ $response = curl_exec($ch);
 curl_close($ch);
 echo $response;
 ?>`,
-            curl: `curl -X POST 'http://localhost/fakestoreapi/auth/login' \
+            curl: `curl -X POST 'https://mockapi.kingtechnology.in/auth/login' \
   -H 'Content-Type: application/json' \
   -d '{"username":"john","password":"password123"}'`,
             python: `import requests
@@ -2944,7 +2947,7 @@ data = {
     'password': 'password123'
 }
 response = requests.post(
-    'http://localhost/fakestoreapi/auth/login',
+    'https://mockapi.kingtechnology.in/auth/login',
     json=data
 )
 print(response.json())`
@@ -2963,7 +2966,7 @@ import 'package:http/http.dart' as http;
 
 Future<void> main() async {
   final response = await http.get(
-    Uri.parse('http://localhost/fakestoreapi/api/products.php'),
+    Uri.parse('https://mockapi.kingtechnology.in/api/products.php'),
   );
 
   print(jsonDecode(response.body));
@@ -2974,7 +2977,7 @@ import 'package:http/http.dart' as http;
 
 Future<void> main() async {
   final response = await http.post(
-    Uri.parse('http://localhost/fakestoreapi/api/products.php'),
+    Uri.parse('https://mockapi.kingtechnology.in/api/products.php'),
     headers: {'Content-Type': 'application/json'},
     body: jsonEncode({
       'title': 'New Product',
@@ -2993,7 +2996,7 @@ import 'package:http/http.dart' as http;
 
 Future<void> main() async {
   final response = await http.get(
-    Uri.parse('http://localhost/fakestoreapi/api/products.php?id=1'),
+    Uri.parse('https://mockapi.kingtechnology.in/api/products.php?id=1'),
   );
 
   print(jsonDecode(response.body));
@@ -3004,7 +3007,7 @@ import 'package:http/http.dart' as http;
 
 Future<void> main() async {
   final response = await http.put(
-    Uri.parse('http://localhost/fakestoreapi/api/products.php?id=1'),
+    Uri.parse('https://mockapi.kingtechnology.in/api/products.php?id=1'),
     headers: {'Content-Type': 'application/json'},
     body: jsonEncode({
       'title': 'Updated Product',
@@ -3023,7 +3026,7 @@ import 'package:http/http.dart' as http;
 
 Future<void> main() async {
   final response = await http.delete(
-    Uri.parse('http://localhost/fakestoreapi/api/products.php?id=1'),
+    Uri.parse('https://mockapi.kingtechnology.in/api/products.php?id=1'),
   );
 
   print(jsonDecode(response.body));
@@ -3034,7 +3037,7 @@ import 'package:http/http.dart' as http;
 
 Future<void> main() async {
   final response = await http.get(
-    Uri.parse('http://localhost/fakestoreapi/api/carts.php'),
+    Uri.parse('https://mockapi.kingtechnology.in/api/carts.php'),
   );
 
   print(jsonDecode(response.body));
@@ -3045,7 +3048,7 @@ import 'package:http/http.dart' as http;
 
 Future<void> main() async {
   final response = await http.post(
-    Uri.parse('http://localhost/fakestoreapi/api/carts.php'),
+    Uri.parse('https://mockapi.kingtechnology.in/api/carts.php'),
     headers: {'Content-Type': 'application/json'},
     body: jsonEncode({
       'userId': 1,
@@ -3064,7 +3067,7 @@ import 'package:http/http.dart' as http;
 
 Future<void> main() async {
   final response = await http.get(
-    Uri.parse('http://localhost/fakestoreapi/api/carts.php?id=1'),
+    Uri.parse('https://mockapi.kingtechnology.in/api/carts.php?id=1'),
   );
 
   print(jsonDecode(response.body));
@@ -3075,7 +3078,7 @@ import 'package:http/http.dart' as http;
 
 Future<void> main() async {
   final response = await http.put(
-    Uri.parse('http://localhost/fakestoreapi/api/carts.php?id=1'),
+    Uri.parse('https://mockapi.kingtechnology.in/api/carts.php?id=1'),
     headers: {'Content-Type': 'application/json'},
     body: jsonEncode({
       'userId': 1,
@@ -3094,7 +3097,7 @@ import 'package:http/http.dart' as http;
 
 Future<void> main() async {
   final response = await http.delete(
-    Uri.parse('http://localhost/fakestoreapi/api/carts.php?id=1'),
+    Uri.parse('https://mockapi.kingtechnology.in/api/carts.php?id=1'),
   );
 
   print(jsonDecode(response.body));
@@ -3105,7 +3108,7 @@ import 'package:http/http.dart' as http;
 
 Future<void> main() async {
   final response = await http.get(
-    Uri.parse('http://localhost/fakestoreapi/api/users.php'),
+    Uri.parse('https://mockapi.kingtechnology.in/api/users.php'),
   );
 
   print(jsonDecode(response.body));
@@ -3116,7 +3119,7 @@ import 'package:http/http.dart' as http;
 
 Future<void> main() async {
   final response = await http.post(
-    Uri.parse('http://localhost/fakestoreapi/api/users.php'),
+    Uri.parse('https://mockapi.kingtechnology.in/api/users.php'),
     headers: {'Content-Type': 'application/json'},
     body: jsonEncode({
       'username': 'john',
@@ -3133,7 +3136,7 @@ import 'package:http/http.dart' as http;
 
 Future<void> main() async {
   final response = await http.get(
-    Uri.parse('http://localhost/fakestoreapi/api/users.php?id=1'),
+    Uri.parse('https://mockapi.kingtechnology.in/api/users.php?id=1'),
   );
 
   print(jsonDecode(response.body));
@@ -3144,7 +3147,7 @@ import 'package:http/http.dart' as http;
 
 Future<void> main() async {
   final response = await http.put(
-    Uri.parse('http://localhost/fakestoreapi/api/users.php?id=1'),
+    Uri.parse('https://mockapi.kingtechnology.in/api/users.php?id=1'),
     headers: {'Content-Type': 'application/json'},
     body: jsonEncode({
       'username': 'updatedUser',
@@ -3161,7 +3164,7 @@ import 'package:http/http.dart' as http;
 
 Future<void> main() async {
   final response = await http.delete(
-    Uri.parse('http://localhost/fakestoreapi/api/users.php?id=1'),
+    Uri.parse('https://mockapi.kingtechnology.in/api/users.php?id=1'),
   );
 
   print(jsonDecode(response.body));
@@ -3172,7 +3175,7 @@ import 'package:http/http.dart' as http;
 
 Future<void> main() async {
   final response = await http.post(
-    Uri.parse('http://localhost/fakestoreapi/auth/login'),
+    Uri.parse('https://mockapi.kingtechnology.in/auth/login'),
     headers: {'Content-Type': 'application/json'},
     body: jsonEncode({
       'username': 'john',
@@ -3212,6 +3215,7 @@ Future<void> main() async {
 
         const label = document.createElement('div');
         label.className = 'text-gray-400 text-sm mb-3';
+        label.textContent = 'Request samples';
         wrapper.appendChild(label);
 
         const tabs = document.createElement('div');
