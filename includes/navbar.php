@@ -19,11 +19,13 @@
             <!-- Navigation -->
             <div class="hidden md:flex items-center gap-16">
 
-                <a href="<?= BASE_URL ?>/index.php" class="text-gray-600 hover:text-[#8c2d7d] transition">
+                <a href="https://mockapi.kingtechnology.in/index.php"
+                    class="text-gray-600 hover:text-[#8c2d7d] transition">
                     Home
                 </a>
 
-                <a href="<?= BASE_URL ?>/docs.php" class="text-gray-600 hover:text-[#8c2d7d] transition">
+                <a href="https://mockapi.kingtechnology.in/docs.php"
+                    class="text-gray-600 hover:text-[#8c2d7d] transition">
                     Docs
                 </a>
 
