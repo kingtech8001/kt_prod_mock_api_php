@@ -14,14 +14,38 @@ function authenticate()
 {
     header("Content-Type: application/json");
 
+    /*
+    |--------------------------------------------------------------------------
+    | GET AUTHORIZATION HEADER
+    |--------------------------------------------------------------------------
+    */
+
     $headers = getallheaders();
 
+    $authHeader = null;
 
-    /* =========================
-       CHECK AUTHORIZATION HEADER
-    ========================= */
+    // Case-insensitive header search
+    foreach ($headers as $key => $value) {
 
-    if (!isset($headers["Authorization"])) {
+        if (strtolower($key) === "authorization") {
+            $authHeader = $value;
+            break;
+        }
+    }
+
+    // Fallback for some Apache/Hostinger configurations
+    if (!$authHeader && isset($_SERVER['HTTP_AUTHORIZATION'])) {
+        $authHeader = $_SERVER['HTTP_AUTHORIZATION'];
+    }
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | CHECK AUTHORIZATION HEADER
+    |--------------------------------------------------------------------------
+    */
+
+    if (!$authHeader) {
 
         http_response_code(401);
 
@@ -33,17 +57,16 @@ function authenticate()
     }
 
 
-    $authHeader = $headers["Authorization"];
-
-
-    /* =========================
-       CHECK BEARER FORMAT
-    ========================= */
+    /*
+    |--------------------------------------------------------------------------
+    | CHECK BEARER FORMAT
+    |--------------------------------------------------------------------------
+    */
 
     if (
         !preg_match(
-            '/Bearer\s+(\S+)/',
-            $authHeader,
+            '/^Bearer\s+(\S+)$/i',
+            trim($authHeader),
             $matches
         )
     ) {
@@ -61,16 +84,20 @@ function authenticate()
     $token = $matches[1];
 
 
-    /* =========================
-       JWT SECRET
-    ========================= */
+    /*
+    |--------------------------------------------------------------------------
+    | JWT SECRET
+    |--------------------------------------------------------------------------
+    */
 
     $secretKey = "my_super_secret_key_123456789_ABC";
 
 
-    /* =========================
-       VERIFY JWT
-    ========================= */
+    /*
+    |--------------------------------------------------------------------------
+    | VERIFY JWT
+    |--------------------------------------------------------------------------
+    */
 
     try {
 
@@ -122,6 +149,7 @@ function requireUserId($requestedUserId)
     return $user;
 }
 
+
 /* =========================
    CHECK ADMIN ROLE
 ========================= */
@@ -130,7 +158,11 @@ function requireAdmin()
 {
     $user = authenticate();
 
-    if (!isset($user->role) || $user->role !== "admin") {
+
+    if (
+        !isset($user->role) ||
+        $user->role !== "admin"
+    ) {
 
         http_response_code(403);
 
@@ -141,6 +173,8 @@ function requireAdmin()
         exit;
     }
 
+
     return $user;
 }
+
 ?>

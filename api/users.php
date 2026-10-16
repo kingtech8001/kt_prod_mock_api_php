@@ -10,6 +10,296 @@ $method = $_SERVER['REQUEST_METHOD'];
 
 /*
 |--------------------------------------------------------------------------
+| POST - Create User
+|--------------------------------------------------------------------------
+*/
+
+if ($method === "POST") {
+
+    /*
+    |--------------------------------------------------------------------------
+    | READ JSON BODY
+    |--------------------------------------------------------------------------
+    */
+
+    $data = json_decode(
+        file_get_contents("php://input"),
+        true
+    );
+
+    if (!$data) {
+
+        http_response_code(400);
+
+        echo json_encode([
+            "message" => "Invalid JSON"
+        ]);
+
+        exit;
+    }
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | GET DATA
+    |--------------------------------------------------------------------------
+    */
+
+    $email = $data["email"] ?? "";
+    $username = $data["username"] ?? "";
+    $password = $data["password"] ?? "";
+
+    $firstname = $data["firstname"] ?? "";
+    $lastname = $data["lastname"] ?? "";
+
+    $phone = $data["phone"] ?? "";
+
+    $role = $data["role"] ?? "user";
+
+    $city = $data["city"] ?? null;
+    $street = $data["street"] ?? null;
+
+    $number = $data["number"] ?? 0;
+
+    $zipcode = $data["zipcode"] ?? null;
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | REQUIRED FIELDS
+    |--------------------------------------------------------------------------
+    */
+
+    if (
+        empty($email) ||
+        empty($username) ||
+        empty($password)
+    ) {
+
+        http_response_code(400);
+
+        echo json_encode([
+            "message" => "Email, username and password are required"
+        ]);
+
+        exit;
+    }
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | CHECK EMAIL / USERNAME
+    |--------------------------------------------------------------------------
+    */
+
+    $emailCheck = mysqli_real_escape_string(
+        $conn,
+        $email
+    );
+
+    $usernameCheck = mysqli_real_escape_string(
+        $conn,
+        $username
+    );
+
+    $check = mysqli_query(
+        $conn,
+        "SELECT id FROM users
+         WHERE email = '$emailCheck'
+         OR username = '$usernameCheck'"
+    );
+
+
+    if (!$check) {
+
+        http_response_code(500);
+
+        echo json_encode([
+            "message" => "Database error",
+            "error" => mysqli_error($conn)
+        ]);
+
+        exit;
+    }
+
+
+    if (mysqli_num_rows($check) > 0) {
+
+        http_response_code(400);
+
+        echo json_encode([
+            "message" => "Email or username already exists"
+        ]);
+
+        exit;
+    }
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | ESCAPE VALUES
+    |--------------------------------------------------------------------------
+    */
+
+    $email = mysqli_real_escape_string(
+        $conn,
+        $email
+    );
+
+    $username = mysqli_real_escape_string(
+        $conn,
+        $username
+    );
+
+    $password = mysqli_real_escape_string(
+        $conn,
+        $password
+    );
+
+    $firstname = mysqli_real_escape_string(
+        $conn,
+        $firstname
+    );
+
+    $lastname = mysqli_real_escape_string(
+        $conn,
+        $lastname
+    );
+
+    $phone = mysqli_real_escape_string(
+        $conn,
+        $phone
+    );
+
+    $role = mysqli_real_escape_string(
+        $conn,
+        $role
+    );
+
+    $city = mysqli_real_escape_string(
+        $conn,
+        $city ?? ""
+    );
+
+    $street = mysqli_real_escape_string(
+        $conn,
+        $street ?? ""
+    );
+
+    $zipcode = mysqli_real_escape_string(
+        $conn,
+        $zipcode ?? ""
+    );
+
+    $number = (int)$number;
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | INSERT USER
+    |--------------------------------------------------------------------------
+    */
+
+    $sql = "
+        INSERT INTO users
+        (
+            email,
+            username,
+            password,
+            firstname,
+            lastname,
+            phone,
+            role,
+            city,
+            street,
+            number,
+            zipcode
+        )
+        VALUES
+        (
+            '$email',
+            '$username',
+            '$password',
+            '$firstname',
+            '$lastname',
+            '$phone',
+            '$role',
+            '$city',
+            '$street',
+            $number,
+            '$zipcode'
+        )
+    ";
+
+
+    if (!mysqli_query($conn, $sql)) {
+
+        http_response_code(500);
+
+        echo json_encode([
+            "message" => "Failed to create user",
+            "error" => mysqli_error($conn)
+        ]);
+
+        exit;
+    }
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | GET CREATED USER ID
+    |--------------------------------------------------------------------------
+    */
+
+    $id = mysqli_insert_id($conn);
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | RETURN USER
+    |--------------------------------------------------------------------------
+    */
+
+    http_response_code(201);
+
+    echo json_encode([
+
+        "address" => [
+            "geolocation" => [
+                "lat" => null,
+                "long" => null
+            ],
+            "city" => $city ?: null,
+            "street" => $street ?: null,
+            "number" => $number,
+            "zipcode" => $zipcode ?: null
+        ],
+
+        "id" => (int)$id,
+
+        "email" => $email,
+
+        "username" => $username,
+
+        "password" => $password,
+
+        "name" => [
+            "firstname" => $firstname,
+            "lastname" => $lastname
+        ],
+
+        "phone" => $phone,
+
+        "__v" => 0
+
+    ], JSON_PRETTY_PRINT);
+
+    exit;
+}
+
+
+/*
+|--------------------------------------------------------------------------
 | GET - Get User(s)
 |--------------------------------------------------------------------------
 */
@@ -56,6 +346,7 @@ if ($method === "GET") {
         $row = mysqli_fetch_assoc($query);
 
         echo json_encode([
+
             "address" => [
                 "geolocation" => [
                     "lat" => null,
@@ -414,6 +705,7 @@ if ($method === "PUT") {
 
             "__v" => 0
         ]
+
     ], JSON_PRETTY_PRINT);
 
     exit;

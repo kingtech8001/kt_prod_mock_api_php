@@ -24,7 +24,7 @@ require_once 'config/config.php';
             <div class="pt-10 lg:pt-0">
 
                 <h1 class="text-5xl lg:text-6xl font-semibold text-[#8c2d7d] leading-tight">
-                    Fake Store API
+                    Mock-API
                 </h1>
 
 
@@ -155,7 +155,7 @@ require_once 'config/config.php';
             </h2>
 
             <p class="mt-4 text-lg text-gray-700">
-                FakeStoreAPI gives you clean, realistic e-commerce data:
+                Mock-API gives you clean, realistic e-commerce data:
                 products, carts, users, and more, accessible in seconds via REST.
             </p>
         </div>
@@ -278,7 +278,7 @@ require_once 'config/config.php';
             </h2>
 
             <p class="mt-4 text-gray-700 text-lg leading-relaxed max-w-4xl mx-auto">
-                FakeStoreAPI provides the 4 essential resources commonly used in
+                Mock-API provides the 4 essential resources commonly used in
                 e-commerce apps. Use them to build realistic flows for your
                 frontend or backend prototypes.
             </p>
@@ -410,7 +410,7 @@ require_once 'config/config.php';
         <p class="mt-5 text-gray-700 text-lg leading-relaxed">
             This is just a small glimpse of your incredible support.
             so much more kindness and trust has been shared over these
-            <strong>5 amazing years</strong> with FakeStoreAPI.
+            <strong>5 amazing years</strong> with Mock-API.
         </p>
 
         <p class="mt-1 text-gray-700 text-lg">
@@ -478,7 +478,7 @@ require_once 'config/config.php';
 
                 <div class="testimonial-body">
                     <p>
-                        Exploring <strong>FakeStoreAPI</strong> for
+                        Exploring <strong>Mock-API</strong> for
                         ecommerce apps – essential component for our
                         Flutter ecommerce app.
                     </p>
@@ -506,7 +506,7 @@ require_once 'config/config.php';
                     <p>
                         🚀 New Feature in ChatWise: Now Powered by
                         Model Context Protocol (MCP) ... In this example,
-                        we've integrated the <strong>FakeStoreAPI</strong>.
+                        we've integrated the <strong>Mock-API</strong>.
                         ✅ Fetch product data in real time
                         ✅ Display the results in a beautiful interactive
                         carousel
@@ -532,7 +532,7 @@ require_once 'config/config.php';
                 <div class="testimonial-body">
                     <p>
                         An e-commerce store is a great project to have
-                        and it just got easier with FakeStoreAPI.
+                        and it just got easier with Mock-API.
                     </p>
 
                     <p class="mt-4">
@@ -566,7 +566,7 @@ require_once 'config/config.php';
                 <div class="testimonial-body">
                     <p>
                         5 Best Free eCommerce APIs and Store API
-                        Solutions for Developers: <strong>Fake Store API</strong>
+                        Solutions for Developers: <strong>Mock-API</strong>
                         is a fantastic option for developers looking to
                         create a shopping website prototype or test their
                         e-commerce applications.
@@ -593,7 +593,7 @@ require_once 'config/config.php';
 
                 <div class="testimonial-body">
                     <p>
-                        Exploring <strong>FakeStoreAPI</strong> for
+                        Exploring <strong>Mock-API</strong> for
                         ecommerce apps – essential component for our
                         Flutter ecommerce app.
                     </p>
@@ -621,7 +621,7 @@ require_once 'config/config.php';
                     <p>
                         🚀 New Feature in ChatWise: Now Powered by
                         Model Context Protocol (MCP) ... In this example,
-                        we've integrated the <strong>FakeStoreAPI</strong>.
+                        we've integrated the <strong>Mock-API</strong>.
                         ✅ Fetch product data in real time
                         ✅ Display the results in a beautiful interactive
                         carousel
@@ -646,7 +646,7 @@ require_once 'config/config.php';
                 <div class="testimonial-body">
                     <p>
                         An e-commerce store is a great project to have
-                        and it just got easier with FakeStoreAPI.
+                        and it just got easier with Mock-API.
                     </p>
 
                     <p class="mt-4">

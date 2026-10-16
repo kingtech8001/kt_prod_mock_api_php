@@ -1,7 +1,7 @@
 <?php
 /*
 |--------------------------------------------------------------------------
-| FakeStore API Documentation
+| Mock-API API Documentation
 |--------------------------------------------------------------------------
 */
 ?>
@@ -12,7 +12,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>FakeStore API - Documentation</title>
+    <title>Mock-API - Documentation</title>
 
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -92,7 +92,7 @@
             min-width: 36px;
             text-align: center;
         }
-    
+
         /* Request sample tabs */
         .request-tabs {
             display: flex;
@@ -134,11 +134,23 @@
 
         .request-code pre {
             margin: 0;
+            padding: 38px 48px 8px 0;
+            box-sizing: border-box;
             white-space: pre;
             font-size: 13px;
             line-height: 1.65;
             color: #e5e7eb;
             font-family: Consolas, Monaco, "Courier New", monospace;
+        }
+
+        .request-code {
+            max-width: 100%;
+            overflow-x: auto;
+            overflow-y: hidden;
+        }
+
+        .request-code pre {
+            min-width: max-content;
         }
 
         .request-code {
@@ -173,68 +185,61 @@
             border-color: #16a34a;
             color: white;
         }
-
-</style>
+    </style>
 </head>
 
 
 <body class="bg-white text-gray-800">
 
 
-<!-- ====================================================================== -->
-<!-- MOBILE TOP BAR -->
-<!-- ====================================================================== -->
+    <!-- ====================================================================== -->
+    <!-- MOBILE TOP BAR -->
+    <!-- ====================================================================== -->
 
-<div class="lg:hidden sticky top-0 z-50 bg-white border-b border-gray-200 px-4 py-3">
+    <div class="lg:hidden sticky top-0 z-50 bg-white border-b border-gray-200 px-4 py-3">
 
-    <div class="flex items-center justify-between">
+        <div class="flex items-center justify-between">
 
-        <div class="flex items-center gap-3">
+            <div class="flex items-center gap-3">
 
-            <div class="w-10 h-10 rounded-xl bg-brand-500 flex items-center justify-center text-white text-xl">
-                { }
+                <div class="w-10 h-10 rounded-xl bg-brand-500 flex items-center justify-center text-white text-xl">
+                    { }
+                </div>
+
+                <div>
+                    <h1 class="font-bold text-gray-800">
+                        Mock-API </h1>
+
+                    <p class="text-xs text-gray-500">
+                        Documentation
+                    </p>
+                </div>
+
             </div>
 
-            <div>
-                <h1 class="font-bold text-gray-800">
-                    FakeStore API
-                </h1>
 
-                <p class="text-xs text-gray-500">
-                    Documentation
-                </p>
-            </div>
+            <button id="mobileMenuButton" class="p-2 rounded-lg hover:bg-gray-100">
+                ☰
+            </button>
 
         </div>
 
-
-        <button
-            id="mobileMenuButton"
-            class="p-2 rounded-lg hover:bg-gray-100"
-        >
-            ☰
-        </button>
-
     </div>
 
-</div>
 
 
+    <!-- ====================================================================== -->
+    <!-- MAIN LAYOUT -->
+    <!-- ====================================================================== -->
 
-<!-- ====================================================================== -->
-<!-- MAIN LAYOUT -->
-<!-- ====================================================================== -->
-
-<div class="min-h-screen flex">
+    <div class="min-h-screen flex">
 
 
-    <!-- ================================================================== -->
-    <!-- LEFT SIDEBAR -->
-    <!-- ================================================================== -->
+        <!-- ================================================================== -->
+        <!-- LEFT SIDEBAR -->
+        <!-- ================================================================== -->
 
-    <aside
-        id="sidebar"
-        class="
+        <aside id="sidebar" class="
             fixed lg:sticky
             top-0 left-0
             z-40
@@ -245,38 +250,37 @@
             flex flex-col
             -translate-x-full lg:translate-x-0
             transition-transform duration-300
-        "
-    >
+        ">
 
-        <!-- Logo -->
+            <!-- Logo -->
 
-        <div class="h-24 flex items-center px-7 border-b border-gray-100">
+            <div class="h-24 flex items-center px-7 border-b border-gray-100">
 
-            <div class="w-12 h-12 rounded-xl bg-brand-500 flex items-center justify-center text-white text-2xl font-bold">
-                { }
+                <div
+                    class="w-12 h-12 rounded-xl bg-brand-500 flex items-center justify-center text-white text-2xl font-bold">
+                    { }
+                </div>
+
+                <div class="ml-3">
+
+                    <h1 class="font-bold text-xl text-gray-800">
+                        Mock-API 
+                    </h1>
+
+                    <p class="text-xs text-gray-500">
+                        v2.1.11
+                    </p>
+
+                </div>
+
             </div>
 
-            <div class="ml-3">
 
-                <h1 class="font-bold text-xl text-gray-800">
-                    FakeStore API
-                </h1>
+            <!-- Search -->
 
-                <p class="text-xs text-gray-500">
-                    v2.1.11
-                </p>
+            <div class="px-5 py-4">
 
-            </div>
-
-        </div>
-
-
-        <!-- Search -->
-
-        <div class="px-5 py-4">
-
-            <div
-                class="
+                <div class="
                     flex items-center gap-2
                     border border-gray-200
                     rounded-lg
@@ -284,46 +288,36 @@
                     py-2
                     focus-within:border-brand-500
                     transition
-                "
-            >
+                ">
 
-                <span class="text-gray-500">
-                    🔍
-                </span>
+                    <span class="text-gray-500">
+                        🔍
+                    </span>
 
-                <input
-                    id="searchInput"
-                    type="text"
-                    placeholder="Search..."
-                    class="w-full outline-none text-sm"
-                >
+                    <input id="searchInput" type="text" placeholder="Search..." class="w-full outline-none text-sm">
+
+                </div>
 
             </div>
 
-        </div>
 
+            <!-- Navigation -->
 
-        <!-- Navigation -->
-
-        <nav
-            id="sidebarNav"
-            class="
+            <nav id="sidebarNav" class="
                 flex-1
                 overflow-y-auto
                 hide-scrollbar
                 pb-10
-            "
-        >
+            ">
 
 
-            <!-- ========================================================== -->
-            <!-- PRODUCTS -->
-            <!-- ========================================================== -->
+                <!-- ========================================================== -->
+                <!-- PRODUCTS -->
+                <!-- ========================================================== -->
 
-            <div class="sidebar-group">
+                <div class="sidebar-group">
 
-                <button
-                    class="
+                    <button class="
                         group-title
                         w-full
                         flex
@@ -334,30 +328,25 @@
                         text-gray-800
                         font-medium
                         hover:bg-gray-50
-                    "
-                    data-group="products"
-                >
+                    " data-group="products">
 
-                    <span class="flex items-center gap-2">
-                        🛒
-                        Products
-                    </span>
+                        <span class="flex items-center gap-2">
+                            🛒
+                            Products
+                        </span>
 
-                    <span class="group-arrow transition">
-                        ⌄
-                    </span>
+                        <span class="group-arrow transition">
+                            ⌄
+                        </span>
 
-                </button>
+                    </button>
 
 
-                <div class="group-items">
+                    <div class="group-items">
 
-                    <!-- GET ALL PRODUCTS -->
+                        <!-- GET ALL PRODUCTS -->
 
-                    <a
-                        href="#get-all-products"
-                        data-target="get-all-products"
-                        class="
+                        <a href="#get-all-products" data-target="get-all-products" class="
                             sidebar-item
                             flex
                             items-center
@@ -369,11 +358,9 @@
                             hover:bg-gray-100
                             hover:text-brand-500
                             transition
-                        "
-                    >
+                        ">
 
-                        <span
-                            class="
+                            <span class="
                                 method-badge
                                 text-[10px]
                                 font-bold
@@ -382,24 +369,20 @@
                                 rounded
                                 bg-green-100
                                 text-green-700
-                            "
-                        >
-                            GET
-                        </span>
+                            ">
+                                GET
+                            </span>
 
-                        <span>
-                            Get all products
-                        </span>
+                            <span>
+                                Get all products
+                            </span>
 
-                    </a>
+                        </a>
 
 
-                    <!-- ADD PRODUCT -->
+                        <!-- ADD PRODUCT -->
 
-                    <a
-                        href="#add-product"
-                        data-target="add-product"
-                        class="
+                        <a href="#add-product" data-target="add-product" class="
                             sidebar-item
                             flex
                             items-center
@@ -411,11 +394,9 @@
                             hover:bg-gray-100
                             hover:text-brand-500
                             transition
-                        "
-                    >
+                        ">
 
-                        <span
-                            class="
+                            <span class="
                                 method-badge
                                 text-[10px]
                                 font-bold
@@ -424,22 +405,18 @@
                                 rounded
                                 bg-blue-100
                                 text-blue-700
-                            "
-                        >
-                            POST
-                        </span>
+                            ">
+                                POST
+                            </span>
 
-                        Add a new product
+                            Add a new product
 
-                    </a>
+                        </a>
 
 
-                    <!-- GET SINGLE PRODUCT -->
+                        <!-- GET SINGLE PRODUCT -->
 
-                    <a
-                        href="#get-product"
-                        data-target="get-product"
-                        class="
+                        <a href="#get-product" data-target="get-product" class="
                             sidebar-item
                             flex
                             items-center
@@ -451,11 +428,9 @@
                             hover:bg-gray-100
                             hover:text-brand-500
                             transition
-                        "
-                    >
+                        ">
 
-                        <span
-                            class="
+                            <span class="
                                 method-badge
                                 text-[10px]
                                 font-bold
@@ -464,22 +439,18 @@
                                 rounded
                                 bg-green-100
                                 text-green-700
-                            "
-                        >
-                            GET
-                        </span>
+                            ">
+                                GET
+                            </span>
 
-                        Get a single product
+                            Get a single product
 
-                    </a>
+                        </a>
 
 
-                    <!-- UPDATE PRODUCT -->
+                        <!-- UPDATE PRODUCT -->
 
-                    <a
-                        href="#update-product"
-                        data-target="update-product"
-                        class="
+                        <a href="#update-product" data-target="update-product" class="
                             sidebar-item
                             flex
                             items-center
@@ -491,11 +462,9 @@
                             hover:bg-gray-100
                             hover:text-brand-500
                             transition
-                        "
-                    >
+                        ">
 
-                        <span
-                            class="
+                            <span class="
                                 method-badge
                                 text-[10px]
                                 font-bold
@@ -504,22 +473,18 @@
                                 rounded
                                 bg-purple-100
                                 text-purple-700
-                            "
-                        >
-                            PUT
-                        </span>
+                            ">
+                                PUT
+                            </span>
 
-                        Update a product
+                            Update a product
 
-                    </a>
+                        </a>
 
 
-                    <!-- DELETE PRODUCT -->
+                        <!-- DELETE PRODUCT -->
 
-                    <a
-                        href="#delete-product"
-                        data-target="delete-product"
-                        class="
+                        <a href="#delete-product" data-target="delete-product" class="
                             sidebar-item
                             flex
                             items-center
@@ -531,11 +496,9 @@
                             hover:bg-gray-100
                             hover:text-brand-500
                             transition
-                        "
-                    >
+                        ">
 
-                        <span
-                            class="
+                            <span class="
                                 method-badge
                                 text-[10px]
                                 font-bold
@@ -544,29 +507,27 @@
                                 rounded
                                 bg-red-100
                                 text-red-700
-                            "
-                        >
-                            DEL
-                        </span>
+                            ">
+                                DEL
+                            </span>
 
-                        Delete a product
+                            Delete a product
 
-                    </a>
+                        </a>
+
+                    </div>
 
                 </div>
 
-            </div>
 
 
+                <!-- ========================================================== -->
+                <!-- CARTS -->
+                <!-- ========================================================== -->
 
-            <!-- ========================================================== -->
-            <!-- CARTS -->
-            <!-- ========================================================== -->
+                <div class="sidebar-group mt-1">
 
-            <div class="sidebar-group mt-1">
-
-                <button
-                    class="
+                    <button class="
                         group-title
                         w-full
                         flex
@@ -577,28 +538,23 @@
                         text-gray-800
                         font-medium
                         hover:bg-gray-50
-                    "
-                    data-group="carts"
-                >
+                    " data-group="carts">
 
-                    <span class="flex items-center gap-2">
-                        🛍️
-                        Carts
-                    </span>
+                        <span class="flex items-center gap-2">
+                            🛍️
+                            Carts
+                        </span>
 
-                    <span class="group-arrow transition">
-                        ⌄
-                    </span>
+                        <span class="group-arrow transition">
+                            ⌄
+                        </span>
 
-                </button>
+                    </button>
 
 
-                <div class="group-items">
+                    <div class="group-items">
 
-                    <a
-                        href="#get-all-carts"
-                        data-target="get-all-carts"
-                        class="
+                        <a href="#get-all-carts" data-target="get-all-carts" class="
                             sidebar-item
                             flex items-center gap-2
                             px-6 py-3
@@ -606,22 +562,19 @@
                             hover:bg-gray-100
                             hover:text-brand-500
                             transition
-                        "
-                    >
+                        ">
 
-                        <span class="method-badge text-[10px] font-bold px-1.5 py-0.5 rounded bg-green-100 text-green-700">
-                            GET
-                        </span>
+                            <span
+                                class="method-badge text-[10px] font-bold px-1.5 py-0.5 rounded bg-green-100 text-green-700">
+                                GET
+                            </span>
 
-                        Get all carts
+                            Get all carts
 
-                    </a>
+                        </a>
 
 
-                    <a
-                        href="#add-cart"
-                        data-target="add-cart"
-                        class="
+                        <a href="#add-cart" data-target="add-cart" class="
                             sidebar-item
                             flex items-center gap-2
                             px-6 py-3
@@ -629,22 +582,19 @@
                             hover:bg-gray-100
                             hover:text-brand-500
                             transition
-                        "
-                    >
+                        ">
 
-                        <span class="method-badge text-[10px] font-bold px-1.5 py-0.5 rounded bg-blue-100 text-blue-700">
-                            POST
-                        </span>
+                            <span
+                                class="method-badge text-[10px] font-bold px-1.5 py-0.5 rounded bg-blue-100 text-blue-700">
+                                POST
+                            </span>
 
-                        Add a new cart
+                            Add a new cart
 
-                    </a>
+                        </a>
 
 
-                    <a
-                        href="#get-cart"
-                        data-target="get-cart"
-                        class="
+                        <a href="#get-cart" data-target="get-cart" class="
                             sidebar-item
                             flex items-center gap-2
                             px-6 py-3
@@ -652,22 +602,19 @@
                             hover:bg-gray-100
                             hover:text-brand-500
                             transition
-                        "
-                    >
+                        ">
 
-                        <span class="method-badge text-[10px] font-bold px-1.5 py-0.5 rounded bg-green-100 text-green-700">
-                            GET
-                        </span>
+                            <span
+                                class="method-badge text-[10px] font-bold px-1.5 py-0.5 rounded bg-green-100 text-green-700">
+                                GET
+                            </span>
 
-                        Get a single cart
+                            Get a single cart
 
-                    </a>
+                        </a>
 
 
-                    <a
-                        href="#update-cart"
-                        data-target="update-cart"
-                        class="
+                        <a href="#update-cart" data-target="update-cart" class="
                             sidebar-item
                             flex items-center gap-2
                             px-6 py-3
@@ -675,22 +622,19 @@
                             hover:bg-gray-100
                             hover:text-brand-500
                             transition
-                        "
-                    >
+                        ">
 
-                        <span class="method-badge text-[10px] font-bold px-1.5 py-0.5 rounded bg-purple-100 text-purple-700">
-                            PUT
-                        </span>
+                            <span
+                                class="method-badge text-[10px] font-bold px-1.5 py-0.5 rounded bg-purple-100 text-purple-700">
+                                PUT
+                            </span>
 
-                        Update a cart
+                            Update a cart
 
-                    </a>
+                        </a>
 
 
-                    <a
-                        href="#delete-cart"
-                        data-target="delete-cart"
-                        class="
+                        <a href="#delete-cart" data-target="delete-cart" class="
                             sidebar-item
                             flex items-center gap-2
                             px-6 py-3
@@ -698,31 +642,30 @@
                             hover:bg-gray-100
                             hover:text-brand-500
                             transition
-                        "
-                    >
+                        ">
 
-                        <span class="method-badge text-[10px] font-bold px-1.5 py-0.5 rounded bg-red-100 text-red-700">
-                            DEL
-                        </span>
+                            <span
+                                class="method-badge text-[10px] font-bold px-1.5 py-0.5 rounded bg-red-100 text-red-700">
+                                DEL
+                            </span>
 
-                        Delete a cart
+                            Delete a cart
 
-                    </a>
+                        </a>
+
+                    </div>
 
                 </div>
 
-            </div>
 
 
+                <!-- ========================================================== -->
+                <!-- USERS -->
+                <!-- ========================================================== -->
 
-            <!-- ========================================================== -->
-            <!-- USERS -->
-            <!-- ========================================================== -->
+                <div class="sidebar-group mt-1">
 
-            <div class="sidebar-group mt-1">
-
-                <button
-                    class="
+                    <button class="
                         group-title
                         w-full
                         flex
@@ -733,28 +676,23 @@
                         text-gray-800
                         font-medium
                         hover:bg-gray-50
-                    "
-                    data-group="users"
-                >
+                    " data-group="users">
 
-                    <span class="flex items-center gap-2">
-                        👤
-                        Users
-                    </span>
+                        <span class="flex items-center gap-2">
+                            👤
+                            Users
+                        </span>
 
-                    <span class="group-arrow transition">
-                        ⌄
-                    </span>
+                        <span class="group-arrow transition">
+                            ⌄
+                        </span>
 
-                </button>
+                    </button>
 
 
-                <div class="group-items">
+                    <div class="group-items">
 
-                    <a
-                        href="#get-all-users"
-                        data-target="get-all-users"
-                        class="
+                        <a href="#get-all-users" data-target="get-all-users" class="
                             sidebar-item
                             flex items-center gap-2
                             px-6 py-3
@@ -762,22 +700,19 @@
                             hover:bg-gray-100
                             hover:text-brand-500
                             transition
-                        "
-                    >
+                        ">
 
-                        <span class="method-badge text-[10px] font-bold px-1.5 py-0.5 rounded bg-green-100 text-green-700">
-                            GET
-                        </span>
+                            <span
+                                class="method-badge text-[10px] font-bold px-1.5 py-0.5 rounded bg-green-100 text-green-700">
+                                GET
+                            </span>
 
-                        Get all users
+                            Get all users
 
-                    </a>
+                        </a>
 
 
-                    <a
-                        href="#add-user"
-                        data-target="add-user"
-                        class="
+                        <a href="#add-user" data-target="add-user" class="
                             sidebar-item
                             flex items-center gap-2
                             px-6 py-3
@@ -785,22 +720,19 @@
                             hover:bg-gray-100
                             hover:text-brand-500
                             transition
-                        "
-                    >
+                        ">
 
-                        <span class="method-badge text-[10px] font-bold px-1.5 py-0.5 rounded bg-blue-100 text-blue-700">
-                            POST
-                        </span>
+                            <span
+                                class="method-badge text-[10px] font-bold px-1.5 py-0.5 rounded bg-blue-100 text-blue-700">
+                                POST
+                            </span>
 
-                        Add a new user
+                            Add a new user
 
-                    </a>
+                        </a>
 
 
-                    <a
-                        href="#get-user"
-                        data-target="get-user"
-                        class="
+                        <a href="#get-user" data-target="get-user" class="
                             sidebar-item
                             flex items-center gap-2
                             px-6 py-3
@@ -808,22 +740,19 @@
                             hover:bg-gray-100
                             hover:text-brand-500
                             transition
-                        "
-                    >
+                        ">
 
-                        <span class="method-badge text-[10px] font-bold px-1.5 py-0.5 rounded bg-green-100 text-green-700">
-                            GET
-                        </span>
+                            <span
+                                class="method-badge text-[10px] font-bold px-1.5 py-0.5 rounded bg-green-100 text-green-700">
+                                GET
+                            </span>
 
-                        Get a single user
+                            Get a single user
 
-                    </a>
+                        </a>
 
 
-                    <a
-                        href="#update-user"
-                        data-target="update-user"
-                        class="
+                        <a href="#update-user" data-target="update-user" class="
                             sidebar-item
                             flex items-center gap-2
                             px-6 py-3
@@ -831,22 +760,19 @@
                             hover:bg-gray-100
                             hover:text-brand-500
                             transition
-                        "
-                    >
+                        ">
 
-                        <span class="method-badge text-[10px] font-bold px-1.5 py-0.5 rounded bg-purple-100 text-purple-700">
-                            PUT
-                        </span>
+                            <span
+                                class="method-badge text-[10px] font-bold px-1.5 py-0.5 rounded bg-purple-100 text-purple-700">
+                                PUT
+                            </span>
 
-                        Update a user
+                            Update a user
 
-                    </a>
+                        </a>
 
 
-                    <a
-                        href="#delete-user"
-                        data-target="delete-user"
-                        class="
+                        <a href="#delete-user" data-target="delete-user" class="
                             sidebar-item
                             flex items-center gap-2
                             px-6 py-3
@@ -854,31 +780,30 @@
                             hover:bg-gray-100
                             hover:text-brand-500
                             transition
-                        "
-                    >
+                        ">
 
-                        <span class="method-badge text-[10px] font-bold px-1.5 py-0.5 rounded bg-red-100 text-red-700">
-                            DEL
-                        </span>
+                            <span
+                                class="method-badge text-[10px] font-bold px-1.5 py-0.5 rounded bg-red-100 text-red-700">
+                                DEL
+                            </span>
 
-                        Delete a user
+                            Delete a user
 
-                    </a>
+                        </a>
+
+                    </div>
 
                 </div>
 
-            </div>
 
 
+                <!-- ========================================================== -->
+                <!-- AUTH -->
+                <!-- ========================================================== -->
 
-            <!-- ========================================================== -->
-            <!-- AUTH -->
-            <!-- ========================================================== -->
+                <div class="sidebar-group mt-1">
 
-            <div class="sidebar-group mt-1">
-
-                <button
-                    class="
+                    <button class="
                         group-title
                         w-full
                         flex
@@ -889,28 +814,23 @@
                         text-gray-800
                         font-medium
                         hover:bg-gray-50
-                    "
-                    data-group="auth"
-                >
+                    " data-group="auth">
 
-                    <span class="flex items-center gap-2">
-                        🔐
-                        Auth
-                    </span>
+                        <span class="flex items-center gap-2">
+                            🔐
+                            Auth
+                        </span>
 
-                    <span class="group-arrow transition">
-                        ⌄
-                    </span>
+                        <span class="group-arrow transition">
+                            ⌄
+                        </span>
 
-                </button>
+                    </button>
 
 
-                <div class="group-items">
+                    <div class="group-items">
 
-                    <a
-                        href="#login"
-                        data-target="login"
-                        class="
+                        <a href="#login" data-target="login" class="
                             sidebar-item
                             flex items-center gap-2
                             px-6 py-3
@@ -918,262 +838,273 @@
                             hover:bg-gray-100
                             hover:text-brand-500
                             transition
-                        "
-                    >
+                        ">
 
-                        <span class="method-badge text-[10px] font-bold px-1.5 py-0.5 rounded bg-blue-100 text-blue-700">
-                            POST
-                        </span>
+                            <span
+                                class="method-badge text-[10px] font-bold px-1.5 py-0.5 rounded bg-blue-100 text-blue-700">
+                                POST
+                            </span>
 
-                        Login
+                            Login
 
-                    </a>
+                        </a>
+
+                    </div>
 
                 </div>
 
+            </nav>
+
+
+            <!-- Footer -->
+
+            <div class="border-t border-gray-200 px-6 py-4 text-xs text-gray-500">
+                API docs by Mock-API 
             </div>
 
-        </nav>
-
-
-        <!-- Footer -->
-
-        <div class="border-t border-gray-200 px-6 py-4 text-xs text-gray-500">
-            API docs by FakeStore API
-        </div>
-
-    </aside>
+        </aside>
 
 
 
-    <!-- ================================================================== -->
-    <!-- MOBILE OVERLAY -->
-    <!-- ================================================================== -->
+        <!-- ================================================================== -->
+        <!-- MOBILE OVERLAY -->
+        <!-- ================================================================== -->
 
-    <div
-        id="mobileOverlay"
-        class="
+        <div id="mobileOverlay" class="
             fixed inset-0
             bg-black/30
             z-30
             hidden
             lg:hidden
-        "
-    ></div>
+        "></div>
 
 
 
-    <!-- ================================================================== -->
-    <!-- MAIN CONTENT -->
-    <!-- ================================================================== -->
+        <!-- ================================================================== -->
+        <!-- MAIN CONTENT -->
+        <!-- ================================================================== -->
 
-    <main class="flex-1 min-w-0">
-
-
-        <!-- =============================================================== -->
-        <!-- DOCUMENTATION HEADER -->
-        <!-- =============================================================== -->
-
-        <div class="max-w-7xl mx-auto px-8 md:px-12 py-16">
+        <main class="flex-1 min-w-0">
 
 
-            <div class="max-w-4xl">
+            <!-- =============================================================== -->
+            <!-- DOCUMENTATION HEADER -->
+            <!-- =============================================================== -->
 
-                <h1 class="text-4xl md:text-5xl font-bold text-gray-800">
-                    FakeStoreAPI
-                    <span class="text-gray-500">
-                        (v2.1.11)
-                    </span>
-                </h1>
+            <div class="max-w-7xl mx-auto px-8 md:px-12 py-16">
 
 
-                <div class="mt-5 flex flex-wrap items-center gap-3 text-sm text-gray-600">
+                <div class="max-w-4xl">
 
-                    <span>
-                        E-mail:
-                        <a
-                            href="mailto:support@fakestoreapi.com"
-                            class="text-brand-500 hover:underline"
-                        >
-                            support@fakestoreapi.com
-                        </a>
-                    </span>
-
-                    <span>|</span>
-
-                    <span>
-                        URL:
-                        <span class="text-brand-500">
-                            https://mockapi.kingtechnology.in
+                    <h1 class="text-4xl md:text-5xl font-bold text-gray-800">
+                        Mock-API
+                        <span class="text-gray-500">
+                            (v2.1.11)
                         </span>
-                    </span>
+                    </h1>
+
+
+                    <div class="mt-5 flex flex-wrap items-center gap-3 text-sm text-gray-600">
+
+                        <span>
+                            E-mail:
+                            <a href="mailto:support@Mock-API.com" class="text-brand-500 hover:underline">
+                                support@Mock-API.com
+                            </a>
+                        </span>
+
+                        <span>|</span>
+
+                        <span>
+                            URL:
+                            <span class="text-brand-500">
+                                https://mockapi.kingtechnology.in
+                            </span>
+                        </span>
+
+                    </div>
+
+
+                    <p class="mt-6 text-lg text-gray-600">
+                        A free Mock API for testing and prototyping
+                        e-commerce applications.
+                    </p>
 
                 </div>
 
 
-                <p class="mt-6 text-lg text-gray-600">
-                    A free fake API for testing and prototyping
-                    e-commerce applications.
-                </p>
 
-            </div>
+                <!-- =========================================================== -->
+                <!-- PRODUCTS TITLE -->
+                <!-- =========================================================== -->
 
-
-
-            <!-- =========================================================== -->
-            <!-- PRODUCTS TITLE -->
-            <!-- =========================================================== -->
-
-            <div class="mt-20 mb-14">
-
-                <h2 class="text-3xl font-bold text-gray-800">
-                    🛒 Products
-                </h2>
-
-            </div>
-
-
-
-            <!-- =========================================================== -->
-            <!-- GET ALL PRODUCTS -->
-            <!-- =========================================================== -->
-
-            <section
-                id="get-all-products"
-                class="doc-section grid grid-cols-1 xl:grid-cols-2 gap-12 mb-32"
-            >
-
-                <div>
+                <div class="mt-20 mb-14">
 
                     <h2 class="text-3xl font-bold text-gray-800">
-                        Get all products
+                        🛒 Products
                     </h2>
 
-                    <p class="mt-5 text-lg text-gray-600">
-                        Retrieve a list of all available products.
-                    </p>
+                </div>
 
 
-                    <div class="mt-12">
 
-                        <h3 class="text-xl font-semibold text-gray-800 mb-5">
-                            Responses
-                        </h3>
+                <!-- =========================================================== -->
+                <!-- GET ALL PRODUCTS -->
+                <!-- =========================================================== -->
 
-                        <div class="border rounded-lg overflow-hidden">
+                <section id="get-all-products" class="doc-section grid grid-cols-1 xl:grid-cols-2 gap-12 mb-32">
 
-                            <div class="bg-green-50 text-green-700 px-5 py-4 font-medium">
-                                ✓ 200 Success
-                            </div>
+                    <div>
 
-                            <div class="bg-red-50 text-red-600 px-5 py-4">
-                                — 400 Bad request
+                        <h2 class="text-3xl font-bold text-gray-800">
+                            Get all products
+                        </h2>
+
+                        <p class="mt-5 text-lg text-gray-600">
+                            Retrieve a list of all available products.
+                        </p>
+
+
+                        <div class="mt-12">
+
+                            <h3 class="text-xl font-semibold text-gray-800 mb-5">
+                                Responses
+                            </h3>
+
+                            <div class="border rounded-lg overflow-hidden">
+
+                                <div class="bg-green-50 text-green-700 px-5 py-4 font-medium">
+                                    ✓ 200 Success
+                                </div>
+
+                                <div class="bg-red-50 text-red-600 px-5 py-4">
+                                    — 400 Bad request
+                                </div>
+
                             </div>
 
                         </div>
 
                     </div>
 
-                </div>
 
+                    <div class="xl:sticky xl:top-8 h-fit">
 
-                <div class="xl:sticky xl:top-8 h-fit">
+                        <div class="bg-[#10171b] rounded-lg overflow-hidden shadow-lg">
 
-                    <div class="bg-[#10171b] rounded-lg overflow-hidden shadow-lg">
+                            <div class="flex items-center gap-3 px-5 py-4">
 
-                        <div class="flex items-center gap-3 px-5 py-4">
+                                <span class="bg-green-600 text-white px-4 py-2 rounded text-sm font-bold">
+                                    GET
+                                </span>
 
-                            <span class="bg-green-600 text-white px-4 py-2 rounded text-sm font-bold">
-                                GET
-                            </span>
+                                <span class="text-white font-mono">
+                                    /products
+                                </span>
 
-                            <span class="text-white font-mono">
-                                /products
-                            </span>
-
-                        </div>
-
-
-                        <div class="border-t border-gray-700 p-5">
-
-                            <div class="text-gray-400 text-sm mb-3">
-                                Request sample
                             </div>
 
-                            <div class="bg-[#0b1013] rounded-lg p-5 overflow-x-auto code-scroll">
 
-<pre class="text-sm text-gray-200"><code>fetch('https://mockapi.kingtechnology.in/api/products.php')
+                            <div class="border-t border-gray-700 p-5">
+
+                                <div class="text-gray-400 text-sm mb-3">
+                                    Request sample
+                                </div>
+
+                                <div class="bg-[#0b1013] rounded-lg p-5 overflow-x-auto code-scroll">
+
+                                    <pre class="text-sm text-gray-200"><code>fetch('https://mockapi.kingtechnology.in/api/products.php')
     .then(response =&gt; response.json())
     .then(data =&gt; console.log(data));</code></pre>
 
+                                </div>
+
                             </div>
 
                         </div>
 
                     </div>
 
-                </div>
-
-            </section>
+                </section>
 
 
 
-            <!-- =========================================================== -->
-            <!-- ADD PRODUCT -->
-            <!-- =========================================================== -->
+                <!-- =========================================================== -->
+                <!-- ADD PRODUCT -->
+                <!-- =========================================================== -->
 
-            <section
-                id="add-product"
-                class="doc-section grid grid-cols-1 xl:grid-cols-2 gap-12 mb-32"
-            >
+                <section id="add-product" class="doc-section grid grid-cols-1 xl:grid-cols-2 gap-12 mb-32">
 
-                <div>
+                    <div>
 
-                    <h2 class="text-3xl font-bold text-gray-800">
-                        Add a new product
-                    </h2>
+                        <h2 class="text-3xl font-bold text-gray-800">
+                            Add a new product
+                        </h2>
 
-                    <p class="mt-5 text-lg text-gray-600">
-                        Create a new product.
-                    </p>
+                        <p class="mt-5 text-lg text-gray-600">
+                            Create a new product.
+                        </p>
 
 
-                    <div class="mt-10">
+                        <div class="mt-10">
 
-                        <h3 class="text-sm font-semibold text-gray-500 uppercase tracking-wide">
-                            Request body schema
-                        </h3>
+                            <h3 class="text-sm font-semibold text-gray-500 uppercase tracking-wide">
+                                Request body schema
+                            </h3>
 
-                        <div class="mt-4 border rounded-lg overflow-hidden">
+                            <div class="mt-4 border rounded-lg overflow-hidden">
 
-                            <div class="flex border-b">
-                                <div class="w-1/2 px-5 py-4 text-gray-700 font-medium">id</div>
-                                <div class="w-1/2 px-5 py-4 text-gray-500">integer</div>
+                                <div class="flex border-b">
+                                    <div class="w-1/2 px-5 py-4 text-gray-700 font-medium">id</div>
+                                    <div class="w-1/2 px-5 py-4 text-gray-500">integer</div>
+                                </div>
+
+                                <div class="flex border-b">
+                                    <div class="w-1/2 px-5 py-4 text-gray-700 font-medium">title</div>
+                                    <div class="w-1/2 px-5 py-4 text-gray-500">string</div>
+                                </div>
+
+                                <div class="flex border-b">
+                                    <div class="w-1/2 px-5 py-4 text-gray-700 font-medium">price</div>
+                                    <div class="w-1/2 px-5 py-4 text-gray-500">number &lt;float&gt;</div>
+                                </div>
+
+                                <div class="flex border-b">
+                                    <div class="w-1/2 px-5 py-4 text-gray-700 font-medium">description</div>
+                                    <div class="w-1/2 px-5 py-4 text-gray-500">string</div>
+                                </div>
+
+                                <div class="flex border-b">
+                                    <div class="w-1/2 px-5 py-4 text-gray-700 font-medium">category</div>
+                                    <div class="w-1/2 px-5 py-4 text-gray-500">string</div>
+                                </div>
+
+                                <div class="flex">
+                                    <div class="w-1/2 px-5 py-4 text-gray-700 font-medium">image</div>
+                                    <div class="w-1/2 px-5 py-4 text-gray-500">string &lt;uri&gt;</div>
+                                </div>
+
                             </div>
 
-                            <div class="flex border-b">
-                                <div class="w-1/2 px-5 py-4 text-gray-700 font-medium">title</div>
-                                <div class="w-1/2 px-5 py-4 text-gray-500">string</div>
-                            </div>
+                        </div>
 
-                            <div class="flex border-b">
-                                <div class="w-1/2 px-5 py-4 text-gray-700 font-medium">price</div>
-                                <div class="w-1/2 px-5 py-4 text-gray-500">number &lt;float&gt;</div>
-                            </div>
 
-                            <div class="flex border-b">
-                                <div class="w-1/2 px-5 py-4 text-gray-700 font-medium">description</div>
-                                <div class="w-1/2 px-5 py-4 text-gray-500">string</div>
-                            </div>
+                        <div class="mt-10">
 
-                            <div class="flex border-b">
-                                <div class="w-1/2 px-5 py-4 text-gray-700 font-medium">category</div>
-                                <div class="w-1/2 px-5 py-4 text-gray-500">string</div>
-                            </div>
+                            <h3 class="text-xl font-semibold text-gray-800 mb-5">
+                                Responses
+                            </h3>
 
-                            <div class="flex">
-                                <div class="w-1/2 px-5 py-4 text-gray-700 font-medium">image</div>
-                                <div class="w-1/2 px-5 py-4 text-gray-500">string &lt;uri&gt;</div>
+                            <div class="border rounded-lg overflow-hidden">
+
+                                <div class="bg-green-50 text-green-700 px-5 py-4">
+                                    201 Product created successfully
+                                </div>
+
+                                <div class="bg-red-50 text-red-600 px-5 py-4">
+                                    400 Bad request
+                                </div>
+
                             </div>
 
                         </div>
@@ -1181,60 +1112,37 @@
                     </div>
 
 
-                    <div class="mt-10">
+                    <div class="xl:sticky xl:top-8 h-fit">
 
-                        <h3 class="text-xl font-semibold text-gray-800 mb-5">
-                            Responses
-                        </h3>
+                        <div class="bg-[#10171b] rounded-lg overflow-hidden shadow-lg">
 
-                        <div class="border rounded-lg overflow-hidden">
+                            <div class="px-5 py-4 flex items-center gap-3">
 
-                            <div class="bg-green-50 text-green-700 px-5 py-4">
-                                201 Product created successfully
-                            </div>
+                                <span class="bg-blue-600 text-white px-4 py-2 rounded text-sm font-bold">
+                                    POST
+                                </span>
 
-                            <div class="bg-red-50 text-red-600 px-5 py-4">
-                                400 Bad request
-                            </div>
+                                <span class="text-white font-mono">
+                                    /products
+                                </span>
 
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-                <div class="xl:sticky xl:top-8 h-fit">
-
-                    <div class="bg-[#10171b] rounded-lg overflow-hidden shadow-lg">
-
-                        <div class="px-5 py-4 flex items-center gap-3">
-
-                            <span class="bg-blue-600 text-white px-4 py-2 rounded text-sm font-bold">
-                                POST
-                            </span>
-
-                            <span class="text-white font-mono">
-                                /products
-                            </span>
-
-                        </div>
-
-
-                        <div class="border-t border-gray-700 p-5">
-
-                            <div class="text-gray-400 text-sm mb-3">
-                                Content type
-                            </div>
-
-                            <div class="bg-[#182126] text-gray-200 p-4 rounded mb-4 font-mono text-sm">
-                                application/json
                             </div>
 
 
-                            <div class="bg-[#0b1013] rounded-lg p-5 overflow-x-auto code-scroll">
+                            <div class="border-t border-gray-700 p-5">
 
-<pre class="text-sm text-gray-200"><code>{
+                                <div class="text-gray-400 text-sm mb-3">
+                                    Content type
+                                </div>
+
+                                <div class="bg-[#182126] text-gray-200 p-4 rounded mb-4 font-mono text-sm">
+                                    application/json
+                                </div>
+
+
+                                <div class="bg-[#0b1013] rounded-lg p-5 overflow-x-auto code-scroll">
+
+                                    <pre class="text-sm text-gray-200"><code>{
     "title": "string",
     "price": 0.1,
     "description": "string",
@@ -1242,57 +1150,6 @@
     "image": "https://example.com/image.jpg"
 }</code></pre>
 
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </section>
-
-
-
-            <!-- =========================================================== -->
-            <!-- GET SINGLE PRODUCT -->
-            <!-- =========================================================== -->
-
-            <section
-                id="get-product"
-                class="doc-section grid grid-cols-1 xl:grid-cols-2 gap-12 mb-32"
-            >
-
-                <div>
-
-                    <h2 class="text-3xl font-bold text-gray-800">
-                        Get a single product
-                    </h2>
-
-                    <p class="mt-5 text-lg text-gray-600">
-                        Retrieve details of a specific product by ID.
-                    </p>
-
-
-                    <div class="mt-10">
-
-                        <h3 class="text-sm font-semibold text-gray-500 uppercase tracking-wide">
-                            Path parameters
-                        </h3>
-
-                        <div class="mt-4 border rounded-lg">
-
-                            <div class="grid grid-cols-2 px-5 py-5">
-
-                                <div class="font-medium">
-                                    id
-                                    <span class="block text-xs text-red-500">
-                                        required
-                                    </span>
-                                </div>
-
-                                <div class="text-gray-500">
-                                    integer
                                 </div>
 
                             </div>
@@ -1301,163 +1158,208 @@
 
                     </div>
 
+                </section>
 
-                    <div class="mt-10">
 
-                        <h3 class="text-xl font-semibold text-gray-800 mb-5">
-                            Responses
-                        </h3>
 
-                        <div class="border rounded-lg overflow-hidden">
+                <!-- =========================================================== -->
+                <!-- GET SINGLE PRODUCT -->
+                <!-- =========================================================== -->
 
-                            <div class="bg-green-50 text-green-700 px-5 py-4">
-                                200 Success
+                <section id="get-product" class="doc-section grid grid-cols-1 xl:grid-cols-2 gap-12 mb-32">
+
+                    <div>
+
+                        <h2 class="text-3xl font-bold text-gray-800">
+                            Get a single product
+                        </h2>
+
+                        <p class="mt-5 text-lg text-gray-600">
+                            Retrieve details of a specific product by ID.
+                        </p>
+
+
+                        <div class="mt-10">
+
+                            <h3 class="text-sm font-semibold text-gray-500 uppercase tracking-wide">
+                                Path parameters
+                            </h3>
+
+                            <div class="mt-4 border rounded-lg">
+
+                                <div class="grid grid-cols-2 px-5 py-5">
+
+                                    <div class="font-medium">
+                                        id
+                                        <span class="block text-xs text-red-500">
+                                            required
+                                        </span>
+                                    </div>
+
+                                    <div class="text-gray-500">
+                                        integer
+                                    </div>
+
+                                </div>
+
                             </div>
 
-                            <div class="bg-red-50 text-red-600 px-5 py-4">
-                                400 Bad request
+                        </div>
+
+
+                        <div class="mt-10">
+
+                            <h3 class="text-xl font-semibold text-gray-800 mb-5">
+                                Responses
+                            </h3>
+
+                            <div class="border rounded-lg overflow-hidden">
+
+                                <div class="bg-green-50 text-green-700 px-5 py-4">
+                                    200 Success
+                                </div>
+
+                                <div class="bg-red-50 text-red-600 px-5 py-4">
+                                    400 Bad request
+                                </div>
+
                             </div>
 
                         </div>
 
                     </div>
 
-                </div>
+
+                    <div class="xl:sticky xl:top-8 h-fit">
+
+                        <div class="bg-[#10171b] rounded-lg overflow-hidden shadow-lg">
+
+                            <div class="px-5 py-4 flex items-center gap-3">
+
+                                <span class="bg-green-600 text-white px-4 py-2 rounded text-sm font-bold">
+                                    GET
+                                </span>
+
+                                <span class="text-white font-mono">
+                                    /products/{id}
+                                </span>
+
+                            </div>
 
 
-                <div class="xl:sticky xl:top-8 h-fit">
+                            <div class="border-t border-gray-700 p-5">
 
-                    <div class="bg-[#10171b] rounded-lg overflow-hidden shadow-lg">
+                                <div class="bg-[#0b1013] rounded-lg p-5 overflow-x-auto code-scroll">
 
-                        <div class="px-5 py-4 flex items-center gap-3">
-
-                            <span class="bg-green-600 text-white px-4 py-2 rounded text-sm font-bold">
-                                GET
-                            </span>
-
-                            <span class="text-white font-mono">
-                                /products/{id}
-                            </span>
-
-                        </div>
-
-
-                        <div class="border-t border-gray-700 p-5">
-
-                            <div class="bg-[#0b1013] rounded-lg p-5 overflow-x-auto code-scroll">
-
-<pre class="text-sm text-gray-200"><code>fetch('https://mockapi.kingtechnology.in/api/products.php?id=1')
+                                    <pre class="text-sm text-gray-200"><code>fetch('https://mockapi.kingtechnology.in/api/products.php?id=1')
     .then(response =&gt; response.json())
     .then(data =&gt; console.log(data));</code></pre>
 
+                                </div>
+
                             </div>
 
                         </div>
 
                     </div>
 
-                </div>
-
-            </section>
+                </section>
 
 
 
-            <!-- =========================================================== -->
-            <!-- UPDATE PRODUCT -->
-            <!-- =========================================================== -->
+                <!-- =========================================================== -->
+                <!-- UPDATE PRODUCT -->
+                <!-- =========================================================== -->
 
-            <section
-                id="update-product"
-                class="doc-section grid grid-cols-1 xl:grid-cols-2 gap-12 mb-32"
-            >
+                <section id="update-product" class="doc-section grid grid-cols-1 xl:grid-cols-2 gap-12 mb-32">
 
-                <div>
+                    <div>
 
-                    <h2 class="text-3xl font-bold text-gray-800">
-                        Update a product
-                    </h2>
+                        <h2 class="text-3xl font-bold text-gray-800">
+                            Update a product
+                        </h2>
 
-                    <p class="mt-5 text-lg text-gray-600">
-                        Update an existing product.
-                    </p>
+                        <p class="mt-5 text-lg text-gray-600">
+                            Update an existing product.
+                        </p>
 
-                    <div class="mt-10 border rounded-lg overflow-hidden">
+                        <div class="mt-10 border rounded-lg overflow-hidden">
 
-                        <div class="px-5 py-4 border-b font-medium">
-                            Required fields
-                        </div>
-
-                        <div class="grid grid-cols-2">
-
-                            <div class="px-5 py-4 border-b">
-                                title
+                            <div class="px-5 py-4 border-b font-medium">
+                                Required fields
                             </div>
 
-                            <div class="px-5 py-4 border-b text-gray-500">
-                                string
-                            </div>
+                            <div class="grid grid-cols-2">
 
-                            <div class="px-5 py-4 border-b">
-                                price
-                            </div>
+                                <div class="px-5 py-4 border-b">
+                                    title
+                                </div>
 
-                            <div class="px-5 py-4 border-b text-gray-500">
-                                number
-                            </div>
+                                <div class="px-5 py-4 border-b text-gray-500">
+                                    string
+                                </div>
 
-                            <div class="px-5 py-4 border-b">
-                                description
-                            </div>
+                                <div class="px-5 py-4 border-b">
+                                    price
+                                </div>
 
-                            <div class="px-5 py-4 border-b text-gray-500">
-                                string
-                            </div>
+                                <div class="px-5 py-4 border-b text-gray-500">
+                                    number
+                                </div>
 
-                            <div class="px-5 py-4 border-b">
-                                category
-                            </div>
+                                <div class="px-5 py-4 border-b">
+                                    description
+                                </div>
 
-                            <div class="px-5 py-4 border-b text-gray-500">
-                                string
-                            </div>
+                                <div class="px-5 py-4 border-b text-gray-500">
+                                    string
+                                </div>
 
-                            <div class="px-5 py-4">
-                                image
-                            </div>
+                                <div class="px-5 py-4 border-b">
+                                    category
+                                </div>
 
-                            <div class="px-5 py-4 text-gray-500">
-                                string
+                                <div class="px-5 py-4 border-b text-gray-500">
+                                    string
+                                </div>
+
+                                <div class="px-5 py-4">
+                                    image
+                                </div>
+
+                                <div class="px-5 py-4 text-gray-500">
+                                    string
+                                </div>
+
                             </div>
 
                         </div>
 
                     </div>
 
-                </div>
+
+                    <div class="xl:sticky xl:top-8 h-fit">
+
+                        <div class="bg-[#10171b] rounded-lg overflow-hidden shadow-lg">
+
+                            <div class="px-5 py-4 flex items-center gap-3">
+
+                                <span class="bg-purple-600 text-white px-4 py-2 rounded text-sm font-bold">
+                                    PUT
+                                </span>
+
+                                <span class="text-white font-mono">
+                                    /products/{id}
+                                </span>
+
+                            </div>
 
 
-                <div class="xl:sticky xl:top-8 h-fit">
+                            <div class="border-t border-gray-700 p-5">
 
-                    <div class="bg-[#10171b] rounded-lg overflow-hidden shadow-lg">
+                                <div class="bg-[#0b1013] rounded-lg p-5 overflow-x-auto code-scroll">
 
-                        <div class="px-5 py-4 flex items-center gap-3">
-
-                            <span class="bg-purple-600 text-white px-4 py-2 rounded text-sm font-bold">
-                                PUT
-                            </span>
-
-                            <span class="text-white font-mono">
-                                /products/{id}
-                            </span>
-
-                        </div>
-
-
-                        <div class="border-t border-gray-700 p-5">
-
-                            <div class="bg-[#0b1013] rounded-lg p-5 overflow-x-auto code-scroll">
-
-<pre class="text-sm text-gray-200"><code>fetch('https://mockapi.kingtechnology.in/api/products.php?id=1', {
+                                    <pre class="text-sm text-gray-200"><code>fetch('https://mockapi.kingtechnology.in/api/products.php?id=1', {
     method: 'PUT',
     headers: {
         'Content-Type': 'application/json'
@@ -1473,797 +1375,64 @@
 .then(response =&gt; response.json())
 .then(data =&gt; console.log(data));</code></pre>
 
+                                </div>
+
                             </div>
 
                         </div>
 
                     </div>
 
-                </div>
-
-            </section>
+                </section>
 
 
 
-            <!-- =========================================================== -->
-            <!-- DELETE PRODUCT -->
-            <!-- =========================================================== -->
+                <!-- =========================================================== -->
+                <!-- DELETE PRODUCT -->
+                <!-- =========================================================== -->
 
-            <section
-                id="delete-product"
-                class="doc-section grid grid-cols-1 xl:grid-cols-2 gap-12 mb-32"
-            >
+                <section id="delete-product" class="doc-section grid grid-cols-1 xl:grid-cols-2 gap-12 mb-32">
 
-                <div>
+                    <div>
 
-                    <h2 class="text-3xl font-bold text-gray-800">
-                        Delete a product
-                    </h2>
+                        <h2 class="text-3xl font-bold text-gray-800">
+                            Delete a product
+                        </h2>
 
-                    <p class="mt-5 text-lg text-gray-600">
-                        Delete a product by ID.
-                    </p>
+                        <p class="mt-5 text-lg text-gray-600">
+                            Delete a product by ID.
+                        </p>
 
-                </div>
+                    </div>
 
 
-                <div class="xl:sticky xl:top-8 h-fit">
+                    <div class="xl:sticky xl:top-8 h-fit">
 
-                    <div class="bg-[#10171b] rounded-lg overflow-hidden shadow-lg">
+                        <div class="bg-[#10171b] rounded-lg overflow-hidden shadow-lg">
 
-                        <div class="px-5 py-4 flex items-center gap-3">
+                            <div class="px-5 py-4 flex items-center gap-3">
 
-                            <span class="bg-red-600 text-white px-4 py-2 rounded text-sm font-bold">
-                                DEL
-                            </span>
+                                <span class="bg-red-600 text-white px-4 py-2 rounded text-sm font-bold">
+                                    DEL
+                                </span>
 
-                            <span class="text-white font-mono">
-                                /products/{id}
-                            </span>
+                                <span class="text-white font-mono">
+                                    /products/{id}
+                                </span>
 
-                        </div>
+                            </div>
 
 
-                        <div class="border-t border-gray-700 p-5">
+                            <div class="border-t border-gray-700 p-5">
 
-                            <div class="bg-[#0b1013] rounded-lg p-5 overflow-x-auto code-scroll">
+                                <div class="bg-[#0b1013] rounded-lg p-5 overflow-x-auto code-scroll">
 
-<pre class="text-sm text-gray-200"><code>fetch('https://mockapi.kingtechnology.in/api/products.php?id=1', {
+                                    <pre class="text-sm text-gray-200"><code>fetch('https://mockapi.kingtechnology.in/api/products.php?id=1', {
     method: 'DELETE'
 })
 .then(response =&gt; response.json())
 .then(data =&gt; console.log(data));</code></pre>
 
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </section>
-
-
-
-            <!-- =========================================================== -->
-            <!-- CARTS TITLE -->
-            <!-- =========================================================== -->
-
-            <div class="mt-20 mb-14">
-
-                <h2 class="text-3xl font-bold text-gray-800">
-                    🛍️ Carts
-                </h2>
-
-            </div>
-
-
-
-            <!-- =========================================================== -->
-            <!-- GET ALL CARTS -->
-            <!-- =========================================================== -->
-
-            <section
-                id="get-all-carts"
-                class="doc-section grid grid-cols-1 xl:grid-cols-2 gap-12 mb-32"
-            >
-
-                <div>
-
-                    <h2 class="text-3xl font-bold text-gray-800">
-                        Get all carts
-                    </h2>
-
-                    <p class="mt-5 text-lg text-gray-600">
-                        Retrieve a list of all available carts.
-                    </p>
-
-                    <div class="mt-10 border rounded-lg overflow-hidden">
-
-                        <div class="bg-green-50 text-green-700 px-5 py-4">
-                            200 Success
-                        </div>
-
-                        <div class="bg-red-50 text-red-600 px-5 py-4">
-                            400 Bad request
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-                <div class="xl:sticky xl:top-8 h-fit">
-
-                    <div class="bg-[#10171b] rounded-lg overflow-hidden shadow-lg">
-
-                        <div class="px-5 py-4 flex items-center gap-3">
-
-                            <span class="bg-green-600 text-white px-4 py-2 rounded text-sm font-bold">
-                                GET
-                            </span>
-
-                            <span class="text-white font-mono">
-                                /carts
-                            </span>
-
-                        </div>
-
-                        <div class="p-5">
-
-                            <div class="bg-[#0b1013] rounded-lg p-5 overflow-x-auto code-scroll">
-
-<pre class="text-sm text-gray-200"><code>fetch('https://mockapi.kingtechnology.in/api/carts.php')
-    .then(response =&gt; response.json())
-    .then(data =&gt; console.log(data));</code></pre>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </section>
-
-
-
-            <!-- =========================================================== -->
-            <!-- ADD CART -->
-            <!-- =========================================================== -->
-
-            <section
-                id="add-cart"
-                class="doc-section grid grid-cols-1 xl:grid-cols-2 gap-12 mb-32"
-            >
-
-                <div>
-
-                    <h2 class="text-3xl font-bold text-gray-800">
-                        Add a new cart
-                    </h2>
-
-                    <p class="mt-5 text-lg text-gray-600">
-                        Create a new shopping cart.
-                    </p>
-
-                </div>
-
-
-                <div class="xl:sticky xl:top-8 h-fit">
-
-                    <div class="bg-[#10171b] rounded-lg overflow-hidden shadow-lg">
-
-                        <div class="px-5 py-4 flex items-center gap-3">
-
-                            <span class="bg-blue-600 text-white px-4 py-2 rounded text-sm font-bold">
-                                POST
-                            </span>
-
-                            <span class="text-white font-mono">
-                                /carts
-                            </span>
-
-                        </div>
-
-                        <div class="p-5">
-
-                            <div class="bg-[#0b1013] rounded-lg p-5 overflow-x-auto code-scroll">
-
-<pre class="text-sm text-gray-200"><code>{
-    "userId": 1,
-    "date": "2026-09-22",
-    "products": [
-        {
-            "productId": 1,
-            "quantity": 2
-        }
-    ]
-}</code></pre>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </section>
-
-
-
-            <!-- =========================================================== -->
-            <!-- GET CART -->
-            <!-- =========================================================== -->
-
-            <section
-                id="get-cart"
-                class="doc-section grid grid-cols-1 xl:grid-cols-2 gap-12 mb-32"
-            >
-
-                <div>
-
-                    <h2 class="text-3xl font-bold text-gray-800">
-                        Get a single cart
-                    </h2>
-
-                    <p class="mt-5 text-lg text-gray-600">
-                        Retrieve details of a specific cart by ID.
-                    </p>
-
-                </div>
-
-
-                <div class="xl:sticky xl:top-8 h-fit">
-
-                    <div class="bg-[#10171b] rounded-lg overflow-hidden shadow-lg">
-
-                        <div class="px-5 py-4 flex items-center gap-3">
-
-                            <span class="bg-green-600 text-white px-4 py-2 rounded text-sm font-bold">
-                                GET
-                            </span>
-
-                            <span class="text-white font-mono">
-                                /carts/{id}
-                            </span>
-
-                        </div>
-
-                        <div class="p-5">
-
-                            <div class="bg-[#0b1013] rounded-lg p-5 overflow-x-auto code-scroll">
-
-<pre class="text-sm text-gray-200"><code>fetch('https://mockapi.kingtechnology.in/api/carts.php?id=1')
-    .then(response =&gt; response.json())
-    .then(data =&gt; console.log(data));</code></pre>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </section>
-
-
-
-            <!-- =========================================================== -->
-            <!-- UPDATE CART -->
-            <!-- =========================================================== -->
-
-            <section
-                id="update-cart"
-                class="doc-section grid grid-cols-1 xl:grid-cols-2 gap-12 mb-32"
-            >
-
-                <div>
-
-                    <h2 class="text-3xl font-bold text-gray-800">
-                        Update a cart
-                    </h2>
-
-                    <p class="mt-5 text-lg text-gray-600">
-                        Update an existing shopping cart.
-                    </p>
-
-                </div>
-
-
-                <div class="xl:sticky xl:top-8 h-fit">
-
-                    <div class="bg-[#10171b] rounded-lg overflow-hidden shadow-lg">
-
-                        <div class="px-5 py-4 flex items-center gap-3">
-
-                            <span class="bg-purple-600 text-white px-4 py-2 rounded text-sm font-bold">
-                                PUT
-                            </span>
-
-                            <span class="text-white font-mono">
-                                /carts/{id}
-                            </span>
-
-                        </div>
-
-                        <div class="p-5">
-
-                            <div class="bg-[#0b1013] rounded-lg p-5 overflow-x-auto code-scroll">
-
-<pre class="text-sm text-gray-200"><code>{
-    "userId": 1,
-    "date": "2026-09-22",
-    "products": [
-        {
-            "productId": 1,
-            "quantity": 5
-        }
-    ]
-}</code></pre>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </section>
-
-
-
-            <!-- =========================================================== -->
-            <!-- DELETE CART -->
-            <!-- =========================================================== -->
-
-            <section
-                id="delete-cart"
-                class="doc-section grid grid-cols-1 xl:grid-cols-2 gap-12 mb-32"
-            >
-
-                <div>
-
-                    <h2 class="text-3xl font-bold text-gray-800">
-                        Delete a cart
-                    </h2>
-
-                    <p class="mt-5 text-lg text-gray-600">
-                        Delete a cart by ID.
-                    </p>
-
-                </div>
-
-
-                <div class="xl:sticky xl:top-8 h-fit">
-
-                    <div class="bg-[#10171b] rounded-lg overflow-hidden shadow-lg">
-
-                        <div class="px-5 py-4 flex items-center gap-3">
-
-                            <span class="bg-red-600 text-white px-4 py-2 rounded text-sm font-bold">
-                                DEL
-                            </span>
-
-                            <span class="text-white font-mono">
-                                /carts/{id}
-                            </span>
-
-                        </div>
-
-                        <div class="p-5">
-
-                            <div class="bg-[#0b1013] rounded-lg p-5 overflow-x-auto code-scroll">
-
-<pre class="text-sm text-gray-200"><code>fetch('https://mockapi.kingtechnology.in/api/carts.php?id=1', {
-    method: 'DELETE'
-})
-.then(response =&gt; response.json())
-.then(data =&gt; console.log(data));</code></pre>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </section>
-
-
-
-            <!-- =========================================================== -->
-            <!-- USERS TITLE -->
-            <!-- =========================================================== -->
-
-            <div class="mt-20 mb-14">
-
-                <h2 class="text-3xl font-bold text-gray-800">
-                    👤 Users
-                </h2>
-
-            </div>
-
-
-
-            <!-- =========================================================== -->
-            <!-- GET ALL USERS -->
-            <!-- =========================================================== -->
-
-            <section
-                id="get-all-users"
-                class="doc-section grid grid-cols-1 xl:grid-cols-2 gap-12 mb-32"
-            >
-
-                <div>
-
-                    <h2 class="text-3xl font-bold text-gray-800">
-                        Get all users
-                    </h2>
-
-                    <p class="mt-5 text-lg text-gray-600">
-                        Retrieve a list of all users.
-                    </p>
-
-                    <div class="mt-10 border rounded-lg overflow-hidden">
-
-                        <div class="bg-green-50 text-green-700 px-5 py-4">
-                            200 Success
-                        </div>
-
-                        <div class="bg-red-50 text-red-600 px-5 py-4">
-                            400 Bad request
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-                <div class="xl:sticky xl:top-8 h-fit">
-
-                    <div class="bg-[#10171b] rounded-lg overflow-hidden shadow-lg">
-
-                        <div class="px-5 py-4 flex items-center gap-3">
-
-                            <span class="bg-green-600 text-white px-4 py-2 rounded text-sm font-bold">
-                                GET
-                            </span>
-
-                            <span class="text-white font-mono">
-                                /users
-                            </span>
-
-                        </div>
-
-                        <div class="p-5">
-
-                            <div class="bg-[#0b1013] rounded-lg p-5 overflow-x-auto code-scroll">
-
-<pre class="text-sm text-gray-200"><code>fetch('https://mockapi.kingtechnology.in/api/users.php')
-    .then(response =&gt; response.json())
-    .then(data =&gt; console.log(data));</code></pre>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </section>
-
-
-
-            <!-- =========================================================== -->
-            <!-- ADD USER -->
-            <!-- =========================================================== -->
-
-            <section
-                id="add-user"
-                class="doc-section grid grid-cols-1 xl:grid-cols-2 gap-12 mb-32"
-            >
-
-                <div>
-
-                    <h2 class="text-3xl font-bold text-gray-800">
-                        Add a new user
-                    </h2>
-
-                    <p class="mt-5 text-lg text-gray-600">
-                        Create a new user.
-                    </p>
-
-                </div>
-
-
-                <div class="xl:sticky xl:top-8 h-fit">
-
-                    <div class="bg-[#10171b] rounded-lg overflow-hidden shadow-lg">
-
-                        <div class="px-5 py-4 flex items-center gap-3">
-
-                            <span class="bg-blue-600 text-white px-4 py-2 rounded text-sm font-bold">
-                                POST
-                            </span>
-
-                            <span class="text-white font-mono">
-                                /users
-                            </span>
-
-                        </div>
-
-                        <div class="p-5">
-
-                            <div class="bg-[#0b1013] rounded-lg p-5 overflow-x-auto code-scroll">
-
-<pre class="text-sm text-gray-200"><code>{
-    "username": "john",
-    "email": "john@example.com",
-    "password": "password123"
-}</code></pre>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </section>
-
-
-
-            <!-- =========================================================== -->
-            <!-- GET USER -->
-            <!-- =========================================================== -->
-
-            <section
-                id="get-user"
-                class="doc-section grid grid-cols-1 xl:grid-cols-2 gap-12 mb-32"
-            >
-
-                <div>
-
-                    <h2 class="text-3xl font-bold text-gray-800">
-                        Get a single user
-                    </h2>
-
-                    <p class="mt-5 text-lg text-gray-600">
-                        Retrieve details of a specific user by ID.
-                    </p>
-
-                </div>
-
-
-                <div class="xl:sticky xl:top-8 h-fit">
-
-                    <div class="bg-[#10171b] rounded-lg overflow-hidden shadow-lg">
-
-                        <div class="px-5 py-4 flex items-center gap-3">
-
-                            <span class="bg-green-600 text-white px-4 py-2 rounded text-sm font-bold">
-                                GET
-                            </span>
-
-                            <span class="text-white font-mono">
-                                /users/{id}
-                            </span>
-
-                        </div>
-
-                        <div class="p-5">
-
-                            <div class="bg-[#0b1013] rounded-lg p-5 overflow-x-auto code-scroll">
-
-<pre class="text-sm text-gray-200"><code>fetch('https://mockapi.kingtechnology.in/api/users.php?id=1')
-    .then(response =&gt; response.json())
-    .then(data =&gt; console.log(data));</code></pre>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </section>
-
-
-
-            <!-- =========================================================== -->
-            <!-- UPDATE USER -->
-            <!-- =========================================================== -->
-
-            <section
-                id="update-user"
-                class="doc-section grid grid-cols-1 xl:grid-cols-2 gap-12 mb-32"
-            >
-
-                <div>
-
-                    <h2 class="text-3xl font-bold text-gray-800">
-                        Update a user
-                    </h2>
-
-                    <p class="mt-5 text-lg text-gray-600">
-                        Update an existing user.
-                    </p>
-
-                </div>
-
-
-                <div class="xl:sticky xl:top-8 h-fit">
-
-                    <div class="bg-[#10171b] rounded-lg overflow-hidden shadow-lg">
-
-                        <div class="px-5 py-4 flex items-center gap-3">
-
-                            <span class="bg-purple-600 text-white px-4 py-2 rounded text-sm font-bold">
-                                PUT
-                            </span>
-
-                            <span class="text-white font-mono">
-                                /users/{id}
-                            </span>
-
-                        </div>
-
-                        <div class="p-5">
-
-                            <div class="bg-[#0b1013] rounded-lg p-5 overflow-x-auto code-scroll">
-
-<pre class="text-sm text-gray-200"><code>{
-    "username": "updatedUser",
-    "email": "updated@example.com",
-    "password": "newPassword"
-}</code></pre>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </section>
-
-
-
-            <!-- =========================================================== -->
-            <!-- DELETE USER -->
-            <!-- =========================================================== -->
-
-            <section
-                id="delete-user"
-                class="doc-section grid grid-cols-1 xl:grid-cols-2 gap-12 mb-32"
-            >
-
-                <div>
-
-                    <h2 class="text-3xl font-bold text-gray-800">
-                        Delete a user
-                    </h2>
-
-                    <p class="mt-5 text-lg text-gray-600">
-                        Delete a user by ID.
-                    </p>
-
-                </div>
-
-
-                <div class="xl:sticky xl:top-8 h-fit">
-
-                    <div class="bg-[#10171b] rounded-lg overflow-hidden shadow-lg">
-
-                        <div class="px-5 py-4 flex items-center gap-3">
-
-                            <span class="bg-red-600 text-white px-4 py-2 rounded text-sm font-bold">
-                                DEL
-                            </span>
-
-                            <span class="text-white font-mono">
-                                /users/{id}
-                            </span>
-
-                        </div>
-
-                        <div class="p-5">
-
-                            <div class="bg-[#0b1013] rounded-lg p-5 overflow-x-auto code-scroll">
-
-<pre class="text-sm text-gray-200"><code>fetch('https://mockapi.kingtechnology.in/api/users.php?id=1', {
-    method: 'DELETE'
-})
-.then(response =&gt; response.json())
-.then(data =&gt; console.log(data));</code></pre>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </section>
-
-
-
-            <!-- =========================================================== -->
-            <!-- AUTH TITLE -->
-            <!-- =========================================================== -->
-
-            <div class="mt-20 mb-14">
-
-                <h2 class="text-3xl font-bold text-gray-800">
-                    🔐 Auth
-                </h2>
-
-            </div>
-
-
-
-            <!-- =========================================================== -->
-            <!-- LOGIN -->
-            <!-- =========================================================== -->
-
-            <section
-                id="login"
-                class="doc-section grid grid-cols-1 xl:grid-cols-2 gap-12 mb-32"
-            >
-
-                <div>
-
-                    <h2 class="text-3xl font-bold text-gray-800">
-                        Login
-                    </h2>
-
-                    <p class="mt-5 text-lg text-gray-600">
-                        Authenticate a user.
-                    </p>
-
-
-                    <div class="mt-10">
-
-                        <h3 class="text-sm font-semibold text-gray-500 uppercase tracking-wide">
-                            Request body schema
-                        </h3>
-
-
-                        <div class="mt-4 border rounded-lg overflow-hidden">
-
-                            <div class="grid grid-cols-2 border-b">
-
-                                <div class="px-5 py-4 font-medium">
-                                    username
-                                </div>
-
-                                <div class="px-5 py-4 text-gray-500">
-                                    string
-                                </div>
-
-                            </div>
-
-
-                            <div class="grid grid-cols-2">
-
-                                <div class="px-5 py-4 font-medium">
-                                    password
-                                </div>
-
-                                <div class="px-5 py-4 text-gray-500">
-                                    string
                                 </div>
 
                             </div>
@@ -2272,17 +1441,44 @@
 
                     </div>
 
+                </section>
 
-                    <div class="mt-10">
 
-                        <h3 class="text-xl font-semibold text-gray-800 mb-5">
-                            Responses
-                        </h3>
 
-                        <div class="border rounded-lg overflow-hidden">
+                <!-- =========================================================== -->
+                <!-- CARTS TITLE -->
+                <!-- =========================================================== -->
+
+                <div class="mt-20 mb-14">
+
+                    <h2 class="text-3xl font-bold text-gray-800">
+                        🛍️ Carts
+                    </h2>
+
+                </div>
+
+
+
+                <!-- =========================================================== -->
+                <!-- GET ALL CARTS -->
+                <!-- =========================================================== -->
+
+                <section id="get-all-carts" class="doc-section grid grid-cols-1 xl:grid-cols-2 gap-12 mb-32">
+
+                    <div>
+
+                        <h2 class="text-3xl font-bold text-gray-800">
+                            Get all carts
+                        </h2>
+
+                        <p class="mt-5 text-lg text-gray-600">
+                            Retrieve a list of all available carts.
+                        </p>
+
+                        <div class="mt-10 border rounded-lg overflow-hidden">
 
                             <div class="bg-green-50 text-green-700 px-5 py-4">
-                                200 Login successful
+                                200 Success
                             </div>
 
                             <div class="bg-red-50 text-red-600 px-5 py-4">
@@ -2293,43 +1489,32 @@
 
                     </div>
 
-                </div>
 
+                    <div class="xl:sticky xl:top-8 h-fit">
 
-                <div class="xl:sticky xl:top-8 h-fit">
+                        <div class="bg-[#10171b] rounded-lg overflow-hidden shadow-lg">
 
-                    <div class="bg-[#10171b] rounded-lg overflow-hidden shadow-lg">
+                            <div class="px-5 py-4 flex items-center gap-3">
 
-                        <div class="px-5 py-4 flex items-center gap-3">
+                                <span class="bg-green-600 text-white px-4 py-2 rounded text-sm font-bold">
+                                    GET
+                                </span>
 
-                            <span class="bg-blue-600 text-white px-4 py-2 rounded text-sm font-bold">
-                                POST
-                            </span>
+                                <span class="text-white font-mono">
+                                    /carts
+                                </span>
 
-                            <span class="text-white font-mono">
-                                /auth/login
-                            </span>
-
-                        </div>
-
-
-                        <div class="p-5">
-
-                            <div class="text-gray-400 text-sm mb-3">
-                                Content type
                             </div>
 
-                            <div class="bg-[#182126] text-gray-200 p-4 rounded mb-4 font-mono text-sm">
-                                application/json
-                            </div>
+                            <div class="p-5">
 
+                                <div class="bg-[#0b1013] rounded-lg p-5 overflow-x-auto code-scroll">
 
-                            <div class="bg-[#0b1013] rounded-lg p-5 overflow-x-auto code-scroll">
+                                    <pre class="text-sm text-gray-200"><code>fetch('https://mockapi.kingtechnology.in/api/carts.php')
+    .then(response =&gt; response.json())
+    .then(data =&gt; console.log(data));</code></pre>
 
-<pre class="text-sm text-gray-200"><code>{
-    "username": "string",
-    "password": "string"
-}</code></pre>
+                                </div>
 
                             </div>
 
@@ -2337,60 +1522,741 @@
 
                     </div>
 
+                </section>
+
+
+
+                <!-- =========================================================== -->
+                <!-- ADD CART -->
+                <!-- =========================================================== -->
+
+                <section id="add-cart" class="doc-section grid grid-cols-1 xl:grid-cols-2 gap-12 mb-32">
+
+                    <div>
+
+                        <h2 class="text-3xl font-bold text-gray-800">
+                            Add a new cart
+                        </h2>
+
+                        <p class="mt-5 text-lg text-gray-600">
+                            Create a new shopping cart.
+                        </p>
+
+                    </div>
+
+
+                    <div class="xl:sticky xl:top-8 h-fit">
+
+                        <div class="bg-[#10171b] rounded-lg overflow-hidden shadow-lg">
+
+                            <div class="px-5 py-4 flex items-center gap-3">
+
+                                <span class="bg-blue-600 text-white px-4 py-2 rounded text-sm font-bold">
+                                    POST
+                                </span>
+
+                                <span class="text-white font-mono">
+                                    /carts
+                                </span>
+
+                            </div>
+
+                            <div class="p-5">
+
+                                <div class="bg-[#0b1013] rounded-lg p-5 overflow-x-auto code-scroll">
+
+                                    <pre class="text-sm text-gray-200"><code>{
+    "userId": 1,
+    "date": "2026-09-22",
+    "products": [
+        {
+            "productId": 1,
+            "quantity": 2
+        }
+    ]
+}</code></pre>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+
+                <!-- =========================================================== -->
+                <!-- GET CART -->
+                <!-- =========================================================== -->
+
+                <section id="get-cart" class="doc-section grid grid-cols-1 xl:grid-cols-2 gap-12 mb-32">
+
+                    <div>
+
+                        <h2 class="text-3xl font-bold text-gray-800">
+                            Get a single cart
+                        </h2>
+
+                        <p class="mt-5 text-lg text-gray-600">
+                            Retrieve details of a specific cart by ID.
+                        </p>
+
+                    </div>
+
+
+                    <div class="xl:sticky xl:top-8 h-fit">
+
+                        <div class="bg-[#10171b] rounded-lg overflow-hidden shadow-lg">
+
+                            <div class="px-5 py-4 flex items-center gap-3">
+
+                                <span class="bg-green-600 text-white px-4 py-2 rounded text-sm font-bold">
+                                    GET
+                                </span>
+
+                                <span class="text-white font-mono">
+                                    /carts/{id}
+                                </span>
+
+                            </div>
+
+                            <div class="p-5">
+
+                                <div class="bg-[#0b1013] rounded-lg p-5 overflow-x-auto code-scroll">
+
+                                    <pre class="text-sm text-gray-200"><code>fetch('https://mockapi.kingtechnology.in/api/carts.php?id=1')
+    .then(response =&gt; response.json())
+    .then(data =&gt; console.log(data));</code></pre>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+
+                <!-- =========================================================== -->
+                <!-- UPDATE CART -->
+                <!-- =========================================================== -->
+
+                <section id="update-cart" class="doc-section grid grid-cols-1 xl:grid-cols-2 gap-12 mb-32">
+
+                    <div>
+
+                        <h2 class="text-3xl font-bold text-gray-800">
+                            Update a cart
+                        </h2>
+
+                        <p class="mt-5 text-lg text-gray-600">
+                            Update an existing shopping cart.
+                        </p>
+
+                    </div>
+
+
+                    <div class="xl:sticky xl:top-8 h-fit">
+
+                        <div class="bg-[#10171b] rounded-lg overflow-hidden shadow-lg">
+
+                            <div class="px-5 py-4 flex items-center gap-3">
+
+                                <span class="bg-purple-600 text-white px-4 py-2 rounded text-sm font-bold">
+                                    PUT
+                                </span>
+
+                                <span class="text-white font-mono">
+                                    /carts/{id}
+                                </span>
+
+                            </div>
+
+                            <div class="p-5">
+
+                                <div class="bg-[#0b1013] rounded-lg p-5 overflow-x-auto code-scroll">
+
+                                    <pre class="text-sm text-gray-200"><code>{
+    "userId": 1,
+    "date": "2026-09-22",
+    "products": [
+        {
+            "productId": 1,
+            "quantity": 5
+        }
+    ]
+}</code></pre>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+
+                <!-- =========================================================== -->
+                <!-- DELETE CART -->
+                <!-- =========================================================== -->
+
+                <section id="delete-cart" class="doc-section grid grid-cols-1 xl:grid-cols-2 gap-12 mb-32">
+
+                    <div>
+
+                        <h2 class="text-3xl font-bold text-gray-800">
+                            Delete a cart
+                        </h2>
+
+                        <p class="mt-5 text-lg text-gray-600">
+                            Delete a cart by ID.
+                        </p>
+
+                    </div>
+
+
+                    <div class="xl:sticky xl:top-8 h-fit">
+
+                        <div class="bg-[#10171b] rounded-lg overflow-hidden shadow-lg">
+
+                            <div class="px-5 py-4 flex items-center gap-3">
+
+                                <span class="bg-red-600 text-white px-4 py-2 rounded text-sm font-bold">
+                                    DEL
+                                </span>
+
+                                <span class="text-white font-mono">
+                                    /carts/{id}
+                                </span>
+
+                            </div>
+
+                            <div class="p-5">
+
+                                <div class="bg-[#0b1013] rounded-lg p-5 overflow-x-auto code-scroll">
+
+                                    <pre class="text-sm text-gray-200"><code>fetch('https://mockapi.kingtechnology.in/api/carts.php?id=1', {
+    method: 'DELETE'
+})
+.then(response =&gt; response.json())
+.then(data =&gt; console.log(data));</code></pre>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+
+                <!-- =========================================================== -->
+                <!-- USERS TITLE -->
+                <!-- =========================================================== -->
+
+                <div class="mt-20 mb-14">
+
+                    <h2 class="text-3xl font-bold text-gray-800">
+                        👤 Users
+                    </h2>
+
                 </div>
 
-            </section>
 
 
-        </div>
+                <!-- =========================================================== -->
+                <!-- GET ALL USERS -->
+                <!-- =========================================================== -->
 
-    </main>
+                <section id="get-all-users" class="doc-section grid grid-cols-1 xl:grid-cols-2 gap-12 mb-32">
 
-</div>
+                    <div>
+
+                        <h2 class="text-3xl font-bold text-gray-800">
+                            Get all users
+                        </h2>
+
+                        <p class="mt-5 text-lg text-gray-600">
+                            Retrieve a list of all users.
+                        </p>
+
+                        <div class="mt-10 border rounded-lg overflow-hidden">
+
+                            <div class="bg-green-50 text-green-700 px-5 py-4">
+                                200 Success
+                            </div>
+
+                            <div class="bg-red-50 text-red-600 px-5 py-4">
+                                400 Bad request
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="xl:sticky xl:top-8 h-fit">
+
+                        <div class="bg-[#10171b] rounded-lg overflow-hidden shadow-lg">
+
+                            <div class="px-5 py-4 flex items-center gap-3">
+
+                                <span class="bg-green-600 text-white px-4 py-2 rounded text-sm font-bold">
+                                    GET
+                                </span>
+
+                                <span class="text-white font-mono">
+                                    /users
+                                </span>
+
+                            </div>
+
+                            <div class="p-5">
+
+                                <div class="bg-[#0b1013] rounded-lg p-5 overflow-x-auto code-scroll">
+
+                                    <pre class="text-sm text-gray-200"><code>fetch('https://mockapi.kingtechnology.in/api/users.php')
+    .then(response =&gt; response.json())
+    .then(data =&gt; console.log(data));</code></pre>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </section>
 
 
 
-<!-- ====================================================================== -->
-<!-- JAVASCRIPT -->
-<!-- ====================================================================== -->
+                <!-- =========================================================== -->
+                <!-- ADD USER -->
+                <!-- =========================================================== -->
 
-<script>
+                <section id="add-user" class="doc-section grid grid-cols-1 xl:grid-cols-2 gap-12 mb-32">
+
+                    <div>
+
+                        <h2 class="text-3xl font-bold text-gray-800">
+                            Add a new user
+                        </h2>
+
+                        <p class="mt-5 text-lg text-gray-600">
+                            Create a new user.
+                        </p>
+
+                    </div>
 
 
-    /*
-    |--------------------------------------------------------------------------
-    | REQUEST SAMPLE TABS
-    |--------------------------------------------------------------------------
-    | Adds the same multi-language request samples used by modern API docs:
-    | JavaScript (Browser), Node.js (Axios), PHP, cURL and Python.
-    */
+                    <div class="xl:sticky xl:top-8 h-fit">
 
-    const requestSamples = {
+                        <div class="bg-[#10171b] rounded-lg overflow-hidden shadow-lg">
 
-        "get-all-products": {
-            javascript: `fetch('https://mockapi.kingtechnology.in/api/products.php')
+                            <div class="px-5 py-4 flex items-center gap-3">
+
+                                <span class="bg-blue-600 text-white px-4 py-2 rounded text-sm font-bold">
+                                    POST
+                                </span>
+
+                                <span class="text-white font-mono">
+                                    /users
+                                </span>
+
+                            </div>
+
+                            <div class="p-5">
+
+                                <div class="bg-[#0b1013] rounded-lg p-5 overflow-x-auto code-scroll">
+
+                                    <pre class="text-sm text-gray-200"><code>{
+    "username": "john",
+    "email": "john@example.com",
+    "password": "password123"
+}</code></pre>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+
+                <!-- =========================================================== -->
+                <!-- GET USER -->
+                <!-- =========================================================== -->
+
+                <section id="get-user" class="doc-section grid grid-cols-1 xl:grid-cols-2 gap-12 mb-32">
+
+                    <div>
+
+                        <h2 class="text-3xl font-bold text-gray-800">
+                            Get a single user
+                        </h2>
+
+                        <p class="mt-5 text-lg text-gray-600">
+                            Retrieve details of a specific user by ID.
+                        </p>
+
+                    </div>
+
+
+                    <div class="xl:sticky xl:top-8 h-fit">
+
+                        <div class="bg-[#10171b] rounded-lg overflow-hidden shadow-lg">
+
+                            <div class="px-5 py-4 flex items-center gap-3">
+
+                                <span class="bg-green-600 text-white px-4 py-2 rounded text-sm font-bold">
+                                    GET
+                                </span>
+
+                                <span class="text-white font-mono">
+                                    /users/{id}
+                                </span>
+
+                            </div>
+
+                            <div class="p-5">
+
+                                <div class="bg-[#0b1013] rounded-lg p-5 overflow-x-auto code-scroll">
+
+                                    <pre class="text-sm text-gray-200"><code>fetch('https://mockapi.kingtechnology.in/api/users.php?id=1')
+    .then(response =&gt; response.json())
+    .then(data =&gt; console.log(data));</code></pre>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+
+                <!-- =========================================================== -->
+                <!-- UPDATE USER -->
+                <!-- =========================================================== -->
+
+                <section id="update-user" class="doc-section grid grid-cols-1 xl:grid-cols-2 gap-12 mb-32">
+
+                    <div>
+
+                        <h2 class="text-3xl font-bold text-gray-800">
+                            Update a user
+                        </h2>
+
+                        <p class="mt-5 text-lg text-gray-600">
+                            Update an existing user.
+                        </p>
+
+                    </div>
+
+
+                    <div class="xl:sticky xl:top-8 h-fit">
+
+                        <div class="bg-[#10171b] rounded-lg overflow-hidden shadow-lg">
+
+                            <div class="px-5 py-4 flex items-center gap-3">
+
+                                <span class="bg-purple-600 text-white px-4 py-2 rounded text-sm font-bold">
+                                    PUT
+                                </span>
+
+                                <span class="text-white font-mono">
+                                    /users/{id}
+                                </span>
+
+                            </div>
+
+                            <div class="p-5">
+
+                                <div class="bg-[#0b1013] rounded-lg p-5 overflow-x-auto code-scroll">
+
+                                    <pre class="text-sm text-gray-200"><code>{
+    "username": "updatedUser",
+    "email": "updated@example.com",
+    "password": "newPassword"
+}</code></pre>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+
+                <!-- =========================================================== -->
+                <!-- DELETE USER -->
+                <!-- =========================================================== -->
+
+                <section id="delete-user" class="doc-section grid grid-cols-1 xl:grid-cols-2 gap-12 mb-32">
+
+                    <div>
+
+                        <h2 class="text-3xl font-bold text-gray-800">
+                            Delete a user
+                        </h2>
+
+                        <p class="mt-5 text-lg text-gray-600">
+                            Delete a user by ID.
+                        </p>
+
+                    </div>
+
+
+                    <div class="xl:sticky xl:top-8 h-fit">
+
+                        <div class="bg-[#10171b] rounded-lg overflow-hidden shadow-lg">
+
+                            <div class="px-5 py-4 flex items-center gap-3">
+
+                                <span class="bg-red-600 text-white px-4 py-2 rounded text-sm font-bold">
+                                    DEL
+                                </span>
+
+                                <span class="text-white font-mono">
+                                    /users/{id}
+                                </span>
+
+                            </div>
+
+                            <div class="p-5">
+
+                                <div class="bg-[#0b1013] rounded-lg p-5 overflow-x-auto code-scroll">
+
+                                    <pre class="text-sm text-gray-200"><code>fetch('https://mockapi.kingtechnology.in/api/users.php?id=1', {
+    method: 'DELETE'
+})
+.then(response =&gt; response.json())
+.then(data =&gt; console.log(data));</code></pre>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+
+                <!-- =========================================================== -->
+                <!-- AUTH TITLE -->
+                <!-- =========================================================== -->
+
+                <div class="mt-20 mb-14">
+
+                    <h2 class="text-3xl font-bold text-gray-800">
+                        🔐 Auth
+                    </h2>
+
+                </div>
+
+
+
+                <!-- =========================================================== -->
+                <!-- LOGIN -->
+                <!-- =========================================================== -->
+
+                <section id="login" class="doc-section grid grid-cols-1 xl:grid-cols-2 gap-12 mb-32">
+
+                    <div>
+
+                        <h2 class="text-3xl font-bold text-gray-800">
+                            Login
+                        </h2>
+
+                        <p class="mt-5 text-lg text-gray-600">
+                            Authenticate a user.
+                        </p>
+
+
+                        <div class="mt-10">
+
+                            <h3 class="text-sm font-semibold text-gray-500 uppercase tracking-wide">
+                                Request body schema
+                            </h3>
+
+
+                            <div class="mt-4 border rounded-lg overflow-hidden">
+
+                                <div class="grid grid-cols-2 border-b">
+
+                                    <div class="px-5 py-4 font-medium">
+                                        username
+                                    </div>
+
+                                    <div class="px-5 py-4 text-gray-500">
+                                        string
+                                    </div>
+
+                                </div>
+
+
+                                <div class="grid grid-cols-2">
+
+                                    <div class="px-5 py-4 font-medium">
+                                        password
+                                    </div>
+
+                                    <div class="px-5 py-4 text-gray-500">
+                                        string
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="mt-10">
+
+                            <h3 class="text-xl font-semibold text-gray-800 mb-5">
+                                Responses
+                            </h3>
+
+                            <div class="border rounded-lg overflow-hidden">
+
+                                <div class="bg-green-50 text-green-700 px-5 py-4">
+                                    200 Login successful
+                                </div>
+
+                                <div class="bg-red-50 text-red-600 px-5 py-4">
+                                    400 Bad request
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="xl:sticky xl:top-8 h-fit">
+
+                        <div class="bg-[#10171b] rounded-lg overflow-hidden shadow-lg">
+
+                            <div class="px-5 py-4 flex items-center gap-3">
+
+                                <span class="bg-blue-600 text-white px-4 py-2 rounded text-sm font-bold">
+                                    POST
+                                </span>
+
+                                <span class="text-white font-mono">
+                                    /auth/login
+                                </span>
+
+                            </div>
+
+
+                            <div class="p-5">
+
+                                <div class="text-gray-400 text-sm mb-3">
+                                    Content type
+                                </div>
+
+                                <div class="bg-[#182126] text-gray-200 p-4 rounded mb-4 font-mono text-sm">
+                                    application/json
+                                </div>
+
+
+                                <div class="bg-[#0b1013] rounded-lg p-5 overflow-x-auto code-scroll">
+
+                                    <pre class="text-sm text-gray-200"><code>{
+    "username": "string",
+    "password": "string"
+}</code></pre>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+            </div>
+
+        </main>
+
+    </div>
+
+
+
+    <!-- ====================================================================== -->
+    <!-- JAVASCRIPT -->
+    <!-- ====================================================================== -->
+
+    <script>
+
+
+        /*
+        |--------------------------------------------------------------------------
+        | REQUEST SAMPLE TABS
+        |--------------------------------------------------------------------------
+        | Adds the same multi-language request samples used by modern API docs:
+        | JavaScript (Browser), Node.js (Axios), PHP, cURL and Python.
+        */
+
+        const requestSamples = {
+
+            "get-all-products": {
+                javascript: `fetch('https://mockapi.kingtechnology.in/api/products.php')
     .then(response => response.json())
     .then(data => console.log(data));`,
-            node: `const axios = require('axios');
+                node: `const axios = require('axios');
 
 axios.get('https://mockapi.kingtechnology.in/api/products.php')
     .then(response => console.log(response.data));`,
-            php: `\u003C?php
+                php: `\u003C?php
 $response = file_get_contents('https://mockapi.kingtechnology.in/api/products.php');
 $data = json_decode($response, true);
 print_r($data);
 ?>`,
-            curl: `curl -X GET 'https://mockapi.kingtechnology.in/api/products.php'`,
-            python: `import requests
+                curl: `curl -X GET 'https://mockapi.kingtechnology.in/api/products.php'`,
+                python: `import requests
 
 response = requests.get(
     'https://mockapi.kingtechnology.in/api/products.php'
 )
 print(response.json())`
-        },
+            },
 
-        "add-product": {
-            javascript: `fetch('https://mockapi.kingtechnology.in/api/products.php', {
+            "add-product": {
+                javascript: `fetch('https://mockapi.kingtechnology.in/api/products.php', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
@@ -2403,7 +2269,7 @@ print(response.json())`
 })
 .then(response => response.json())
 .then(data => console.log(data));`,
-            node: `const axios = require('axios');
+                node: `const axios = require('axios');
 
 axios.post('https://mockapi.kingtechnology.in/api/products.php', {
     title: 'New Product',
@@ -2413,7 +2279,7 @@ axios.post('https://mockapi.kingtechnology.in/api/products.php', {
     image: 'https://example.com/image.jpg'
 })
 .then(response => console.log(response.data));`,
-            php: `\u003C?php
+                php: `\u003C?php
 $data = [
     'title' => 'New Product',
     'price' => 29.99,
@@ -2432,10 +2298,10 @@ $response = curl_exec($ch);
 curl_close($ch);
 echo $response;
 ?>`,
-            curl: `curl -X POST 'https://mockapi.kingtechnology.in/api/products.php' \
+                curl: `curl -X POST 'https://mockapi.kingtechnology.in/api/products.php' \
   -H 'Content-Type: application/json' \
   -d '{"title":"New Product","price":29.99,"description":"A new product","category":"electronics","image":"https://example.com/image.jpg"}'`,
-            python: `import requests
+                python: `import requests
 
 data = {
     'title': 'New Product',
@@ -2450,33 +2316,33 @@ response = requests.post(
     json=data
 )
 print(response.json())`
-        },
+            },
 
-        "get-product": {
-            javascript: `fetch('https://mockapi.kingtechnology.in/api/products.php?id=1')
+            "get-product": {
+                javascript: `fetch('https://mockapi.kingtechnology.in/api/products.php?id=1')
     .then(response => response.json())
     .then(data => console.log(data));`,
-            node: `const axios = require('axios');
+                node: `const axios = require('axios');
 
 axios.get('https://mockapi.kingtechnology.in/api/products.php?id=1')
     .then(response => console.log(response.data));`,
-            php: `\u003C?php
+                php: `\u003C?php
 $response = file_get_contents(
     'https://mockapi.kingtechnology.in/api/products.php?id=1'
 );
 echo $response;
 ?>`,
-            curl: `curl -X GET 'https://mockapi.kingtechnology.in/api/products.php?id=1'`,
-            python: `import requests
+                curl: `curl -X GET 'https://mockapi.kingtechnology.in/api/products.php?id=1'`,
+                python: `import requests
 
 response = requests.get(
     'https://mockapi.kingtechnology.in/api/products.php?id=1'
 )
 print(response.json())`
-        },
+            },
 
-        "update-product": {
-            javascript: `fetch('https://mockapi.kingtechnology.in/api/products.php?id=1', {
+            "update-product": {
+                javascript: `fetch('https://mockapi.kingtechnology.in/api/products.php?id=1', {
     method: 'PUT',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
@@ -2489,7 +2355,7 @@ print(response.json())`
 })
 .then(response => response.json())
 .then(data => console.log(data));`,
-            node: `const axios = require('axios');
+                node: `const axios = require('axios');
 
 axios.put('https://mockapi.kingtechnology.in/api/products.php?id=1', {
     title: 'Updated Product',
@@ -2499,7 +2365,7 @@ axios.put('https://mockapi.kingtechnology.in/api/products.php?id=1', {
     image: 'https://example.com/image.jpg'
 })
 .then(response => console.log(response.data));`,
-            php: `\u003C?php
+                php: `\u003C?php
 $data = [
     'title' => 'Updated Product',
     'price' => 29.99,
@@ -2518,10 +2384,10 @@ $response = curl_exec($ch);
 curl_close($ch);
 echo $response;
 ?>`,
-            curl: `curl -X PUT 'https://mockapi.kingtechnology.in/api/products.php?id=1' \
+                curl: `curl -X PUT 'https://mockapi.kingtechnology.in/api/products.php?id=1' \
   -H 'Content-Type: application/json' \
   -d '{"title":"Updated Product","price":29.99,"description":"Updated description","category":"electronics","image":"https://example.com/image.jpg"}'`,
-            python: `import requests
+                python: `import requests
 
 data = {
     'title': 'Updated Product',
@@ -2536,19 +2402,19 @@ response = requests.put(
     json=data
 )
 print(response.json())`
-        },
+            },
 
-        "delete-product": {
-            javascript: `fetch('https://mockapi.kingtechnology.in/api/products.php?id=1', {
+            "delete-product": {
+                javascript: `fetch('https://mockapi.kingtechnology.in/api/products.php?id=1', {
     method: 'DELETE'
 })
 .then(response => response.json())
 .then(data => console.log(data));`,
-            node: `const axios = require('axios');
+                node: `const axios = require('axios');
 
 axios.delete('https://mockapi.kingtechnology.in/api/products.php?id=1')
     .then(response => console.log(response.data));`,
-            php: `\u003C?php
+                php: `\u003C?php
 $ch = curl_init('https://mockapi.kingtechnology.in/api/products.php?id=1');
 curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'DELETE');
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -2556,36 +2422,36 @@ $response = curl_exec($ch);
 curl_close($ch);
 echo $response;
 ?>`,
-            curl: `curl -X DELETE 'https://mockapi.kingtechnology.in/api/products.php?id=1'`,
-            python: `import requests
+                curl: `curl -X DELETE 'https://mockapi.kingtechnology.in/api/products.php?id=1'`,
+                python: `import requests
 
 response = requests.delete(
     'https://mockapi.kingtechnology.in/api/products.php?id=1'
 )
 print(response.json())`
-        },
+            },
 
-        "get-all-carts": {
-            javascript: `fetch('https://mockapi.kingtechnology.in/api/carts.php')
+            "get-all-carts": {
+                javascript: `fetch('https://mockapi.kingtechnology.in/api/carts.php')
     .then(response => response.json())
     .then(data => console.log(data));`,
-            node: `const axios = require('axios');
+                node: `const axios = require('axios');
 
 axios.get('https://mockapi.kingtechnology.in/api/carts.php')
     .then(response => console.log(response.data));`,
-            php: `\u003C?php
+                php: `\u003C?php
 $response = file_get_contents('https://mockapi.kingtechnology.in/api/carts.php');
 echo $response;
 ?>`,
-            curl: `curl -X GET 'https://mockapi.kingtechnology.in/api/carts.php'`,
-            python: `import requests
+                curl: `curl -X GET 'https://mockapi.kingtechnology.in/api/carts.php'`,
+                python: `import requests
 
 response = requests.get('https://mockapi.kingtechnology.in/api/carts.php')
 print(response.json())`
-        },
+            },
 
-        "add-cart": {
-            javascript: `fetch('https://mockapi.kingtechnology.in/api/carts.php', {
+            "add-cart": {
+                javascript: `fetch('https://mockapi.kingtechnology.in/api/carts.php', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
@@ -2596,7 +2462,7 @@ print(response.json())`
 })
 .then(response => response.json())
 .then(data => console.log(data));`,
-            node: `const axios = require('axios');
+                node: `const axios = require('axios');
 
 axios.post('https://mockapi.kingtechnology.in/api/carts.php', {
     userId: 1,
@@ -2604,7 +2470,7 @@ axios.post('https://mockapi.kingtechnology.in/api/carts.php', {
     products: [{ productId: 1, quantity: 2 }]
 })
 .then(response => console.log(response.data));`,
-            php: `\u003C?php
+                php: `\u003C?php
 $data = [
     'userId' => 1,
     'date' => '2026-09-22',
@@ -2620,10 +2486,10 @@ $response = curl_exec($ch);
 curl_close($ch);
 echo $response;
 ?>`,
-            curl: `curl -X POST 'https://mockapi.kingtechnology.in/api/carts.php' \
+                curl: `curl -X POST 'https://mockapi.kingtechnology.in/api/carts.php' \
   -H 'Content-Type: application/json' \
   -d '{"userId":1,"date":"2026-09-22","products":[{"productId":1,"quantity":2}]}'`,
-            python: `import requests
+                python: `import requests
 
 data = {
     'userId': 1,
@@ -2635,30 +2501,30 @@ response = requests.post(
     json=data
 )
 print(response.json())`
-        },
+            },
 
-        "get-cart": {
-            javascript: `fetch('https://mockapi.kingtechnology.in/api/carts.php?id=1')
+            "get-cart": {
+                javascript: `fetch('https://mockapi.kingtechnology.in/api/carts.php?id=1')
     .then(response => response.json())
     .then(data => console.log(data));`,
-            node: `const axios = require('axios');
+                node: `const axios = require('axios');
 
 axios.get('https://mockapi.kingtechnology.in/api/carts.php?id=1')
     .then(response => console.log(response.data));`,
-            php: `\u003C?php
+                php: `\u003C?php
 echo file_get_contents(
     'https://mockapi.kingtechnology.in/api/carts.php?id=1'
 );
 ?>`,
-            curl: `curl -X GET 'https://mockapi.kingtechnology.in/api/carts.php?id=1'`,
-            python: `import requests
+                curl: `curl -X GET 'https://mockapi.kingtechnology.in/api/carts.php?id=1'`,
+                python: `import requests
 
 response = requests.get('https://mockapi.kingtechnology.in/api/carts.php?id=1')
 print(response.json())`
-        },
+            },
 
-        "update-cart": {
-            javascript: `fetch('https://mockapi.kingtechnology.in/api/carts.php?id=1', {
+            "update-cart": {
+                javascript: `fetch('https://mockapi.kingtechnology.in/api/carts.php?id=1', {
     method: 'PUT',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
@@ -2669,7 +2535,7 @@ print(response.json())`
 })
 .then(response => response.json())
 .then(data => console.log(data));`,
-            node: `const axios = require('axios');
+                node: `const axios = require('axios');
 
 axios.put('https://mockapi.kingtechnology.in/api/carts.php?id=1', {
     userId: 1,
@@ -2677,7 +2543,7 @@ axios.put('https://mockapi.kingtechnology.in/api/carts.php?id=1', {
     products: [{ productId: 1, quantity: 5 }]
 })
 .then(response => console.log(response.data));`,
-            php: `\u003C?php
+                php: `\u003C?php
 $data = [
     'userId' => 1,
     'date' => '2026-09-22',
@@ -2693,10 +2559,10 @@ $response = curl_exec($ch);
 curl_close($ch);
 echo $response;
 ?>`,
-            curl: `curl -X PUT 'https://mockapi.kingtechnology.in/api/carts.php?id=1' \
+                curl: `curl -X PUT 'https://mockapi.kingtechnology.in/api/carts.php?id=1' \
   -H 'Content-Type: application/json' \
   -d '{"userId":1,"date":"2026-09-22","products":[{"productId":1,"quantity":5}]}'`,
-            python: `import requests
+                python: `import requests
 
 data = {
     'userId': 1,
@@ -2708,19 +2574,19 @@ response = requests.put(
     json=data
 )
 print(response.json())`
-        },
+            },
 
-        "delete-cart": {
-            javascript: `fetch('https://mockapi.kingtechnology.in/api/carts.php?id=1', {
+            "delete-cart": {
+                javascript: `fetch('https://mockapi.kingtechnology.in/api/carts.php?id=1', {
     method: 'DELETE'
 })
 .then(response => response.json())
 .then(data => console.log(data));`,
-            node: `const axios = require('axios');
+                node: `const axios = require('axios');
 
 axios.delete('https://mockapi.kingtechnology.in/api/carts.php?id=1')
     .then(response => console.log(response.data));`,
-            php: `\u003C?php
+                php: `\u003C?php
 $ch = curl_init('https://mockapi.kingtechnology.in/api/carts.php?id=1');
 curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'DELETE');
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -2728,33 +2594,33 @@ $response = curl_exec($ch);
 curl_close($ch);
 echo $response;
 ?>`,
-            curl: `curl -X DELETE 'https://mockapi.kingtechnology.in/api/carts.php?id=1'`,
-            python: `import requests
+                curl: `curl -X DELETE 'https://mockapi.kingtechnology.in/api/carts.php?id=1'`,
+                python: `import requests
 
 response = requests.delete('https://mockapi.kingtechnology.in/api/carts.php?id=1')
 print(response.json())`
-        },
+            },
 
-        "get-all-users": {
-            javascript: `fetch('https://mockapi.kingtechnology.in/api/users.php')
+            "get-all-users": {
+                javascript: `fetch('https://mockapi.kingtechnology.in/api/users.php')
     .then(response => response.json())
     .then(data => console.log(data));`,
-            node: `const axios = require('axios');
+                node: `const axios = require('axios');
 
 axios.get('https://mockapi.kingtechnology.in/api/users.php')
     .then(response => console.log(response.data));`,
-            php: `\u003C?php
+                php: `\u003C?php
 echo file_get_contents('https://mockapi.kingtechnology.in/api/users.php');
 ?>`,
-            curl: `curl -X GET 'https://mockapi.kingtechnology.in/api/users.php'`,
-            python: `import requests
+                curl: `curl -X GET 'https://mockapi.kingtechnology.in/api/users.php'`,
+                python: `import requests
 
 response = requests.get('https://mockapi.kingtechnology.in/api/users.php')
 print(response.json())`
-        },
+            },
 
-        "add-user": {
-            javascript: `fetch('https://mockapi.kingtechnology.in/api/users.php', {
+            "add-user": {
+                javascript: `fetch('https://mockapi.kingtechnology.in/api/users.php', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
@@ -2765,7 +2631,7 @@ print(response.json())`
 })
 .then(response => response.json())
 .then(data => console.log(data));`,
-            node: `const axios = require('axios');
+                node: `const axios = require('axios');
 
 axios.post('https://mockapi.kingtechnology.in/api/users.php', {
     username: 'john',
@@ -2773,7 +2639,7 @@ axios.post('https://mockapi.kingtechnology.in/api/users.php', {
     password: 'password123'
 })
 .then(response => console.log(response.data));`,
-            php: `\u003C?php
+                php: `\u003C?php
 $data = [
     'username' => 'john',
     'email' => 'john@example.com',
@@ -2789,10 +2655,10 @@ $response = curl_exec($ch);
 curl_close($ch);
 echo $response;
 ?>`,
-            curl: `curl -X POST 'https://mockapi.kingtechnology.in/api/users.php' \
+                curl: `curl -X POST 'https://mockapi.kingtechnology.in/api/users.php' \
   -H 'Content-Type: application/json' \
   -d '{"username":"john","email":"john@example.com","password":"password123"}'`,
-            python: `import requests
+                python: `import requests
 
 data = {
     'username': 'john',
@@ -2804,30 +2670,30 @@ response = requests.post(
     json=data
 )
 print(response.json())`
-        },
+            },
 
-        "get-user": {
-            javascript: `fetch('https://mockapi.kingtechnology.in/api/users.php?id=1')
+            "get-user": {
+                javascript: `fetch('https://mockapi.kingtechnology.in/api/users.php?id=1')
     .then(response => response.json())
     .then(data => console.log(data));`,
-            node: `const axios = require('axios');
+                node: `const axios = require('axios');
 
 axios.get('https://mockapi.kingtechnology.in/api/users.php?id=1')
     .then(response => console.log(response.data));`,
-            php: `\u003C?php
+                php: `\u003C?php
 echo file_get_contents(
     'https://mockapi.kingtechnology.in/api/users.php?id=1'
 );
 ?>`,
-            curl: `curl -X GET 'https://mockapi.kingtechnology.in/api/users.php?id=1'`,
-            python: `import requests
+                curl: `curl -X GET 'https://mockapi.kingtechnology.in/api/users.php?id=1'`,
+                python: `import requests
 
 response = requests.get('https://mockapi.kingtechnology.in/api/users.php?id=1')
 print(response.json())`
-        },
+            },
 
-        "update-user": {
-            javascript: `fetch('https://mockapi.kingtechnology.in/api/users.php?id=1', {
+            "update-user": {
+                javascript: `fetch('https://mockapi.kingtechnology.in/api/users.php?id=1', {
     method: 'PUT',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
@@ -2838,7 +2704,7 @@ print(response.json())`
 })
 .then(response => response.json())
 .then(data => console.log(data));`,
-            node: `const axios = require('axios');
+                node: `const axios = require('axios');
 
 axios.put('https://mockapi.kingtechnology.in/api/users.php?id=1', {
     username: 'updatedUser',
@@ -2846,7 +2712,7 @@ axios.put('https://mockapi.kingtechnology.in/api/users.php?id=1', {
     password: 'newPassword'
 })
 .then(response => console.log(response.data));`,
-            php: `\u003C?php
+                php: `\u003C?php
 $data = [
     'username' => 'updatedUser',
     'email' => 'updated@example.com',
@@ -2862,10 +2728,10 @@ $response = curl_exec($ch);
 curl_close($ch);
 echo $response;
 ?>`,
-            curl: `curl -X PUT 'https://mockapi.kingtechnology.in/api/users.php?id=1' \
+                curl: `curl -X PUT 'https://mockapi.kingtechnology.in/api/users.php?id=1' \
   -H 'Content-Type: application/json' \
   -d '{"username":"updatedUser","email":"updated@example.com","password":"newPassword"}'`,
-            python: `import requests
+                python: `import requests
 
 data = {
     'username': 'updatedUser',
@@ -2877,19 +2743,19 @@ response = requests.put(
     json=data
 )
 print(response.json())`
-        },
+            },
 
-        "delete-user": {
-            javascript: `fetch('https://mockapi.kingtechnology.in/api/users.php?id=1', {
+            "delete-user": {
+                javascript: `fetch('https://mockapi.kingtechnology.in/api/users.php?id=1', {
     method: 'DELETE'
 })
 .then(response => response.json())
 .then(data => console.log(data));`,
-            node: `const axios = require('axios');
+                node: `const axios = require('axios');
 
 axios.delete('https://mockapi.kingtechnology.in/api/users.php?id=1')
     .then(response => console.log(response.data));`,
-            php: `\u003C?php
+                php: `\u003C?php
 $ch = curl_init('https://mockapi.kingtechnology.in/api/users.php?id=1');
 curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'DELETE');
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -2897,15 +2763,15 @@ $response = curl_exec($ch);
 curl_close($ch);
 echo $response;
 ?>`,
-            curl: `curl -X DELETE 'https://mockapi.kingtechnology.in/api/users.php?id=1'`,
-            python: `import requests
+                curl: `curl -X DELETE 'https://mockapi.kingtechnology.in/api/users.php?id=1'`,
+                python: `import requests
 
 response = requests.delete('https://mockapi.kingtechnology.in/api/users.php?id=1')
 print(response.json())`
-        },
+            },
 
-        "login": {
-            javascript: `fetch('https://mockapi.kingtechnology.in/auth/login', {
+            "login": {
+                javascript: `fetch('https://mockapi.kingtechnology.in/auth/login', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
@@ -2915,14 +2781,14 @@ print(response.json())`
 })
 .then(response => response.json())
 .then(data => console.log(data));`,
-            node: `const axios = require('axios');
+                node: `const axios = require('axios');
 
 axios.post('https://mockapi.kingtechnology.in/auth/login', {
     username: 'john',
     password: 'password123'
 })
 .then(response => console.log(response.data));`,
-            php: `\u003C?php
+                php: `\u003C?php
 $data = [
     'username' => 'john',
     'password' => 'password123'
@@ -2937,10 +2803,10 @@ $response = curl_exec($ch);
 curl_close($ch);
 echo $response;
 ?>`,
-            curl: `curl -X POST 'https://mockapi.kingtechnology.in/auth/login' \
+                curl: `curl -X POST 'https://mockapi.kingtechnology.in/auth/login' \
   -H 'Content-Type: application/json' \
   -d '{"username":"john","password":"password123"}'`,
-            python: `import requests
+                python: `import requests
 
 data = {
     'username': 'john',
@@ -2951,17 +2817,17 @@ response = requests.post(
     json=data
 )
 print(response.json())`
-        }
-    };
+            }
+        };
 
-    /*
-    |--------------------------------------------------------------------------
-    | DART REQUEST SAMPLES
-    |--------------------------------------------------------------------------
-    | Uses the Dart http package. Add `http: ^1.4.0` to pubspec.yaml.
-    */
-    const dartSamples = {
-        "get-all-products": `import 'dart:convert';
+        /*
+        |--------------------------------------------------------------------------
+        | DART REQUEST SAMPLES
+        |--------------------------------------------------------------------------
+        | Uses the Dart http package. Add `http: ^1.4.0` to pubspec.yaml.
+        */
+        const dartSamples = {
+            "get-all-products": `import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 Future<void> main() async {
@@ -2972,7 +2838,7 @@ Future<void> main() async {
   print(jsonDecode(response.body));
 }` ,
 
-        "add-product": `import 'dart:convert';
+            "add-product": `import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 Future<void> main() async {
@@ -2991,7 +2857,7 @@ Future<void> main() async {
   print(jsonDecode(response.body));
 }` ,
 
-        "get-product": `import 'dart:convert';
+            "get-product": `import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 Future<void> main() async {
@@ -3002,7 +2868,7 @@ Future<void> main() async {
   print(jsonDecode(response.body));
 }` ,
 
-        "update-product": `import 'dart:convert';
+            "update-product": `import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 Future<void> main() async {
@@ -3021,7 +2887,7 @@ Future<void> main() async {
   print(jsonDecode(response.body));
 }` ,
 
-        "delete-product": `import 'dart:convert';
+            "delete-product": `import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 Future<void> main() async {
@@ -3032,7 +2898,7 @@ Future<void> main() async {
   print(jsonDecode(response.body));
 }` ,
 
-        "get-all-carts": `import 'dart:convert';
+            "get-all-carts": `import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 Future<void> main() async {
@@ -3043,7 +2909,7 @@ Future<void> main() async {
   print(jsonDecode(response.body));
 }` ,
 
-        "add-cart": `import 'dart:convert';
+            "add-cart": `import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 Future<void> main() async {
@@ -3062,7 +2928,7 @@ Future<void> main() async {
   print(jsonDecode(response.body));
 }` ,
 
-        "get-cart": `import 'dart:convert';
+            "get-cart": `import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 Future<void> main() async {
@@ -3073,7 +2939,7 @@ Future<void> main() async {
   print(jsonDecode(response.body));
 }` ,
 
-        "update-cart": `import 'dart:convert';
+            "update-cart": `import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 Future<void> main() async {
@@ -3092,7 +2958,7 @@ Future<void> main() async {
   print(jsonDecode(response.body));
 }` ,
 
-        "delete-cart": `import 'dart:convert';
+            "delete-cart": `import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 Future<void> main() async {
@@ -3103,7 +2969,7 @@ Future<void> main() async {
   print(jsonDecode(response.body));
 }` ,
 
-        "get-all-users": `import 'dart:convert';
+            "get-all-users": `import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 Future<void> main() async {
@@ -3114,7 +2980,7 @@ Future<void> main() async {
   print(jsonDecode(response.body));
 }` ,
 
-        "add-user": `import 'dart:convert';
+            "add-user": `import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 Future<void> main() async {
@@ -3131,7 +2997,7 @@ Future<void> main() async {
   print(jsonDecode(response.body));
 }` ,
 
-        "get-user": `import 'dart:convert';
+            "get-user": `import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 Future<void> main() async {
@@ -3142,7 +3008,7 @@ Future<void> main() async {
   print(jsonDecode(response.body));
 }` ,
 
-        "update-user": `import 'dart:convert';
+            "update-user": `import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 Future<void> main() async {
@@ -3159,7 +3025,7 @@ Future<void> main() async {
   print(jsonDecode(response.body));
 }` ,
 
-        "delete-user": `import 'dart:convert';
+            "delete-user": `import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 Future<void> main() async {
@@ -3170,7 +3036,7 @@ Future<void> main() async {
   print(jsonDecode(response.body));
 }` ,
 
-        "login": `import 'dart:convert';
+            "login": `import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 Future<void> main() async {
@@ -3185,55 +3051,55 @@ Future<void> main() async {
 
   print(jsonDecode(response.body));
 }`
-    };
+        };
 
-    Object.keys(dartSamples).forEach(endpoint => {
-        if (requestSamples[endpoint]) {
-            requestSamples[endpoint].dart = dartSamples[endpoint];
-        }
-    });
+        Object.keys(dartSamples).forEach(endpoint => {
+            if (requestSamples[endpoint]) {
+                requestSamples[endpoint].dart = dartSamples[endpoint];
+            }
+        });
 
-    function renderRequestTabs(section) {
-        const endpoint = section.id;
-        const samples = requestSamples[endpoint];
-        if (!samples) return;
+        function renderRequestTabs(section) {
+            const endpoint = section.id;
+            const samples = requestSamples[endpoint];
+            if (!samples) return;
 
-        const codeBox = section.querySelector('.code-scroll');
-        if (!codeBox) return;
+            const codeBox = section.querySelector('.code-scroll');
+            if (!codeBox) return;
 
-        const languages = [
-            ['javascript', 'JavaScript (Browser)'],
-            ['node', 'Node.js (Axios)'],
-            ['php', 'PHP'],
-            ['curl', 'cURL'],
-            ['python', 'Python'],
-            ['dart', 'Dart']
-        ];
+            const languages = [
+                ['javascript', 'JavaScript (Browser)'],
+                ['node', 'Node.js (Axios)'],
+                ['php', 'PHP'],
+                ['curl', 'cURL'],
+                ['python', 'Python'],
+                ['dart', 'Dart']
+            ];
 
-        const wrapper = document.createElement('div');
-        wrapper.className = 'request-sample-wrapper';
+            const wrapper = document.createElement('div');
+            wrapper.className = 'request-sample-wrapper';
 
-        const label = document.createElement('div');
-        label.className = 'text-gray-400 text-sm mb-3';
-        label.textContent = 'Request samples';
-        wrapper.appendChild(label);
+            const label = document.createElement('div');
+            label.className = 'text-gray-400 text-sm mb-3';
+            label.textContent = 'Request samples';
+            wrapper.appendChild(label);
 
-        const tabs = document.createElement('div');
-        tabs.className = 'request-tabs';
+            const tabs = document.createElement('div');
+            tabs.className = 'request-tabs';
 
-        const codeContainer = document.createElement('div');
-        codeContainer.className = 'request-code';
+            const codeContainer = document.createElement('div');
+            codeContainer.className = 'request-code';
 
-        const pre = document.createElement('pre');
-        codeContainer.appendChild(pre);
+            const pre = document.createElement('pre');
+            codeContainer.appendChild(pre);
 
-        const copyButton = document.createElement('button');
-        copyButton.type = 'button';
-        copyButton.className = 'request-copy-btn';
-        copyButton.title = 'Copy request sample';
-        copyButton.setAttribute('aria-label', 'Copy request sample');
+            const copyButton = document.createElement('button');
+            copyButton.type = 'button';
+            copyButton.className = 'request-copy-btn';
+            copyButton.title = 'Copy request sample';
+            copyButton.setAttribute('aria-label', 'Copy request sample');
 
-        const copyIcon = `
+            const copyIcon = `
             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
                 viewBox="0 0 24 24" fill="none" stroke="currentColor"
                 stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -3241,505 +3107,508 @@ Future<void> main() async {
                 <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
             </svg>`;
 
-        const checkIcon = `
+            const checkIcon = `
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
                 viewBox="0 0 24 24" fill="none" stroke="currentColor"
                 stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M5 12l4 4L19 6"></path>
             </svg>`;
 
-        copyButton.innerHTML = copyIcon;
-        codeContainer.appendChild(copyButton);
+            copyButton.innerHTML = copyIcon;
+            codeContainer.appendChild(copyButton);
 
-        let copyTimer;
+            let copyTimer;
 
-        async function copyCurrentSample() {
-            const text = pre.textContent;
+            async function copyCurrentSample() {
+                const text = pre.textContent;
 
-            try {
-                if (navigator.clipboard && window.isSecureContext) {
-                    await navigator.clipboard.writeText(text);
-                } else {
-                    const textarea = document.createElement('textarea');
-                    textarea.value = text;
-                    textarea.style.position = 'fixed';
-                    textarea.style.left = '-9999px';
-                    document.body.appendChild(textarea);
-                    textarea.focus();
-                    textarea.select();
-                    document.execCommand('copy');
-                    textarea.remove();
+                try {
+                    if (navigator.clipboard && window.isSecureContext) {
+                        await navigator.clipboard.writeText(text);
+                    } else {
+                        const textarea = document.createElement('textarea');
+                        textarea.value = text;
+                        textarea.style.position = 'fixed';
+                        textarea.style.left = '-9999px';
+                        document.body.appendChild(textarea);
+                        textarea.focus();
+                        textarea.select();
+                        document.execCommand('copy');
+                        textarea.remove();
+                    }
+
+                    copyButton.innerHTML = checkIcon;
+                    copyButton.classList.add('copied');
+
+                    clearTimeout(copyTimer);
+                    copyTimer = setTimeout(() => {
+                        copyButton.innerHTML = copyIcon;
+                        copyButton.classList.remove('copied');
+                    }, 1200);
+                } catch (error) {
+                    console.error('Copy failed:', error);
                 }
-
-                copyButton.innerHTML = checkIcon;
-                copyButton.classList.add('copied');
-
-                clearTimeout(copyTimer);
-                copyTimer = setTimeout(() => {
-                    copyButton.innerHTML = copyIcon;
-                    copyButton.classList.remove('copied');
-                }, 1200);
-            } catch (error) {
-                console.error('Copy failed:', error);
             }
-        }
 
-        copyButton.addEventListener('click', copyCurrentSample);
+            copyButton.addEventListener('click', copyCurrentSample);
 
-        function selectLanguage(language, clickedTab) {
-            pre.textContent = samples[language];
-            tabs.querySelectorAll('.request-tab').forEach(tab => {
-                tab.classList.remove('active');
+            function selectLanguage(language, clickedTab) {
+                pre.textContent = samples[language];
+                tabs.querySelectorAll('.request-tab').forEach(tab => {
+                    tab.classList.remove('active');
+                });
+                clickedTab.classList.add('active');
+            }
+
+            languages.forEach(([key, labelText], index) => {
+                const tab = document.createElement('button');
+                tab.type = 'button';
+                tab.className = 'request-tab' + (index === 0 ? ' active' : '');
+                tab.textContent = labelText;
+                tab.addEventListener('click', () => selectLanguage(key, tab));
+                tabs.appendChild(tab);
             });
-            clickedTab.classList.add('active');
+
+            wrapper.appendChild(tabs);
+            wrapper.appendChild(codeContainer);
+
+            codeBox.replaceWith(wrapper);
+
+            const firstTab = tabs.querySelector('.request-tab');
+            selectLanguage('javascript', firstTab);
         }
 
-        languages.forEach(([key, labelText], index) => {
-            const tab = document.createElement('button');
-            tab.type = 'button';
-            tab.className = 'request-tab' + (index === 0 ? ' active' : '');
-            tab.textContent = labelText;
-            tab.addEventListener('click', () => selectLanguage(key, tab));
-            tabs.appendChild(tab);
-        });
-
-        wrapper.appendChild(tabs);
-        wrapper.appendChild(codeContainer);
-
-        codeBox.replaceWith(wrapper);
-
-        const firstTab = tabs.querySelector('.request-tab');
-        selectLanguage('javascript', firstTab);
-    }
-
-document.addEventListener("DOMContentLoaded", function () {
-
-
-    /*
-    |--------------------------------------------------------------------------
-    | ELEMENTS
-    |--------------------------------------------------------------------------
-    */
-
-    const sidebar =
-        document.getElementById("sidebar");
-
-    const mobileMenuButton =
-        document.getElementById("mobileMenuButton");
-
-    const mobileOverlay =
-        document.getElementById("mobileOverlay");
-
-    const sidebarItems =
-        document.querySelectorAll(".sidebar-item");
-
-    const sections =
-        document.querySelectorAll(".doc-section");
-
-    const searchInput =
-        document.getElementById("searchInput");
-
-
-    /* Render language tabs for every endpoint */
-    document.querySelectorAll(".doc-section").forEach(renderRequestTabs);
-
-
-    /*
-    |--------------------------------------------------------------------------
-    | MOBILE SIDEBAR
-    |--------------------------------------------------------------------------
-    */
-
-    function openMobileMenu() {
-
-        sidebar.classList.remove("-translate-x-full");
-
-        mobileOverlay.classList.remove("hidden");
-
-    }
-
-
-    function closeMobileMenu() {
-
-        sidebar.classList.add("-translate-x-full");
-
-        mobileOverlay.classList.add("hidden");
-
-    }
-
-
-    if (mobileMenuButton) {
-
-        mobileMenuButton.addEventListener(
-            "click",
-            openMobileMenu
-        );
-
-    }
-
-
-    if (mobileOverlay) {
-
-        mobileOverlay.addEventListener(
-            "click",
-            closeMobileMenu
-        );
-
-    }
-
-
-    /*
-    |--------------------------------------------------------------------------
-    | SIDEBAR CLICK
-    |--------------------------------------------------------------------------
-    */
-
-    sidebarItems.forEach(item => {
-
-        item.addEventListener("click", function (e) {
-
-            e.preventDefault();
-
-            const targetId =
-                this.dataset.target;
-
-            const target =
-                document.getElementById(targetId);
-
-            if (!target) return;
+        document.addEventListener("DOMContentLoaded", function () {
 
 
             /*
-            | Smooth scroll
+            |--------------------------------------------------------------------------
+            | ELEMENTS
+            |--------------------------------------------------------------------------
             */
 
-            target.scrollIntoView({
-                behavior: "smooth",
-                block: "start"
-            });
+            const sidebar =
+                document.getElementById("sidebar");
+
+            const mobileMenuButton =
+                document.getElementById("mobileMenuButton");
+
+            const mobileOverlay =
+                document.getElementById("mobileOverlay");
+
+            const sidebarItems =
+                document.querySelectorAll(".sidebar-item");
+
+            const sections =
+                document.querySelectorAll(".doc-section");
+
+            const searchInput =
+                document.getElementById("searchInput");
+
+
+            /* Render language tabs for every endpoint */
+            document.querySelectorAll(".doc-section").forEach(renderRequestTabs);
 
 
             /*
-            | Mobile close
+            |--------------------------------------------------------------------------
+            | MOBILE SIDEBAR
+            |--------------------------------------------------------------------------
             */
 
-            if (window.innerWidth < 1024) {
+            function openMobileMenu() {
 
-                closeMobileMenu();
+                sidebar.classList.remove("-translate-x-full");
+
+                mobileOverlay.classList.remove("hidden");
 
             }
 
-        });
 
-    });
+            function closeMobileMenu() {
 
+                sidebar.classList.add("-translate-x-full");
 
-    /*
-    |--------------------------------------------------------------------------
-    | ACTIVE SIDEBAR ITEM
-    |--------------------------------------------------------------------------
-    */
+                mobileOverlay.classList.add("hidden");
 
-    function setActiveItem(id) {
-
-        sidebarItems.forEach(item => {
-
-            const target =
-                item.dataset.target;
+            }
 
 
-            if (target === id) {
+            if (mobileMenuButton) {
 
-                item.classList.add(
-                    "active"
-                );
-
-            } else {
-
-                item.classList.remove(
-                    "active"
+                mobileMenuButton.addEventListener(
+                    "click",
+                    openMobileMenu
                 );
 
             }
 
-        });
 
-    }
+            if (mobileOverlay) {
 
+                mobileOverlay.addEventListener(
+                    "click",
+                    closeMobileMenu
+                );
 
-    /*
-    |--------------------------------------------------------------------------
-    | INTERSECTION OBSERVER
-    |--------------------------------------------------------------------------
-    */
-
-    const observer =
-        new IntersectionObserver(
-
-            function (entries) {
-
-                /*
-                | Find sections currently visible
-                */
-
-                const visibleSections =
-                    entries
-                        .filter(entry =>
-                            entry.isIntersecting
-                        );
+            }
 
 
-                if (visibleSections.length > 0) {
+            /*
+            |--------------------------------------------------------------------------
+            | SIDEBAR CLICK
+            |--------------------------------------------------------------------------
+            */
+
+            sidebarItems.forEach(item => {
+
+                item.addEventListener("click", function (e) {
+
+                    e.preventDefault();
+
+                    const targetId =
+                        this.dataset.target;
+
+                    const target =
+                        document.getElementById(targetId);
+
+                    if (!target) return;
+
 
                     /*
-                    | Choose the section closest
-                    | to the top of viewport
+                    | Smooth scroll
                     */
 
-                    visibleSections.sort(
-                        (a, b) =>
-                            a.boundingClientRect.top -
-                            b.boundingClientRect.top
-                    );
+                    target.scrollIntoView({
+                        behavior: "smooth",
+                        block: "start"
+                    });
 
 
-                    const activeSection =
-                        visibleSections[0];
+                    /*
+                    | Mobile close
+                    */
 
+                    if (window.innerWidth < 1024) {
 
-                    setActiveItem(
-                        activeSection.target.id
-                    );
-
-                }
-
-            },
-
-            {
-
-                /*
-                | Active zone
-                |
-                | Section becomes active when it
-                | enters the upper-middle area.
-                */
-
-                root: null,
-
-                rootMargin:
-                    "-15% 0px -65% 0px",
-
-                threshold: 0
-
-            }
-
-        );
-
-
-    /*
-    |--------------------------------------------------------------------------
-    | OBSERVE ALL SECTIONS
-    |--------------------------------------------------------------------------
-    */
-
-    sections.forEach(section => {
-
-        observer.observe(section);
-
-    });
-
-
-    /*
-    |--------------------------------------------------------------------------
-    | INITIAL ACTIVE SECTION
-    |--------------------------------------------------------------------------
-    */
-
-    if (sections.length > 0) {
-
-        setActiveItem(
-            sections[0].id
-        );
-
-    }
-
-
-    /*
-    |--------------------------------------------------------------------------
-    | GROUP COLLAPSE / EXPAND
-    |--------------------------------------------------------------------------
-    */
-
-    document
-        .querySelectorAll(".group-title")
-        .forEach(button => {
-
-            button.addEventListener(
-                "click",
-                function () {
-
-                    const group =
-                        this.parentElement;
-
-                    const items =
-                        group.querySelector(
-                            ".group-items"
-                        );
-
-                    const arrow =
-                        this.querySelector(
-                            ".group-arrow"
-                        );
-
-
-                    if (
-                        items.classList.contains(
-                            "hidden"
-                        )
-                    ) {
-
-                        items.classList.remove(
-                            "hidden"
-                        );
-
-                        arrow.style.transform =
-                            "rotate(0deg)";
-
-                    } else {
-
-                        items.classList.add(
-                            "hidden"
-                        );
-
-                        arrow.style.transform =
-                            "rotate(-90deg)";
+                        closeMobileMenu();
 
                     }
 
-                }
-            );
+                });
 
-        });
+            });
 
 
-    /*
-    |--------------------------------------------------------------------------
-    | SEARCH
-    |--------------------------------------------------------------------------
-    */
+            /*
+            |--------------------------------------------------------------------------
+            | ACTIVE SIDEBAR ITEM
+            |--------------------------------------------------------------------------
+            */
 
-    if (searchInput) {
-
-        searchInput.addEventListener(
-            "input",
-            function () {
-
-                const query =
-                    this.value
-                        .toLowerCase()
-                        .trim();
-
+            function setActiveItem(id) {
 
                 sidebarItems.forEach(item => {
 
-                    const text =
-                        item.textContent
-                            .toLowerCase();
+                    const target =
+                        item.dataset.target;
 
 
-                    if (
-                        text.includes(query)
-                    ) {
+                    if (target === id) {
 
-                        item.classList.remove(
-                            "hidden"
+                        item.classList.add(
+                            "active"
                         );
 
                     } else {
 
-                        item.classList.add(
-                            "hidden"
+                        item.classList.remove(
+                            "active"
                         );
 
                     }
 
                 });
 
+            }
 
-                /*
-                | Hide/show group when searching
-                */
 
-                document
-                    .querySelectorAll(".sidebar-group")
-                    .forEach(group => {
+            /*
+            |--------------------------------------------------------------------------
+            | INTERSECTION OBSERVER
+            |--------------------------------------------------------------------------
+            */
 
-                        const visibleItems =
-                            group.querySelectorAll(
-                                ".sidebar-item:not(.hidden)"
+            const observer =
+                new IntersectionObserver(
+
+                    function (entries) {
+
+                        /*
+                        | Find sections currently visible
+                        */
+
+                        const visibleSections =
+                            entries
+                                .filter(entry =>
+                                    entry.isIntersecting
+                                );
+
+
+                        if (visibleSections.length > 0) {
+
+                            /*
+                            | Choose the section closest
+                            | to the top of viewport
+                            */
+
+                            visibleSections.sort(
+                                (a, b) =>
+                                    a.boundingClientRect.top -
+                                    b.boundingClientRect.top
                             );
 
 
-                        if (
-                            query !== "" &&
-                            visibleItems.length === 0
-                        ) {
+                            const activeSection =
+                                visibleSections[0];
 
-                            group.classList.add(
-                                "hidden"
-                            );
 
-                        } else {
-
-                            group.classList.remove(
-                                "hidden"
+                            setActiveItem(
+                                activeSection.target.id
                             );
 
                         }
 
-                    });
+                    },
+
+                    {
+
+                        /*
+                        | Active zone
+                        |
+                        | Section becomes active when it
+                        | enters the upper-middle area.
+                        */
+
+                        root: null,
+
+                        rootMargin:
+                            "-15% 0px -65% 0px",
+
+                        threshold: 0
+
+                    }
+
+                );
+
+
+            /*
+            |--------------------------------------------------------------------------
+            | OBSERVE ALL SECTIONS
+            |--------------------------------------------------------------------------
+            */
+
+            sections.forEach(section => {
+
+                observer.observe(section);
+
+            });
+
+
+            /*
+            |--------------------------------------------------------------------------
+            | INITIAL ACTIVE SECTION
+            |--------------------------------------------------------------------------
+            */
+
+            if (sections.length > 0) {
+
+                setActiveItem(
+                    sections[0].id
+                );
 
             }
-        );
-
-    }
 
 
-    /*
-    |--------------------------------------------------------------------------
-    | HANDLE HASH
-    |--------------------------------------------------------------------------
-    */
+            /*
+            |--------------------------------------------------------------------------
+            | GROUP COLLAPSE / EXPAND
+            |--------------------------------------------------------------------------
+            */
 
-    if (window.location.hash) {
+            document
+                .querySelectorAll(".group-title")
+                .forEach(button => {
 
-        const hash =
-            window.location.hash.substring(1);
+                    button.addEventListener(
+                        "click",
+                        function () {
 
-        const target =
-            document.getElementById(hash);
+                            const group =
+                                this.parentElement;
+
+                            const items =
+                                group.querySelector(
+                                    ".group-items"
+                                );
+
+                            const arrow =
+                                this.querySelector(
+                                    ".group-arrow"
+                                );
 
 
-        if (target) {
+                            if (
+                                items.classList.contains(
+                                    "hidden"
+                                )
+                            ) {
 
-            setTimeout(() => {
+                                items.classList.remove(
+                                    "hidden"
+                                );
 
-                target.scrollIntoView({
-                    behavior: "instant",
-                    block: "start"
+                                arrow.style.transform =
+                                    "rotate(0deg)";
+
+                            } else {
+
+                                items.classList.add(
+                                    "hidden"
+                                );
+
+                                arrow.style.transform =
+                                    "rotate(-90deg)";
+
+                            }
+
+                        }
+                    );
+
                 });
 
-                setActiveItem(hash);
 
-            }, 100);
+            /*
+            |--------------------------------------------------------------------------
+            | SEARCH
+            |--------------------------------------------------------------------------
+            */
 
-        }
+            if (searchInput) {
 
-    }
+                searchInput.addEventListener(
+                    "input",
+                    function () {
 
-});
+                        const query =
+                            this.value
+                                .toLowerCase()
+                                .trim();
 
-</script>
+
+                        sidebarItems.forEach(item => {
+
+                            const text =
+                                item.textContent
+                                    .toLowerCase();
+
+
+                            if (
+                                text.includes(query)
+                            ) {
+
+                                item.classList.remove(
+                                    "hidden"
+                                );
+
+                            } else {
+
+                                item.classList.add(
+                                    "hidden"
+                                );
+
+                            }
+
+                        });
+
+
+                        /*
+                        | Hide/show group when searching
+                        */
+
+                        document
+                            .querySelectorAll(".sidebar-group")
+                            .forEach(group => {
+
+                                const visibleItems =
+                                    group.querySelectorAll(
+                                        ".sidebar-item:not(.hidden)"
+                                    );
+
+
+                                if (
+                                    query !== "" &&
+                                    visibleItems.length === 0
+                                ) {
+
+                                    group.classList.add(
+                                        "hidden"
+                                    );
+
+                                } else {
+
+                                    group.classList.remove(
+                                        "hidden"
+                                    );
+
+                                }
+
+                            });
+
+                    }
+                );
+
+            }
+
+
+            /*
+            |--------------------------------------------------------------------------
+            | HANDLE HASH
+            |--------------------------------------------------------------------------
+            */
+
+            if (window.location.hash) {
+
+                const hash =
+                    window.location.hash.substring(1);
+
+                const target =
+                    document.getElementById(hash);
+
+
+                if (target) {
+
+                    setTimeout(() => {
+
+                        target.scrollIntoView({
+                            behavior: "instant",
+                            block: "start"
+                        });
+
+                        setActiveItem(hash);
+
+                    }, 100);
+
+                }
+
+            }
+
+        });
+
+    </script>
+
+    <?php require_once __DIR__ . '/includes/footer.php'; ?>
 
 </body>
+
 </html>
