@@ -16,9 +16,3 @@ if ($conn->connect_error) {
 
     exit;
 }
-
-<<<<<<< HEAD
-$conn->set_charset("utf8mb4");
-=======
-$conn->set_charset("utf8mb4");
->>>>>>> 66a0892 (deploy)
