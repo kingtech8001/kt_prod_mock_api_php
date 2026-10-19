@@ -4,6 +4,13 @@
 | Mock-API API Documentation
 |--------------------------------------------------------------------------
 */
+
+// Base URL of the project (works on localhost/fakestoreapi AND on the live domain)
+if (!isset($baseUrl)) {
+    $docRoot = str_replace('\\', '/', realpath($_SERVER['DOCUMENT_ROOT']));
+    $projectRoot = str_replace('\\', '/', realpath(__DIR__));
+    $baseUrl = rtrim(str_replace($docRoot, '', $projectRoot), '/');
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -12,7 +19,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Mock-API - Documentation</title>
+    <title>MockAPI Docs</title>
+    <link rel="icon" type="image/png" href="<?= $baseUrl ?>/assets/images/logo/mockapicv.png">
+    <link rel="apple-touch-icon" href="<?= $baseUrl ?>/assets/images/logo/mockapicv.png">
 
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -202,9 +211,8 @@
 
             <div class="flex items-center gap-3">
 
-                <div class="w-10 h-10 rounded-xl bg-brand-500 flex items-center justify-center text-white text-xl">
-                    { }
-                </div>
+                <img src="<?= $baseUrl ?>/assets/images/logo/mockapicv.png" alt="MockAPI logo"
+                    class="w-11 h-11 rounded-xl object-contain">
 
                 <div>
                     <h1 class="font-bold text-gray-800">
@@ -256,15 +264,13 @@
 
             <div class="h-24 flex items-center px-7 border-b border-gray-100">
 
-                <div
-                    class="w-12 h-12 rounded-xl bg-brand-500 flex items-center justify-center text-white text-2xl font-bold">
-                    { }
-                </div>
+                <img src="<?= $baseUrl ?>/assets/images/logo/mockapicv.png" alt="MockAPI logo"
+                    class="w-14 h-14 rounded-xl object-contain">
 
                 <div class="ml-3">
 
                     <h1 class="font-bold text-xl text-gray-800">
-                        Mock-API 
+                        Mock-API
                     </h1>
 
                     <p class="text-xs text-gray-500">
@@ -859,7 +865,7 @@
             <!-- Footer -->
 
             <div class="border-t border-gray-200 px-6 py-4 text-xs text-gray-500">
-                API docs by Mock-API 
+                API docs by Mock-API
             </div>
 
         </aside>

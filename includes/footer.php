@@ -1,7 +1,8 @@
+
 <footer class="border-t border-gray-200 bg-white px-4 py-6">
     <div class="max-w-7xl mx-auto text-center">
         <p class="text-sm text-gray-500">
-            ©2026
+            ©
             <a
                 href="https://www.kingtechnology.in/"
                 target="_blank"
@@ -12,4 +13,3 @@
         </p>
     </div>
 </footer>
-```
