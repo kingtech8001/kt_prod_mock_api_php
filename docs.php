@@ -211,7 +211,8 @@ $docsUrl = $baseUrl !== '' ? $baseUrl . '/docs' : '/docs';
 
         <div class="flex items-center justify-between">
 
-            <a href="<?= $homeUrl ?>" class="flex items-center gap-3 hover:opacity-90 transition" aria-label="Mock API Home">
+            <a href="<?= $homeUrl ?>" class="flex items-center gap-3 hover:opacity-90 transition"
+                aria-label="Mock API Home">
 
                 <img src="<?= $baseUrl ?>/assets/images/logo/mockapicv.png" alt="MockAPI logo"
                     class="w-11 h-11 rounded-xl object-contain">
@@ -266,7 +267,8 @@ $docsUrl = $baseUrl !== '' ? $baseUrl . '/docs' : '/docs';
 
             <div class="h-24 flex items-center px-7 border-b border-gray-100">
 
-                <a href="<?= $homeUrl ?>" class="flex items-center hover:opacity-90 transition" aria-label="Mock API Home">
+                <a href="<?= $homeUrl ?>" class="flex items-center hover:opacity-90 transition"
+                    aria-label="Mock API Home">
                     <img src="<?= $baseUrl ?>/assets/images/logo/mockapicv.png" alt="MockAPI logo"
                         class="w-14 h-14 rounded-xl object-contain">
 
@@ -918,8 +920,8 @@ $docsUrl = $baseUrl !== '' ? $baseUrl . '/docs' : '/docs';
 
                         <span>
                             E-mail:
-                            <a href="mailto:support@Mock-API.com" class="text-brand-500 hover:underline">
-                                support@Mock-API.com
+                            <a href="mailto: info@kingtechnology.in" class="text-brand-500 hover:underline">
+                                info@kingtechnology.in
                             </a>
                         </span>
 
