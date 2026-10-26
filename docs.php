@@ -4,6 +4,8 @@
 | Mock-API API Documentation
 |--------------------------------------------------------------------------
 */
+require_once __DIR__ . '/config/config.php';
+$activePage = 'docs';
 
 // Base URL of the project (works on localhost/fakestoreapi AND on the live domain)
 if (!isset($baseUrl)) {
@@ -95,7 +97,7 @@ $docsUrl = $baseUrl !== '' ? $baseUrl . '/docs' : '/docs';
 
         /* Section offset */
         .doc-section {
-            scroll-margin-top: 35px;
+            scroll-margin-top: 95px;
         }
 
         /* Method badges */
@@ -202,42 +204,24 @@ $docsUrl = $baseUrl !== '' ? $baseUrl . '/docs' : '/docs';
 
 <body class="bg-white text-gray-800">
 
+    <?php require_once __DIR__ . '/includes/navbar.php'; ?>
 
     <!-- ====================================================================== -->
-    <!-- MOBILE TOP BAR -->
+    <!-- MOBILE DOCS SUB-BAR -->
     <!-- ====================================================================== -->
 
-    <div class="lg:hidden sticky top-0 z-50 bg-white border-b border-gray-200 px-4 py-3">
-
-        <div class="flex items-center justify-between">
-
-            <a href="<?= $homeUrl ?>" class="flex items-center gap-3 hover:opacity-90 transition"
-                aria-label="Mock API Home">
-
-                <img src="<?= $baseUrl ?>/assets/images/logo/mockapicv.png" alt="MockAPI logo"
-                    class="w-11 h-11 rounded-xl object-contain">
-
-                <div>
-                    <h1 class="font-bold text-gray-800">
-                        Mock-API </h1>
-
-                    <p class="text-xs text-gray-500">
-                        Documentation
-                    </p>
-                </div>
-
-            </a>
-
-
-            <button id="mobileMenuButton" class="p-2 rounded-lg hover:bg-gray-100">
-                ☰
-            </button>
-
+    <div class="lg:hidden sticky top-[80px] z-30 bg-gray-50/95 backdrop-blur border-b border-gray-200 px-4 py-2.5 flex items-center justify-between">
+        <div class="flex items-center gap-2">
+            <span class="text-xs font-semibold uppercase tracking-wider text-gray-600">API Documentation</span>
+            <span class="text-[10px] px-2 py-0.5 rounded-full bg-purple-100 text-[#8c2d7d] font-semibold border border-purple-200">v2.1.11</span>
         </div>
-
+        <button id="mobileMenuButton" type="button" class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white border border-gray-200 text-xs font-medium text-gray-700 hover:text-[#8c2d7d] hover:border-[#8c2d7d] shadow-sm transition" aria-label="Open documentation endpoints menu">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-[#8c2d7d]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h7" />
+            </svg>
+            <span>Endpoints</span>
+        </button>
     </div>
-
-
 
     <!-- ====================================================================== -->
     <!-- MAIN LAYOUT -->
@@ -245,48 +229,39 @@ $docsUrl = $baseUrl !== '' ? $baseUrl . '/docs' : '/docs';
 
     <div class="min-h-screen flex">
 
-
         <!-- ================================================================== -->
         <!-- LEFT SIDEBAR -->
         <!-- ================================================================== -->
 
         <aside id="sidebar" class="
             fixed lg:sticky
-            top-0 left-0
-            z-40
-            h-screen
+            top-0 lg:top-[80px] left-0
+            z-50 lg:z-40
+            h-screen lg:h-[calc(100vh-80px)]
             w-[285px]
             bg-white
             border-r border-gray-200
             flex flex-col
             -translate-x-full lg:translate-x-0
             transition-transform duration-300
+            shadow-xl lg:shadow-none
         ">
 
-            <!-- Logo -->
-
-            <div class="h-24 flex items-center px-7 border-b border-gray-100">
-
-                <a href="<?= $homeUrl ?>" class="flex items-center hover:opacity-90 transition"
-                    aria-label="Mock API Home">
-                    <img src="<?= $baseUrl ?>/assets/images/logo/mockapicv.png" alt="MockAPI logo"
-                        class="w-14 h-14 rounded-xl object-contain">
-
-                    <div class="ml-3">
-
-                        <h1 class="font-bold text-xl text-gray-800">
-                            Mock-API
-                        </h1>
-
-                        <p class="text-xs text-gray-500">
-                            v2.1.11
-                        </p>
-
-                    </div>
-                </a>
-
+            <!-- Sidebar Header -->
+            <div class="h-14 flex items-center justify-between px-6 border-b border-gray-100">
+                <div class="flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-[#8c2d7d]"></span>
+                    <span class="text-xs font-bold uppercase tracking-wider text-gray-700">API Reference</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <span class="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-purple-50 text-[#8c2d7d] border border-purple-200">v2.1.11</span>
+                    <button id="mobileMenuClose" type="button" class="lg:hidden p-1.5 text-gray-400 hover:text-gray-700 hover:bg-gray-100 rounded-md transition" aria-label="Close endpoints menu">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
             </div>
-
 
             <!-- Search -->
 
@@ -884,8 +859,9 @@ $docsUrl = $baseUrl !== '' ? $baseUrl . '/docs' : '/docs';
 
         <div id="mobileOverlay" class="
             fixed inset-0
-            bg-black/30
-            z-30
+            bg-black/40
+            backdrop-blur-sm
+            z-45
             hidden
             lg:hidden
         "></div>
@@ -920,6 +896,8 @@ $docsUrl = $baseUrl !== '' ? $baseUrl . '/docs' : '/docs';
 
                         <span>
                             E-mail:
+                            <a href="mailto: info@kingtechnology.in" class="text-brand-500 hover:underline">
+                                info@kingtechnology.in
                             <a href="mailto: info@kingtechnology.in" class="text-brand-500 hover:underline">
                                 info@kingtechnology.in
                             </a>
@@ -3251,6 +3229,16 @@ Future<void> main() async {
                 mobileMenuButton.addEventListener(
                     "click",
                     openMobileMenu
+                );
+
+            }
+
+            const mobileMenuClose = document.getElementById("mobileMenuClose");
+            if (mobileMenuClose) {
+
+                mobileMenuClose.addEventListener(
+                    "click",
+                    closeMobileMenu
                 );
 
             }
