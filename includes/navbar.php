@@ -5,7 +5,7 @@ if (!isset($baseUrl)) {
     $projectRoot = str_replace('\\', '/', realpath(__DIR__ . '/..'));
     $baseUrl = rtrim(str_replace($docRoot, '', $projectRoot), '/');
 }
-$homeUrl = $baseUrl !== '' ? $baseUrl . '/' : '/';
+$homeUrl = $baseUrl . '/home';
 $docsUrl = $baseUrl !== '' ? $baseUrl . '/docs' : '/docs';
 
 // Detect active page if not explicitly set

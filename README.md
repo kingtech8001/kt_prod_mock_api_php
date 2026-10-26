@@ -25,7 +25,7 @@ A PHP/MySQL mock e-commerce API and small documentation website. You may use, mo
    - Password: empty (the usual XAMPP default; use your own password if you set one)
    - Database: `fakestoreapi`
 8. If your MySQL credentials differ, set the environment variables `DB_HOST`, `DB_USER`, `DB_PASSWORD`, and `DB_NAME`, or change the values in `config/database.php` for your local setup. Never commit production credentials to Git.
-9. Visit `http://localhost/fakestoreapi/` for the home page and `http://localhost/fakestoreapi/docs` for API documentation.
+9. Visit `http://localhost/fakestoreapi/home` for the home page and `http://localhost/fakestoreapi/docs` for API documentation.
 
 ## 2. Create the database manually (alternative)
 
