@@ -898,8 +898,6 @@ $docsUrl = $baseUrl !== '' ? $baseUrl . '/docs' : '/docs';
                             E-mail:
                             <a href="mailto: info@kingtechnology.in" class="text-brand-500 hover:underline">
                                 info@kingtechnology.in
-                            <a href="mailto: info@kingtechnology.in" class="text-brand-500 hover:underline">
-                                info@kingtechnology.in
                             </a>
                         </span>
 
