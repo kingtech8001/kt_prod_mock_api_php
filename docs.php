@@ -11,6 +11,8 @@ if (!isset($baseUrl)) {
     $projectRoot = str_replace('\\', '/', realpath(__DIR__));
     $baseUrl = rtrim(str_replace($docRoot, '', $projectRoot), '/');
 }
+$homeUrl = $baseUrl !== '' ? $baseUrl . '/' : '/';
+$docsUrl = $baseUrl !== '' ? $baseUrl . '/docs' : '/docs';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -209,7 +211,7 @@ if (!isset($baseUrl)) {
 
         <div class="flex items-center justify-between">
 
-            <div class="flex items-center gap-3">
+            <a href="<?= $homeUrl ?>" class="flex items-center gap-3 hover:opacity-90 transition" aria-label="Mock API Home">
 
                 <img src="<?= $baseUrl ?>/assets/images/logo/mockapicv.png" alt="MockAPI logo"
                     class="w-11 h-11 rounded-xl object-contain">
@@ -223,7 +225,7 @@ if (!isset($baseUrl)) {
                     </p>
                 </div>
 
-            </div>
+            </a>
 
 
             <button id="mobileMenuButton" class="p-2 rounded-lg hover:bg-gray-100">
@@ -264,20 +266,22 @@ if (!isset($baseUrl)) {
 
             <div class="h-24 flex items-center px-7 border-b border-gray-100">
 
-                <img src="<?= $baseUrl ?>/assets/images/logo/mockapicv.png" alt="MockAPI logo"
-                    class="w-14 h-14 rounded-xl object-contain">
+                <a href="<?= $homeUrl ?>" class="flex items-center hover:opacity-90 transition" aria-label="Mock API Home">
+                    <img src="<?= $baseUrl ?>/assets/images/logo/mockapicv.png" alt="MockAPI logo"
+                        class="w-14 h-14 rounded-xl object-contain">
 
-                <div class="ml-3">
+                    <div class="ml-3">
 
-                    <h1 class="font-bold text-xl text-gray-800">
-                        Mock-API
-                    </h1>
+                        <h1 class="font-bold text-xl text-gray-800">
+                            Mock-API
+                        </h1>
 
-                    <p class="text-xs text-gray-500">
-                        v2.1.11
-                    </p>
+                        <p class="text-xs text-gray-500">
+                            v2.1.11
+                        </p>
 
-                </div>
+                    </div>
+                </a>
 
             </div>
 

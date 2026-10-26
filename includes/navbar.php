@@ -5,22 +5,24 @@ if (!isset($baseUrl)) {
     $projectRoot = str_replace('\\', '/', realpath(__DIR__ . '/..'));
     $baseUrl = rtrim(str_replace($docRoot, '', $projectRoot), '/');
 }
+$homeUrl = $baseUrl !== '' ? $baseUrl . '/' : '/';
+$docsUrl = $baseUrl !== '' ? $baseUrl . '/docs' : '/docs';
 ?>
 <nav class="sticky top-0 z-50 w-full bg-white/95 backdrop-blur border-b border-gray-100">
     <div class="max-w-7xl mx-auto px-6 lg:px-8">
         <!-- Main Navbar -->
         <div class="flex items-center justify-between py-1">
             <!-- Logo -->
-            <a href="https://mockapi.kingtechnology.in/index.php" class="flex items-center" aria-label="Mock API Home">
+            <a href="<?= $homeUrl ?>" class="flex items-center" aria-label="Mock API Home">
                 <img src="<?= $baseUrl ?>/assets/images/logo/mockapicv.png" alt="MockAPI logo" width="80" height="80"
                     class="w-20 h-20 rounded-lg object-contain">
             </a>
 
             <!-- Desktop Navigation -->
             <div class="hidden md:flex items-center gap-10 lg:gap-16">
-                <a href="index.php"
+                <a href="<?= $homeUrl ?>"
                     class="text-gray-600 hover:text-[#8c2d7d] transition">Home</a>
-                <a href="docs.php"
+                <a href="<?= $docsUrl ?>"
                     class="text-gray-600 hover:text-[#8c2d7d] transition">Docs</a>
                 <a href="https://github.com/kingtech8001/kt_prod_mock_api_php" target="_blank" rel="noopener noreferrer"
                     class="text-gray-600 hover:text-[#8c2d7d] transition">GitHub</a>
@@ -44,9 +46,9 @@ if (!isset($baseUrl)) {
         <!-- Mobile Navigation -->
         <div id="mobile-menu" class="md:hidden hidden border-t border-gray-100 py-4">
             <div class="flex flex-col space-y-1">
-                <a href="https://mockapi.kingtechnology.in/index.php"
+                <a href="<?= $homeUrl ?>"
                     class="px-4 py-3 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-[#8c2d7d] transition">Home</a>
-                <a href="https://mockapi.kingtechnology.in/docs.php"
+                <a href="<?= $docsUrl ?>"
                     class="px-4 py-3 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-[#8c2d7d] transition">Docs</a>
                 <a href="https://github.com/kingtech8001/kt_prod_mock_api_php" target="_blank" rel="noopener noreferrer"
                     class="px-4 py-3 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-[#8c2d7d] transition">GitHub</a>

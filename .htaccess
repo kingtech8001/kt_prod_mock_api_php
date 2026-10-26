@@ -1,0 +1,31 @@
+<IfModule mod_rewrite.c>
+    Options -MultiViews
+    RewriteEngine On
+
+    # Prevent rewrite loop
+    RewriteCond %{ENV:REDIRECT_STATUS} 200
+    RewriteRule ^ - [L]
+
+    # Specific routes
+    RewriteRule ^auth/login/?$ api/auth.php [L,QSA]
+    RewriteRule ^checkout/?$ checkout.php [L,QSA]
+    RewriteRule ^orders/?$ orders.php [L,QSA]
+
+    # 1. Redirect /index.php or /index to directory root (GET/HEAD only)
+    RewriteCond %{REQUEST_METHOD} ^(GET|HEAD)$ [NC]
+    RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ \S*index(?:\.php)?[\s?] [NC]
+    RewriteCond %{REQUEST_URI} ^/(?:(.*)/)?index(?:\.php)?$ [NC]
+    RewriteRule ^index(?:\.php)?$ /%1 [R=301,L]
+
+    # 2. Redirect *.php directly requested in browser to clean extensionless URL (GET/HEAD only)
+    RewriteCond %{REQUEST_METHOD} ^(GET|HEAD)$ [NC]
+    RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ \S+\.php [NC]
+    RewriteCond %{REQUEST_URI} !^.*/index\.php$ [NC]
+    RewriteCond %{REQUEST_URI} ^/(.+)\.php$ [NC]
+    RewriteRule ^(.+)\.php$ /%1 [R=301,L]
+
+    # 3. Internally rewrite extensionless requests to .php if the file exists
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME}.php -f
+    RewriteRule ^(.+?)/?$ $1.php [L,QSA]
+</IfModule>

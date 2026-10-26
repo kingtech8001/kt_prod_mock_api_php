@@ -7,6 +7,8 @@ if (!isset($baseUrl)) {
     $projectRoot = str_replace('\\', '/', realpath(__DIR__ . '/..'));
     $baseUrl = rtrim(str_replace($docRoot, '', $projectRoot), '/');
 }
+$homeUrl = $baseUrl !== '' ? $baseUrl . '/' : '/';
+$docsUrl = $baseUrl !== '' ? $baseUrl . '/docs' : '/docs';
 ?>
 
 <!DOCTYPE html>

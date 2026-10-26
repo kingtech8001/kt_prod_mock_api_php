@@ -45,7 +45,7 @@ require_once 'config/config.php';
 
                 <div class="flex flex-wrap gap-6 mt-7">
 
-                    <a href="https://mockapi.kingtechnology.in/docs.php"
+                    <a href="<?= $docsUrl ?>"
                         class="inline-flex items-center justify-center px-9 py-3.5 rounded-full bg-[#8c2d7d] text-white text-lg font-medium hover:bg-[#762368] transition">
                         Read Docs
                     </a>
@@ -386,7 +386,7 @@ require_once 'config/config.php';
         <!-- Docs Button -->
         <div class="flex justify-center mt-5">
 
-            <a href="https://mockapi.kingtechnology.in/docs.php" target="_blank" rel="noopener noreferrer"
+            <a href="<?= $docsUrl ?>" target="_blank" rel="noopener noreferrer"
                 class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-purple-600 text-white font-semibold hover:bg-purple-700 transition">
                 View details on doc
             </a>
